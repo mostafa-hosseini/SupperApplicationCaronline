@@ -1,5 +1,8 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SuperApp.Caronlineofficial.com.Data;
 using SuperApp.Caronlineofficial.com.Models;
 using SuperApp.Caronlineofficial.com.Services.SmSSender;
@@ -40,7 +43,62 @@ builder.Services.AddIdentity<UserApp, IdentityRole>(options =>
     })
     .AddEntityFrameworkStores<DataBaseContext>().AddDefaultTokenProviders();
 
+
+#region JWT
+
+
+builder.Services.AddAuthentication(options =>
+    {
+        // Identity made Cookie authentication the default.
+        // However, we want JWT Bearer Auth to be the default.
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+
+                // If the request is for our hub...
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) &&
+                    (path.StartsWithSegments("/hubs/chat")))
+                {
+                    // Read the token out of the query string
+                    context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+            }
+        };
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty))
+        };
+
+    });
+#endregion
+#region cors
+
+
+builder.Services.AddCors(o => o.AddPolicy("AllowAllPolicy", builder =>
+{
+    builder.AllowAnyHeader()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+}));
+
+#endregion
 var app = builder.Build();
+app.UseCors("AllowAllPolicy");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -51,6 +109,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.MapControllerRoute(

@@ -21,5 +21,15 @@ public class UserApp : IdentityUser
     public UserApp? InvitedUser { get; set; }
     public string? InvitedUserId { get; set; }
 
+    public Gender Gender { get; set; }
+
+    public string Job { get; set; }
+    public DateTime? BrithDay { get; set; }
     public string RefralCode { get; set; } = SuperApp.Caronlineofficial.com.Utils.RandomString(8);
+}
+
+public enum Gender
+{
+    Male,
+    Female
 }

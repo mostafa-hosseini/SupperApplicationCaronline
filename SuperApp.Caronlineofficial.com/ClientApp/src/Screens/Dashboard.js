@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPowerOff, FaUser, FaUserEdit } from "react-icons/fa";
+import http from "../api";
 
 export default function Dashboard() {
+  const api = http();
+  const [data, setData] = useState({})
+  const [loaded, setLoaded] = useState(false)
+  useEffect(() => {
+    api.GetUserDashboard(({ data }) => {
+      setData(data)
+      setLoaded(true);
+    }, {}, (e) => setLoaded(true));
+    return () => {
+    }
+  }, [])
+
+
+
+  if (loaded == false) {
+    return <div className="row">
+      <div className="col-auto mx-auto">
+        <h4 className="text-center">
+          loading ...
+        </h4>
+      </div>
+    </div>
+  }
+
   return (
     <div className="row " style={{ height: "90vh" }}>
       <div className="col-10 col-md-8 mx-auto ">
@@ -12,8 +37,8 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="col-auto ">
-            <h2 className="text-dark">کاربر عزیز خوش آمدید</h2>
-            <h4 className="text-dark">09363179310</h4>
+            <h2 className="text-dark">{data.fullName} عزیز خوش آمدید</h2>
+            <h4 className="text-dark">{data.phoneNumber}</h4>
           </div>
           <div className="w-100"></div>
         </div>
@@ -22,7 +47,7 @@ export default function Dashboard() {
           <div className="col-12 d-flex justify-content-center align-items-center">
             <h5 className="text-dark mt-3 " style={{ marginLeft: 10 }}>
               کد سفیر شما :{" "}
-              <span style={{ color: "green", paddingLeft: "10" }}>EGIMEW</span>
+              <span style={{ color: "green", paddingLeft: "10" }}>{data.refCode}</span>
             </h5>
             <button className="btn btn-primary">دعوت از دوستان</button>
           </div>
@@ -34,7 +59,7 @@ export default function Dashboard() {
         <div className="w-100 p-4 back-ground mt-2 row align-items-center">
           <div className="col-12">
             <h4 className="text-center text-dark">
-              تعداد کاربران دعوت شده (0)
+              تعداد کاربران دعوت شده ({data.invitedUser})
             </h4>
           </div>
 

@@ -25,6 +25,8 @@ import froshgah from '../assets/images/Icons/froshgah-01.svg';
 import game from '../assets/images/Icons/game-01.svg';
 import house from '../assets/images/Icons/house-01.svg';
 import moshavereh from '../assets/images/Icons/moshavereh-01.svg';
+import sarmaye from '../assets/images/Icons/sarmaye-01.svg';
+import clinick from '../assets/images/Icons/clinick-01.svg';
 
 
 import amlakto from '../assets/images/Icons/logo/amlakto-01.png';
@@ -54,7 +56,7 @@ export function Home() {
       <div className="col-12   mt-3 row justify-content-around">
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/MashintoQuickAccess")}
+            onClick={() => navigate("/خودرو")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -67,7 +69,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/AmlaktoQuickAccess")}
+            onClick={() => navigate("/املاک")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -80,7 +82,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/AmlaktoQuickAccess")}
+            onClick={() => navigate("/املاک")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -93,7 +95,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/AmlaktoQuickAccess")}
+            onClick={() => navigate("/املاک")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -109,7 +111,7 @@ export function Home() {
       <div className="col-12   mt-3 row justify-content-around">
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/AmlaktoQuickAccess")}
+            onClick={() => navigate("/املاک")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -122,7 +124,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/AmlaktoQuickAccess")}
+            onClick={() => navigate("/املاک")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -138,7 +140,7 @@ export function Home() {
 
         <div className="col-3 row">
           <div
-            onClick={() => navigate("/AmlaktoQuickAccess")}
+            onClick={() => navigate("/املاک")}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img
@@ -152,8 +154,40 @@ export function Home() {
           </h6>
         </div>
         <div className="col-3 row">
-
+          <div
+            onClick={() => navigate("/املاک")}
+            className={`col-auto mx-auto  d-flex align-items-center `}
+          >
+            <img
+              src={sarmaye}
+              className="w-100 img-logo"
+              alt=""
+            />
+          </div>
+          <h6 className="text-center mt-2 text-mobile p-0">
+            سرمایه گذاری
+          </h6>
         </div>
+
+      </div>
+      <div className="col-12   mt-3 row justify-content-around">
+        <div className="col-3 row">
+          <div
+            onClick={() => navigate("/کلینیک-کسب-و-کار")}
+            className={`col-auto mx-auto  d-flex align-items-center `}
+          >
+            <img
+              src={clinick}
+              className="w-100 img-logo"
+              alt=""
+            />
+          </div>
+          <h6 className="text-center mt-2 text-mobile p-0">کلینیک کسب و کار</h6>
+        </div>
+        <div className="col-3 row"></div>
+        <div className="col-3 row"></div>
+        <div className="col-3 row"></div>
+
       </div>
 
       {/* <div className="col-12   mt-3 row justify-content-around">
@@ -821,7 +855,7 @@ export function Home() {
               alt=""
             />
           </div>
-          <h6 className="text-center mt-2 text-mobile p-0">ماشین تو</h6>
+          <h6 className="text-center mt-2 text-mobile p-0">املاک تو</h6>
         </div>
         <div className="col-3 row">
           <div
@@ -834,7 +868,7 @@ export function Home() {
               alt=""
             />
           </div>
-          <h6 className="text-center mt-2 text-mobile p-0">ماشین تو</h6>
+          <h6 className="text-center mt-2 text-mobile p-0">مشورتو</h6>
         </div>
         <div className="col-3 row">
           <div
@@ -847,11 +881,19 @@ export function Home() {
               alt=""
             />
           </div>
-          <h6 className="text-center mt-2 text-mobile p-0">ماشین تو</h6>
+          <h6 className="text-center mt-2 text-mobile p-0">کالاتو</h6>
         </div>
 
 
 
+      </div>
+
+      <div className="col-12">
+        <div className="row">
+          <div className="col-3">
+            <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=250334&amp;Code=4xPomj4RIcWL9XDvGyUq"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=250334&amp;Code=4xPomj4RIcWL9XDvGyUq" alt="" style={{cursor:"pointer"}} id="4xPomj4RIcWL9XDvGyUq"/></a>
+          </div>
+        </div>
       </div>
     </div>
   );

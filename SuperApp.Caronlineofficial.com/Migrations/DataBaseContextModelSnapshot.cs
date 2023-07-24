@@ -47,6 +47,26 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "c8a7e064-1c93-478d-9450-bd1858c2e40c",
+                            Name = "Admin",
+                            NormalizedName = "admin"
+                        },
+                        new
+                        {
+                            Id = "54ba6e06-e7d2-4438-855e-dd731e6493bf",
+                            Name = "Employee",
+                            NormalizedName = "employee"
+                        },
+                        new
+                        {
+                            Id = "18c04ec5-99ca-4016-952f-b4e08aab39ef",
+                            Name = "Seller",
+                            NormalizedName = "seller"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -134,6 +154,13 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "0a0b379d-0e7a-442e-a90a-ba103f8595885",
+                            RoleId = "c8a7e064-1c93-478d-9450-bd1858c2e40c"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -155,6 +182,26 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("SuperApp.Caronlineofficial.com.Models.SmsActiveCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SmsActiveCodes");
+                });
+
             modelBuilder.Entity("SuperApp.Caronlineofficial.com.Models.UserApp", b =>
                 {
                     b.Property<string>("Id")
@@ -162,6 +209,9 @@ namespace SuperApp.Caronlineofficial.com.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("BrithDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
@@ -185,8 +235,15 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
                     b.Property<string>("InvitedUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Job")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -247,6 +304,30 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0a0b379d-0e7a-442e-a90a-ba103f8595885",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "caf9abb3-c3af-460b-ab11-75da4db32ad6",
+                            Email = "mostafa@admin.com",
+                            EmailConfirmed = true,
+                            ExpireLoginCode = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FullName = "admin admini",
+                            Gender = 0,
+                            Job = "",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "mostafa@admin.com",
+                            NormalizedUserName = "_admin_ad",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDl24v+Deq7qiSyfLLQ9TVZP37iWliaKEd8SeJHU3thohHJFxIFLj1u506QInwe95A==",
+                            PhoneNumberConfirmed = false,
+                            Point = 0,
+                            RefralCode = "VMOXLGBQ",
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "_admin_ad"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

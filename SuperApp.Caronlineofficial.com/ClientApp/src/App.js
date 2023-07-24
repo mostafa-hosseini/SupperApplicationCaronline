@@ -5,6 +5,7 @@ import "./assets/styles/custom.css";
 import "./assets/styles/mobile.css";
 import "./assets/styles/desktop.css";
 import Layout from "./components/Layout";
+import { Toaster } from "react-hot-toast";
 
 
 export default function App() {
@@ -16,6 +17,10 @@ export default function App() {
           return <Route key={index} {...rest} element={element} />;
         })}
       </Routes>
+      <Toaster
+        position="bottom-center"
+        reverseOrder={false}
+      />
     </Layout>
   );
 }

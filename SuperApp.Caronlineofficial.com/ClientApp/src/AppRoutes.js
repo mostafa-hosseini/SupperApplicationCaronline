@@ -7,6 +7,9 @@ import AmlaktoQuickAccess from "./components/AmlaktoQuickAccess";
 import Login from "./Screens/Login";
 import Register from "./Screens/Register";
 import Dashboard from './Screens/Dashboard';
+import VerifyScreen from './Screens/VerifyScreen';
+import CompleteProfile from "./Screens/CompleteProfile";
+import ClinickAccess from "./Screens/ClinickAccess";
 
 const AppRoutes = [
   {
@@ -26,12 +29,16 @@ const AppRoutes = [
     element: <Shop />,
   },
   {
-    path: "/MashintoQuickAccess",
+    path: "/خودرو",
     element: <MashintoQuickAccess />,
   },
   {
-    path: "/AmlaktoQuickAccess",
+    path: "/املاک",
     element: <AmlaktoQuickAccess />,
+  },
+  {
+    path: "/کلینیک-کسب-و-کار",
+    element: <ClinickAccess />,
   },
   {
     path: "/Login",
@@ -44,6 +51,14 @@ const AppRoutes = [
   {
     path: "/Dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/Verify",
+    element: <VerifyScreen />,
+  },
+  {
+    path: "/CompleteProfile",
+    element: <CompleteProfile />,
   },
 ];
 

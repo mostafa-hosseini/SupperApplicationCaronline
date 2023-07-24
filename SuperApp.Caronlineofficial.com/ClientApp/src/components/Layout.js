@@ -32,36 +32,29 @@ export default function Layout({ children }) {
         >
           {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} className="mr-2" /> */}
           <div className="d-flex">
-          <button onClick={() => setIsOpen(!isOpen)} type="button" class="btn ">
-            <CiWallet size={25} />
-          </button>
-          <button onClick={() => setIsOpen(!isOpen)} type="button" class="btn ">
-            <CiUser size={23} />
-          </button>
+            <button onClick={() => setIsOpen(!isOpen)} type="button" class="btn ">
+              <CiWallet size={25} />
+            </button>
+            <button onClick={() => setIsOpen(!isOpen)} type="button" class="btn ">
+              <CiUser size={23} />
+            </button>
           </div>
-          <NavbarBrand tag={Link} to="/">
-            <img
-              src="https://academy.caronlineofficial.com/assets/images/header-logo.png"
-              // style={{ width: 50, height: 50 }}
-              alt=""
-            />
-          </NavbarBrand>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            type="button"
-            class=" btn "
-            style={{opacity:0}}
-          >
-            {/* <CiMenuKebab size={25} /> */}
-          </button>
-          <button
+
+
+          {/* <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
             class=" btn "
           >
             <CiMenuKebab size={25} />
-          </button>
-          
+          </button> */}
+          <NavbarBrand tag={Link} to="/">
+            <img
+              src={require("../assets/images/logoapp.png")}
+              style={{ width: 135, height: 25 }}
+              alt=""
+            />
+          </NavbarBrand>
         </Navbar>
       </header>
       <div className="container-fluid" tag="main">

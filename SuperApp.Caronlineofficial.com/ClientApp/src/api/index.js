@@ -8,10 +8,10 @@ export default function http() {
     // baseURL: "http://192.168.0.233:5000/api/",
     baseURL:
       process.env.NODE_ENV == "development"
-      ?"https://localhost:7045/api/":
-      "https://mashinto.com/api/",
-      // :""
-      // "https://mashinto.com/api/",
+        ? "https://localhost:7283/api/" :
+        "https://mashinto.com/api/",
+    // :""
+    // "https://mashinto.com/api/",
     // "https://mashinto.com/api/",
     // baseURL: "https://car.caronlineofficial.com/api/",
     // baseURL: "https://app.caronlineofficial.com/api/",
@@ -150,7 +150,7 @@ export default function http() {
     // ********
     Login: (callback, data, errCallback) => {
       return instance
-        .post("Token/Login", data)
+        .post("auth/Login", data)
         .then((data) => {
           callback(data);
           success_display(data.data);
@@ -162,7 +162,7 @@ export default function http() {
     },
     Register: (callback, data, errCallback) => {
       return instance
-        .post("Token/Register", data)
+        .post("auth/Register", data)
         .then((data) => {
           callback(data);
           success_display(data.data);
@@ -174,7 +174,7 @@ export default function http() {
     },
     ResetPassword: (callback, data, errCallback) => {
       return instance
-        .post("Token/ResetPassword", data)
+        .post("auth/ResetPassword", data)
         .then((data) => {
           callback(data);
           success_display(data.data);
@@ -186,7 +186,7 @@ export default function http() {
     },
     VerifyResetPassword: (callback, data, errCallback) => {
       return instance
-        .post("Token/VerifyResetPassword", data)
+        .post("auth/VerifyResetPassword", data)
         .then((data) => {
           callback(data);
           success_display(data.data);
@@ -198,7 +198,7 @@ export default function http() {
     },
     Verify: (callback, data, errCallback) => {
       return instance
-        .post("Token/Verify", data)
+        .post("auth/Verify", data)
         .then((data) => {
           callback(data);
           success_display(data.data);
@@ -210,7 +210,43 @@ export default function http() {
     },
     GetTestToken: (callback, data, errCallback) => {
       return instance
-        .post("Token/GetTestToken", data)
+        .post("auth/GetTestToken", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    CompleteProfile: (callback, data, errCallback) => {
+      return instance
+        .post("auth/CompleteProfile", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    SendCode: (callback, data, errCallback) => {
+      return instance
+        .post("auth/SendCode", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    GetUserDashboard: (callback, data, errCallback) => {
+      return instance
+        .get("auth/GetUserDashboard", data)
         .then((data) => {
           callback(data);
           success_display(data.data);

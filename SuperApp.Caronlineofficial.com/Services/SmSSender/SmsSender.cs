@@ -15,7 +15,7 @@ public class SmsService : ISmsService
     {
         var client = _client.CreateClient();
         client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization",
-            "AccessKey xZNsBx2tkcHzugnUnVBxUuB8G9ReZLMLUH00kolcLnM=");
+            "AccessKey Q-7_yGoRO69tv2W_QjHhIKl8Agqe-EuJT2xpVHYPA9k=");
         var result = await client.PostAsJsonAsync(_baseUrl, new
         {
             pattern_code = "j2pzj7n65fwgnli",
@@ -39,7 +39,7 @@ public class SmsService : ISmsService
     {
         var client = _client.CreateClient();
         client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization",
-            "AccessKey xZNsBx2tkcHzugnUnVBxUuB8G9ReZLMLUH00kolcLnM=");
+            "AccessKey Q-7_yGoRO69tv2W_QjHhIKl8Agqe-EuJT2xpVHYPA9k=");
         var result = await client.PostAsJsonAsync(_baseUrl, new
         {
             pattern_code = "4xnd9powxct1n9t",
@@ -64,7 +64,7 @@ public class SmsService : ISmsService
     {
         var client = _client.CreateClient();
         client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization",
-            "AccessKey xZNsBx2tkcHzugnUnVBxUuB8G9ReZLMLUH00kolcLnM=");
+            "AccessKey Q-7_yGoRO69tv2W_QjHhIKl8Agqe-EuJT2xpVHYPA9k=");
         var result = await client.PostAsJsonAsync(_baseUrl, new
         {
             pattern_code = "0a07g66ik85fo6v",
@@ -88,7 +88,7 @@ public class SmsService : ISmsService
     {
         var client = _client.CreateClient();
         client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization",
-            "AccessKey xZNsBx2tkcHzugnUnVBxUuB8G9ReZLMLUH00kolcLnM=");
+            "AccessKey Q-7_yGoRO69tv2W_QjHhIKl8Agqe-EuJT2xpVHYPA9k=");
         var result = await client.PostAsJsonAsync(_baseUrl, new
         {
             pattern_code = "hzrqb4j1eplfa9f",
@@ -112,7 +112,7 @@ public class SmsService : ISmsService
     {
         var client = _client.CreateClient();
         client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization",
-            "AccessKey xZNsBx2tkcHzugnUnVBxUuB8G9ReZLMLUH00kolcLnM=");
+            "AccessKey Q-7_yGoRO69tv2W_QjHhIKl8Agqe-EuJT2xpVHYPA9k=");
         var result = await client.PostAsJsonAsync(_baseUrl, new
         {
             pattern_code = "3cq87qdmeueymzh",

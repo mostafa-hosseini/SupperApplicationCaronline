@@ -24,7 +24,7 @@ public class VerifyViewModel
 
     public string Code { get; set; }
     public bool Verify { get; set; } = false;
-    public string RedirectUri { get; set; }
+    public string? RedirectUri { get; set; }
 }
 
 public class RegisterViewModel
@@ -34,5 +34,5 @@ public class RegisterViewModel
     [RegularExpression(@"^09[0-9]{9}$", ErrorMessage = "شماره وارد شده معتبر نمی باشد!")]
     public string Phone { get; set; }
 
-    public string InvitedUser { get; set; }
+   
 }
