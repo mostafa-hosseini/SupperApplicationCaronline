@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,7 +9,6 @@ import "swiper/css/pagination";
 import "../assets/styles/custom.css";
 // import required modules
 // import Accordion from "react-bootstrap/Accordion";
-import { useNavigate } from "react-router-dom";
 import { Navigation, Pagination } from "swiper";
 
 import amoozesh from "../assets/images/Icons/amoozesh-01.svg";
@@ -35,20 +33,6 @@ import BannerSliderItem from "../components/BannerSliderItem";
 import Accordion from "../components/Accordion";
 
 export function Home() {
-  const navigate = useNavigate();
-  function rendericon(icon, text, _className, onClick) {
-    return (
-      <div className="col-3 row">
-        <div
-          onClick={() => onClick()}
-          className={`col-auto mx-auto icon-home d-flex align-items-center ${_className}`}
-        >
-          {icon}
-        </div>
-        <h6 className="text-center mt-2 text-mobile p-0">{text}</h6>
-      </div>
-    );
-  }
   return (
     <>
       <div className="row justify-content-center main-page">

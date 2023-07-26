@@ -1,7 +1,7 @@
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
-import MashintoQuickAccess from "./components/MashintoQuickAcces";
-import AmlaktoQuickAccess from "./components/AmlaktoQuickAccess";
+import MashintoQuickAccess from "./Screens/MashintoQuickAcces";
+import AmlaktoQuickAccess from "./Screens/AmlaktoQuickAccess";
 import { Home } from "./Screens/Home";
 import Shop from "./Screens/Shop";
 import Login from "./Screens/Login";

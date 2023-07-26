@@ -305,6 +305,31 @@ img {
   transform: scale(0.9);
 }
 
+.row-item.disbaled-item {
+  position: relative;
+}
+
+.row-item.disbaled-item::after {
+  content: "غیر فعال";
+  color: #fff;
+  background-color: #b20808;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.8em;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.row-item.disbaled-item img {
+  filter: grayscale(0.8);
+}
+
+.row-item.disbaled-item:hover img {
+  transform: scale(1);
+}
+
+
 .banner-slider-item img {
   width: 100%;
   height: auto;
