@@ -4,7 +4,7 @@
     }
     .abslout-icon {
         position: fixed;
-        bottom: 0px;
+        bottom: -6vh;
         z-index: 9999999;
         background: rgba(255, 255, 255, 0.423);
         border-radius: 16px;

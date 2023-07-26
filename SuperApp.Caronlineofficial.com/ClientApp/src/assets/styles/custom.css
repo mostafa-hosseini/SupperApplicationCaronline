@@ -202,6 +202,10 @@ body {
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
+.shadow-sm {
+  box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
 .accordion-button::after {
   display: none !important;
 }
@@ -211,9 +215,10 @@ body {
   height: 60px;
   border-radius: 120px;
 }
+
 .abslout-icon {
   position: fixed;
-  bottom: 0px;
+  bottom: -5vh;
   z-index: 9999999;
   border-radius: 16px;
   backdrop-filter: blur(5px);
@@ -223,13 +228,15 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 5px;
   padding-bottom: 5px;
-  width: 450px;
+  width: 20vw;
+  min-width: 300px;
+  max-width: 400px;
   display: flex;
   justify-content: space-around;
-  /* right: 30%; */
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .blur {
   backdrop-filter: blur(5px);
   background: rgba(255, 255, 255, 0.423);
@@ -274,4 +281,167 @@ body {
   backdrop-filter: blur(6.8px);
   -webkit-backdrop-filter: blur(6.8px);
   border: 1px solid rgba(150, 150, 150, 0.33);
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.row-item {
+  margin-bottom: 0.75rem;
+}
+
+.row-item a {
+  color: #212529;
+  text-decoration: none !important;
+}
+
+.row-item img {
+  transition: all 0.3s ease;
+}
+
+.row-item:hover img {
+  transform: scale(0.9);
+}
+
+.banner-slider-item img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  min-height: 100px;
+  border-radius: 15px;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.08);
+}
+
+.circle-pointer {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: green;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.circle-pointer.yellow-pointer {
+  background-color: #f7b801;
+}
+
+.circle-pointer.pink-pointer {
+  background-color: rgb(255, 27, 175);
+}
+
+.circle-pointer.orange-pointer {
+  background-color: rgb(255, 88, 88);
+}
+
+.circle-pointer.green-pointer {
+  background-color: rgb(167, 329, 88);
+}
+
+.circle-pointer.yellow-pointer {
+  background-color: #f7b801;
+}
+
+.car-slider-item {
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.car-slider-item .car-lazy-loader {
+  width: 100%;
+  position: relative;
+  height: 240px;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.car-slider-item img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease !important;
+}
+
+.car-slider-item .blur {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  border-radius: 0 0 15px 15px;
+}
+
+.car-slider-item:hover img {
+  transform: scale(1.1);
+}
+
+.banner-slider-item {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.banner-slider-item .blur {
+  border-radius: 0 0 15px 15px;
+  width: calc(100% - 32px);
+}
+
+.main-page {
+  margin-bottom: 130px;
+}
+
+.custom-accordion-item {
+  border-right: 1px solid rgba(0, 0, 0, 0.18);
+  border-left: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.custom-accordion-wrapper .custom-accordion-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.custom-accordion-wrapper .custom-accordion-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.custom-accordion-item .custom-accordion-header {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: hsla(0, 0%, 0%, 0.87);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.custom-accordion-item .custom-accordion-header svg {
+  transition: all 0.3s ease-in;
+}
+
+.custom-accordion-item .custom-accordion-body {
+  font-size: 1em;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  transition: all 0.3s ease-in;
+  border-top: unset;
+  padding: 0 1rem;
+  height: 0;
+  overflow: hidden;
+}
+
+.custom-accordion-item.active {
+  margin: 1rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.custom-accordion-item.active .custom-accordion-body {
+  min-height: 100%;
+  height: 150px;
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.custom-accordion-item.active .custom-accordion-header svg {
+  transform: rotate(-90deg);
 }

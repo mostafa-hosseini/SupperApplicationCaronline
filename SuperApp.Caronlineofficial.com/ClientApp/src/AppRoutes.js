@@ -1,9 +1,9 @@
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import MashintoQuickAccess from "./components/MashintoQuickAcces";
-import { Home } from "./Screens/Home.js";
-import Shop from "./Screens/Shop";
 import AmlaktoQuickAccess from "./components/AmlaktoQuickAccess";
+import { Home } from "./Screens/Home";
+import Shop from "./Screens/Shop";
 import Login from "./Screens/Login";
 import Register from "./Screens/Register";
 import Dashboard from './Screens/Dashboard';
