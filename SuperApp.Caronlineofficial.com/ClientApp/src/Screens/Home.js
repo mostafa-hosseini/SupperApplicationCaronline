@@ -161,11 +161,11 @@ export function Home() {
           >
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <LazyLoadImage
                 effect="black-and-white"
-                src={require("../assets/images/mashinto-mobile-02.04.jpg")}
+                src={require("../assets/images/Banners/01.jpg")}
                 alt={"item.title"}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
@@ -178,13 +178,12 @@ export function Home() {
 
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <LazyLoadImage
                 width={"100%"}
                 effect="black-and-white"
-                src={require("../assets/images/mashinto-sales-02.04.jpg")}
-                alt={"item.title"}
+                src={require("../assets/images/Banners/02.jpg")} alt={"item.title"}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src =
@@ -196,13 +195,12 @@ export function Home() {
 
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <LazyLoadImage
                 width={"100%"}
                 effect="black-and-white"
-                src={require("../assets/images/mashinto-mobile-02.04.jpg")}
-                alt={"item.title"}
+                src={require("../assets/images/Banners/03.jpg")} alt={"item.title"}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src =
@@ -235,7 +233,7 @@ export function Home() {
                   slidesPerView: 2.2,
                 },
               }}
-              // className="new-car-slider-container"
+            // className="new-car-slider-container"
             >
               <SwiperSlide key="1w">
                 <BlogListItem
@@ -319,13 +317,13 @@ export function Home() {
             >
               <LazyLoadImage
                 width={"100%"}
-                src={require("../assets/testImages/img3.jpg")}
+                src={require("../assets/images/Banners/05.jpg")}
                 height={"100%"}
                 effect="black-and-white"
                 style={{ position: "relative", minHeight: 150, maxHeight: 270 }}
               />
 
-              <div
+              {/* <div
                 className="w-100 blur"
                 style={{
                   position: "absolute",
@@ -347,7 +345,7 @@ export function Home() {
                     ادامه مطلب
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -431,17 +429,17 @@ export function Home() {
             <Accordion
               data={[
                 {
-                  id:"item-1",
+                  id: "item-1",
                   title: " چرا به بیمه شخص ثالث نیاز داریم؟",
                   desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
                 },
                 {
-                  id:"item-2",
+                  id: "item-2",
                   title: " چرا به بیمه شخص ثالث نیاز داریم؟",
                   desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
                 },
                 {
-                  id:"item-3",
+                  id: "item-3",
                   title: " چرا به بیمه شخص ثالث نیاز داریم؟",
                   desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
                 },
@@ -516,7 +514,7 @@ export function Home() {
       <div className="abslout-icon">
         <div className="col-3 row">
           <div
-            onClick={() => {}}
+            onClick={() => { }}
             className={`col-auto mx-auto d-flex align-items-center `}
           >
             <img src={mashinto} className="w-100 img-logo" alt="" />
@@ -526,7 +524,7 @@ export function Home() {
 
         <div className="col-3 row">
           <div
-            onClick={() => {}}
+            onClick={() => { }}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img src={amlakto} className="w-100 img-logo" alt="" />
@@ -535,7 +533,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => {}}
+            onClick={() => { }}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img src={moshaverto} className="w-100 img-logo" alt="" />
@@ -544,7 +542,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => {}}
+            onClick={() => { }}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img src={kalato} className="w-100 img-logo" alt="" />
