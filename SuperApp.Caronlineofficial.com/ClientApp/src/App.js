@@ -11,16 +11,20 @@ import { Toaster } from "react-hot-toast";
 export default function App() {
   return (
     <Layout>
-      <Routes>
-        {AppRoutes.map((route, index) => {
-          const { element, ...rest } = route;
-          return <Route key={index} {...rest} element={element} />;
-        })}
-      </Routes>
-      <Toaster
-        position="bottom-center"
-        reverseOrder={false}
-      />
+      <div className="row">
+        <div className="col-12 col-md-7 col-lg-5 mx-auto">
+          <Routes>
+            {AppRoutes.map((route, index) => {
+              const { element, ...rest } = route;
+              return <Route key={index} {...rest} element={element} />;
+            })}
+          </Routes>
+          <Toaster
+            position="bottom-center"
+            reverseOrder={false}
+          />
+        </div>
+      </div>
     </Layout>
   );
 }
