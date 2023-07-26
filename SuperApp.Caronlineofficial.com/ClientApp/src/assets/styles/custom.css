@@ -329,7 +329,6 @@ img {
   transform: scale(1);
 }
 
-
 .banner-slider-item img {
   width: 100%;
   height: auto;
@@ -469,4 +468,56 @@ img {
 
 .custom-accordion-item.active .custom-accordion-header svg {
   transform: rotate(-90deg);
+}
+
+.account-hover {
+  position: relative;
+  padding: 6px 12px;
+}
+
+.account-hover ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 130px;
+  padding: 0;
+  padding-top: 9px;
+  list-style: none;
+  transition: all 0.3s ease-in;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.account-hover ul li {
+  background-color: #fff;
+  text-align: right;
+  border: 1px solid #eee;
+  border-bottom: unset;
+  transition: all 0.3s ease-in;
+}
+
+.account-hover ul li a {
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.75rem;
+}
+
+.account-hover ul li:hover a {
+  color: #c90000;
+  padding-right: 1rem;
+}
+
+.account-hover ul li:last-child {
+  border-bottom: 1px solid #eee;
+}
+
+.account-hover:hover ul {
+  transform: rotateX(0);
+  opacity: 1;
+  visibility: visible;
 }

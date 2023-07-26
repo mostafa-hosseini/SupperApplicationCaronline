@@ -1,23 +1,28 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
+// import React, { Component } from "react";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { BiLineChart, BiMobileAlt } from "react-icons/bi";
 import { FaRegHandshake } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
 import {
   IoHomeOutline,
-  IoMenu,
   IoPersonAddOutline,
-  IoPersonOutline,
   IoStorefrontOutline,
 } from "react-icons/io5";
+// import {
+//   IoMenu,
+//   IoPersonOutline,
+// } from "react-icons/io5";
 import { MdOutlinePrivacyTip, MdOutlineReportProblem } from "react-icons/md";
 import { RiFindReplaceLine } from "react-icons/ri";
 import Drawer from "react-modern-drawer";
-import { NavMenu } from "./NavMenu";
+// import { NavMenu } from "./NavMenu";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar, NavbarBrand, NavbarToggler } from "reactstrap";
+import { Navbar, NavbarBrand } from "reactstrap";
+// import { NavbarToggler } from "reactstrap";
 import "react-modern-drawer/dist/index.css";
-import { CiMenuKebab, CiUser, CiWallet } from "react-icons/ci";
+import { CiUser, CiWallet } from "react-icons/ci";
+// import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,14 +37,26 @@ export default function Layout({ children }) {
         >
           {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} className="mr-2" /> */}
           <div className="d-flex">
-            <button onClick={() => setIsOpen(!isOpen)} type="button" class="btn ">
+            <button
+              // onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              class="btn "
+            >
               <CiWallet size={25} />
             </button>
-            <button onClick={() => setIsOpen(!isOpen)} type="button" class="btn ">
-              <CiUser size={23} />
-            </button>
-          </div>
 
+            <div
+              // onClick={() => setIsOpen(!isOpen)}
+              class="account-hover"
+            >
+              <CiUser size={23} />
+
+              <ul>
+                <li><Link to="/Login">ورود</Link></li>
+                <li><Link to="/Register">ثبت نام</Link></li>
+              </ul>
+            </div>
+          </div>
 
           {/* <button
             onClick={() => setIsOpen(!isOpen)}
@@ -60,60 +77,61 @@ export default function Layout({ children }) {
       <div className="container-fluid" tag="main">
         {children}
       </div>
-      <div className="row">
-        <div className="header-container">
-          <Drawer
-            open={isOpen}
-            onClose={() => setIsOpen(!isOpen)}
-            direction="right"
-            className="drawer-container d-flex flex-column justify-content-between pb-5"
-            style={{ overflowY: "auto" }}
-          >
-            <ul className="drawer-list">
-              <li className="drawer-list-item mt-4">
-                <IoHomeOutline style={{ marginLeft: 10 }} />
+      {false && (
+        <div className="row">
+          <div className="header-container">
+            <Drawer
+              open={isOpen}
+              onClose={() => setIsOpen(!isOpen)}
+              direction="right"
+              className="drawer-container d-flex flex-column justify-content-between pb-5"
+              style={{ overflowY: "auto" }}
+            >
+              <ul className="drawer-list">
+                <li className="drawer-list-item mt-4">
+                  <IoHomeOutline style={{ marginLeft: 10 }} />
 
-                <span onClick={() => navigation("/")}>صفحه اصلی</span>
-              </li>
-              {/* <li className="drawer-list-item mt-4">
+                  <span onClick={() => navigation("/")}>صفحه اصلی</span>
+                </li>
+                {/* <li className="drawer-list-item mt-4">
             <GiCarKey style={{ marginLeft: 10 }} />
 
             <span href={status ? "/buycar" : "login"}>درخواست خرید خودرو</span>
           </li> */}
-              <li className="drawer-list-item mt-4">
-                <BiLineChart style={{ marginLeft: 10 }} />
-                <span onClick={() => navigation("/carprice")}>
-                  قیمت روز خودرو
-                </span>
-              </li>
-              <li className="drawer-list-item mt-4">
-                <RiFindReplaceLine style={{ marginLeft: 10 }} />
+                <li className="drawer-list-item mt-4">
+                  <BiLineChart style={{ marginLeft: 10 }} />
+                  <span onClick={() => navigation("/carprice")}>
+                    قیمت روز خودرو
+                  </span>
+                </li>
+                <li className="drawer-list-item mt-4">
+                  <RiFindReplaceLine style={{ marginLeft: 10 }} />
 
-                <span onClick={() => navigation("/search")}>
-                  راهنمای خرید خودرو
-                </span>
-              </li>
-              <li className="drawer-list-item mt-4">
-                <AiOutlineCalculator style={{ marginLeft: 10 }} />
-                <span onClick={() => navigation("/محاسبه-قیمت")}>
-                  محاسبه قیمت خودرو
-                </span>
-              </li>
-              {/* <li className="drawer-list-item mt-4">
+                  <span onClick={() => navigation("/search")}>
+                    راهنمای خرید خودرو
+                  </span>
+                </li>
+                <li className="drawer-list-item mt-4">
+                  <AiOutlineCalculator style={{ marginLeft: 10 }} />
+                  <span onClick={() => navigation("/محاسبه-قیمت")}>
+                    محاسبه قیمت خودرو
+                  </span>
+                </li>
+                {/* <li className="drawer-list-item mt-4">
             <GrCircleInformation style={{ marginLeft: 10 }} />
             <span href="/#">درباره ما</span>
           </li> */}
-              <li className="drawer-list-item mt-4">
-                <FaRegHandshake style={{ marginLeft: 10 }} />
-                <span onClick={() => navigation("/cooperation")}>
-                  همکاری با ماشین تو
-                </span>
-              </li>
-              <li className="drawer-list-item mt-4">
-                <IoStorefrontOutline style={{ marginLeft: 10 }} />
-                <span onClick={() => navigation("/shop")}>فروشگاه</span>
-              </li>
-              {/* <li className="drawer-list-item mt-4">
+                <li className="drawer-list-item mt-4">
+                  <FaRegHandshake style={{ marginLeft: 10 }} />
+                  <span onClick={() => navigation("/cooperation")}>
+                    همکاری با ماشین تو
+                  </span>
+                </li>
+                <li className="drawer-list-item mt-4">
+                  <IoStorefrontOutline style={{ marginLeft: 10 }} />
+                  <span onClick={() => navigation("/shop")}>فروشگاه</span>
+                </li>
+                {/* <li className="drawer-list-item mt-4">
             <IoCarOutline style={{ marginLeft: 10 }} />
             <span
               onClick={() =>
@@ -125,69 +143,70 @@ export default function Layout({ children }) {
               آگهی های قیمت مناسب
             </span>
           </li> */}
-              <li className="drawer-list-item mt-4">
-                <MdOutlinePrivacyTip style={{ marginLeft: 10 }} />
-                <span onClick={() => navigation(`/Privacy`)}>
-                  قوانین و مقررات
-                </span>
-              </li>
-              <li className="drawer-list-item mt-4">
-                <MdOutlineReportProblem style={{ marginLeft: 10 }} />
-                <span
-                  onClick={() =>
-                    navigation(`/problem`, {
-                      title: " آگهی های قیمت مناسب",
-                    })
-                  }
-                >
-                  ثبت مشکل کاربری
-                </span>
-              </li>
-              <li className="drawer-list-item mt-4">
-                <BiMobileAlt style={{ marginLeft: 10 }} />
-                <span onClick={() => navigation(`/InstallIos`)}>
-                  راهنمای نصب در ios
-                </span>
-              </li>
-              {/* <li className="drawer-list-item mt-4">
+                <li className="drawer-list-item mt-4">
+                  <MdOutlinePrivacyTip style={{ marginLeft: 10 }} />
+                  <span onClick={() => navigation(`/Privacy`)}>
+                    قوانین و مقررات
+                  </span>
+                </li>
+                <li className="drawer-list-item mt-4">
+                  <MdOutlineReportProblem style={{ marginLeft: 10 }} />
+                  <span
+                    onClick={() =>
+                      navigation(`/problem`, {
+                        title: " آگهی های قیمت مناسب",
+                      })
+                    }
+                  >
+                    ثبت مشکل کاربری
+                  </span>
+                </li>
+                <li className="drawer-list-item mt-4">
+                  <BiMobileAlt style={{ marginLeft: 10 }} />
+                  <span onClick={() => navigation(`/InstallIos`)}>
+                    راهنمای نصب در ios
+                  </span>
+                </li>
+                {/* <li className="drawer-list-item mt-4">
             <BiMobile style={{ marginLeft: 10 }} />
             <span onClick={() => navigation(`/InstallAndroid`)}>
               راهنمای نصب در android
             </span>
           </li> */}
 
-              <>
-                <li className="drawer-list-item mt-4">
-                  <IoMdLogIn style={{ marginLeft: 10 }} />
-                  <span class="" onClick={() => navigation("/login")}>
-                    ورود
-                  </span>
-                </li>
-                <li className="drawer-list-item mt-4">
-                  <IoPersonAddOutline style={{ marginLeft: 10 }} />
-                  <span class="" onClick={() => navigation("/register")}>
-                    ثبت نام
-                  </span>
-                </li>
-              </>
-            </ul>
-            <div
-              style={{ marginTop: "auto" }}
-              class="justify-content-center align-items-end mb-3"
-            >
-              <h6 class="text-center text-dark cp">
-                All &nbsp; &nbsp; rights &nbsp;&nbsp; reserved &nbsp;&nbsp;for
-                <br />
-                mashinto.com
-                <br />
-                ©powered &nbsp; &nbsp; by &nbsp; &nbsp; CarOnline
-                <br />
-                <span>2023</span>
-              </h6>
-            </div>
-          </Drawer>
+                <>
+                  <li className="drawer-list-item mt-4">
+                    <IoMdLogIn style={{ marginLeft: 10 }} />
+                    <span class="" onClick={() => navigation("/login")}>
+                      ورود
+                    </span>
+                  </li>
+                  <li className="drawer-list-item mt-4">
+                    <IoPersonAddOutline style={{ marginLeft: 10 }} />
+                    <span class="" onClick={() => navigation("/register")}>
+                      ثبت نام
+                    </span>
+                  </li>
+                </>
+              </ul>
+              <div
+                style={{ marginTop: "auto" }}
+                class="justify-content-center align-items-end mb-3"
+              >
+                <h6 class="text-center text-dark cp">
+                  All &nbsp; &nbsp; rights &nbsp;&nbsp; reserved &nbsp;&nbsp;for
+                  <br />
+                  mashinto.com
+                  <br />
+                  ©powered &nbsp; &nbsp; by &nbsp; &nbsp; CarOnline
+                  <br />
+                  <span>2023</span>
+                </h6>
+              </div>
+            </Drawer>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

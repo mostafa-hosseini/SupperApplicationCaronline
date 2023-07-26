@@ -6,8 +6,8 @@ import { Home } from "./Screens/Home";
 import Shop from "./Screens/Shop";
 import Login from "./Screens/Login";
 import Register from "./Screens/Register";
-import Dashboard from './Screens/Dashboard';
-import VerifyScreen from './Screens/VerifyScreen';
+import Dashboard from "./Screens/Dashboard";
+import VerifyScreen from "./Screens/VerifyScreen";
 import CompleteProfile from "./Screens/CompleteProfile";
 import ClinickAccess from "./Screens/ClinickAccess";
 
