@@ -26,11 +26,13 @@ import kalato from "../assets/images/Icons/logo/kalato-01.png";
 import mashinto from "../assets/images/Icons/logo/mashinto-01.svg";
 import moshaverto from "../assets/images/Icons/logo/moshaverto-01.svg";
 
+import defaultTest from "../assets/testImages/default-test.jpg";
 import RowItem from "../components/RowItem";
 import BlogListItem from "../components/BlogListItem";
 import ListTitle from "../components/ListTitle";
 import BannerSliderItem from "../components/BannerSliderItem";
 import Accordion from "../components/Accordion";
+import AdSliderItem from "./AdSliderItem";
 
 export function Home() {
   return (
@@ -163,16 +165,9 @@ export function Home() {
               className="nbt banner-slider-item"
               // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
-              <LazyLoadImage
-                effect="black-and-white"
-                src={require("../assets/images/mashinto-mobile-02.04.jpg")}
-                alt={"item.title"}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src =
-                    "https://mashinto.com/media/ads/defualt.png";
-                  currentTarget.style = "max-height:180px";
-                }}
+              <AdSliderItem
+                imgSrc={require("../assets/images/mashinto-mobile-02.04.jpg")}
+                imgAlt="item.title"
               />
             </SwiperSlide>
 
@@ -180,17 +175,9 @@ export function Home() {
               className="nbt banner-slider-item"
               // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
-              <LazyLoadImage
-                width={"100%"}
-                effect="black-and-white"
-                src={require("../assets/images/mashinto-sales-02.04.jpg")}
-                alt={"item.title"}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src =
-                    "https://mashinto.com/media/ads/defualt.png";
-                  currentTarget.style = "max-height:180px";
-                }}
+              <AdSliderItem
+                imgSrc={require("../assets/images/mashinto-sales-02.04.jpg")}
+                imgAlt="item.title"
               />
             </SwiperSlide>
 
@@ -198,17 +185,9 @@ export function Home() {
               className="nbt banner-slider-item"
               // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
-              <LazyLoadImage
-                width={"100%"}
-                effect="black-and-white"
-                src={require("../assets/images/mashinto-mobile-02.04.jpg")}
-                alt={"item.title"}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src =
-                    "https://mashinto.com/media/ads/defualt.png";
-                  currentTarget.style = "max-height:180px";
-                }}
+              <AdSliderItem
+                imgSrc={require("../assets/images/mashinto-mobile-02.04.jpg")}
+                imgAlt="item.title"
               />
             </SwiperSlide>
           </Swiper>
@@ -323,6 +302,7 @@ export function Home() {
                 height={"100%"}
                 effect="black-and-white"
                 style={{ position: "relative", minHeight: 150, maxHeight: 270 }}
+                placeholderSrc={defaultTest}
               />
 
               <div
@@ -431,17 +411,17 @@ export function Home() {
             <Accordion
               data={[
                 {
-                  id:"item-1",
+                  id: "item-1",
                   title: " چرا به بیمه شخص ثالث نیاز داریم؟",
                   desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
                 },
                 {
-                  id:"item-2",
+                  id: "item-2",
                   title: " چرا به بیمه شخص ثالث نیاز داریم؟",
                   desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
                 },
                 {
-                  id:"item-3",
+                  id: "item-3",
                   title: " چرا به بیمه شخص ثالث نیاز داریم؟",
                   desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
                 },

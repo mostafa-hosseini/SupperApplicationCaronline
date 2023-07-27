@@ -1,17 +1,17 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import defaultTest from "../assets/testImages/default-test.jpg";
 
 function BannerSliderItem({ imgSrc, title }) {
   return (
-    <div
-      className="mx-3 banner-slider-item"
-    >
+    <div className="mx-3 banner-slider-item">
       <LazyLoadImage
         width={"100%"}
         src={imgSrc}
         height={"100%"}
         effect="black-and-white"
         style={{ position: "relative", minHeight: 150 }}
+        placeholderSrc={defaultTest}
       />
 
       <div

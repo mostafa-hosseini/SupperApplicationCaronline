@@ -298,7 +298,7 @@ img {
 }
 
 .row-item img {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
 }
 
 .row-item:hover img {
