@@ -5,7 +5,7 @@ import froshgah from "../assets/images/Icons/house/froshgah-01.svg";
 import gheymat from "../assets/images/Icons/house/gheymat-01.svg";
 import hamkari from "../assets/images/Icons/house/hamkari-01.svg";
 import karshenasi from "../assets/images/Icons/house/karshenasi-01.svg";
-import kharid from "../assets/images/Icons/house/kharid-sefareshi.svg";
+import kharid from "../assets/images/Icons/house/kharid-sefareshi-01.svg";
 import moshavere from "../assets/images/Icons/house/moshavere-01.svg";
 import sabt from "../assets/images/Icons/house/sabt-01.svg";
 import RowItem from "../components/RowItem";
