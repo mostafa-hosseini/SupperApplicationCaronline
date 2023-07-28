@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import forosh from "../assets/images/Icons/house/forosh-sefareshi-01.svg";
 import foroshandeh from "../assets/images/Icons/house/foroshandeh.svg";
 import froshgah from "../assets/images/Icons/house/froshgah-01.svg";
@@ -8,10 +8,19 @@ import karshenasi from "../assets/images/Icons/house/karshenasi-01.svg";
 import kharid from "../assets/images/Icons/house/kharid-sefareshi-01.svg";
 import moshavere from "../assets/images/Icons/house/moshavere-01.svg";
 import sabt from "../assets/images/Icons/house/sabt-01.svg";
+import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
 export default function AmlaktoQuickAccess() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   return (
+    <Loading isLoading={loading}>
     <div className="row">
       <div className="col-3">
         <RowItem
@@ -86,5 +95,6 @@ export default function AmlaktoQuickAccess() {
         />
       </div>
     </div>
+    </Loading>
   );
 }

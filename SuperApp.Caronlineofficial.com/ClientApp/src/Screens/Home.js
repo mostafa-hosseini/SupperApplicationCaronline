@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -32,11 +32,20 @@ import BlogListItem from "../components/BlogListItem";
 import ListTitle from "../components/ListTitle";
 import BannerSliderItem from "../components/BannerSliderItem";
 import Accordion from "../components/Accordion";
-import AdSliderItem from "./AdSliderItem";
+import AdSliderItem from "../components/AdSliderItem";
+import Loading from "../components/Loading";
 
 export function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-    <>
+    <Loading isLoading={loading}>
       <div className="row justify-content-center main-page">
         <div className="col-12">
           <div className="row">
@@ -540,6 +549,6 @@ export function Home() {
           <h6 className="text-center mt-2 text-mobile p-0">کالاتو</h6>
         </div>
       </div>
-    </>
+    </Loading>
   );
 }

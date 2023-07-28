@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RowItem from "../components/RowItem";
 
 import mohasebe from "../assets/images/Icons/cars/mohasebe-01.svg";
@@ -10,10 +10,20 @@ import froshgah from "../assets/images/Icons/cars/froshgah-01.svg";
 import hamkari from "../assets/images/Icons/cars/hamkari-01.svg";
 import foroshandeh from "../assets/images/Icons/cars/foroshandeh.svg";
 import sabt from "../assets/images/Icons/cars/sabt-01.svg";
+import Loading from "../components/Loading";
 
 export default function MashintoQuickAccess() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   return (
+    <Loading isLoading={loading}>
+
     <div className="row">
       <div className="col-3">
         <RowItem
@@ -98,5 +108,6 @@ export default function MashintoQuickAccess() {
         />
       </div>
     </div>
+    </Loading>
   );
 }
