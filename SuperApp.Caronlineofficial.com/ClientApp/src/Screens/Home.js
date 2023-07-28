@@ -163,46 +163,33 @@ export function Home() {
           >
             <SwiperSlide
               className="nbt banner-slider-item"
-            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            >
+              <AdSliderItem
+                imgSrc={require("../assets/images/Banners/01.jpg")}
+                imgAlt="item.title"
+              />
+            </SwiperSlide>
+
+            <SwiperSlide
+              className="nbt banner-slider-item"
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            >
+              <AdSliderItem
+                imgSrc={require("../assets/images/Banners/02.jpg")}
+                imgAlt="item.title"
+              />
+            </SwiperSlide>
+
+            <SwiperSlide
+              className="nbt banner-slider-item"
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <LazyLoadImage
+                width={"100%"}
                 effect="black-and-white"
-                src={require("../assets/images/Banners/01.jpg")}
+                src={require("../assets/images/Banners/03.jpg")}
                 alt={"item.title"}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src =
-                    "https://mashinto.com/media/ads/defualt.png";
-                  currentTarget.style = "max-height:180px";
-                }}
-              />
-            </SwiperSlide>
-
-            <SwiperSlide
-              className="nbt banner-slider-item"
-            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
-            >
-              <LazyLoadImage
-                width={"100%"}
-                effect="black-and-white"
-                src={require("../assets/images/Banners/02.jpg")} alt={"item.title"}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src =
-                    "https://mashinto.com/media/ads/defualt.png";
-                  currentTarget.style = "max-height:180px";
-                }}
-              />
-            </SwiperSlide>
-
-            <SwiperSlide
-              className="nbt banner-slider-item"
-            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
-            >
-              <LazyLoadImage
-                width={"100%"}
-                effect="black-and-white"
-                src={require("../assets/images/Banners/03.jpg")} alt={"item.title"}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src =
@@ -235,7 +222,7 @@ export function Home() {
                   slidesPerView: 2.2,
                 },
               }}
-            // className="new-car-slider-container"
+              // className="new-car-slider-container"
             >
               <SwiperSlide key="1w">
                 <BlogListItem
@@ -517,7 +504,7 @@ export function Home() {
       <div className="abslout-icon">
         <div className="col-3 row">
           <div
-            onClick={() => { }}
+            onClick={() => {}}
             className={`col-auto mx-auto d-flex align-items-center `}
           >
             <img src={mashinto} className="w-100 img-logo" alt="" />
@@ -527,7 +514,7 @@ export function Home() {
 
         <div className="col-3 row">
           <div
-            onClick={() => { }}
+            onClick={() => {}}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img src={amlakto} className="w-100 img-logo" alt="" />
@@ -536,7 +523,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => { }}
+            onClick={() => {}}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img src={moshaverto} className="w-100 img-logo" alt="" />
@@ -545,7 +532,7 @@ export function Home() {
         </div>
         <div className="col-3 row">
           <div
-            onClick={() => { }}
+            onClick={() => {}}
             className={`col-auto mx-auto  d-flex align-items-center `}
           >
             <img src={kalato} className="w-100 img-logo" alt="" />
