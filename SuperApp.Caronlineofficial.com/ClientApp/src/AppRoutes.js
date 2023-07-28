@@ -1,5 +1,3 @@
-import { Counter } from "./components/Counter";
-import { FetchData } from "./components/FetchData";
 import MashintoQuickAccess from "./Screens/MashintoQuickAcces";
 import AmlaktoQuickAccess from "./Screens/AmlaktoQuickAccess";
 import { Home } from "./Screens/Home";
@@ -15,14 +13,6 @@ const AppRoutes = [
   {
     index: true,
     element: <Home />,
-  },
-  {
-    path: "/counter",
-    element: <Counter />,
-  },
-  {
-    path: "/fetch-data",
-    element: <FetchData />,
   },
   {
     path: "/Shop",
