@@ -40,14 +40,14 @@ export default function Layout({ children }) {
             <button
               // onClick={() => setIsOpen(!isOpen)}
               type="button"
-              class="btn menu-btn ms-2"
+              className="btn menu-btn ms-2"
             >
               <CiWallet size={25} />
             </button>
 
             <div
               // onClick={() => setIsOpen(!isOpen)}
-              class="account-hover menu-btn"
+              className="account-hover menu-btn"
             >
               <CiUser size={23} />
 
@@ -61,7 +61,7 @@ export default function Layout({ children }) {
           {/* <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            class=" btn "
+            className=" btn "
           >
             <CiMenuKebab size={25} />
           </button> */}
@@ -177,13 +177,13 @@ export default function Layout({ children }) {
                 <>
                   <li className="drawer-list-item mt-4">
                     <IoMdLogIn style={{ marginLeft: 10 }} />
-                    <span class="" onClick={() => navigation("/login")}>
+                    <span className="" onClick={() => navigation("/login")}>
                       ورود
                     </span>
                   </li>
                   <li className="drawer-list-item mt-4">
                     <IoPersonAddOutline style={{ marginLeft: 10 }} />
-                    <span class="" onClick={() => navigation("/register")}>
+                    <span className="" onClick={() => navigation("/register")}>
                       ثبت نام
                     </span>
                   </li>
@@ -191,9 +191,9 @@ export default function Layout({ children }) {
               </ul>
               <div
                 style={{ marginTop: "auto" }}
-                class="justify-content-center align-items-end mb-3"
+                className="justify-content-center align-items-end mb-3"
               >
-                <h6 class="text-center text-dark cp">
+                <h6 className="text-center text-dark cp">
                   All &nbsp; &nbsp; rights &nbsp;&nbsp; reserved &nbsp;&nbsp;for
                   <br />
                   mashinto.com

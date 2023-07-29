@@ -3,7 +3,7 @@ import AmlaktoQuickAccess from "./Screens/AmlaktoQuickAccess";
 import { Home } from "./Screens/Home";
 import Shop from "./Screens/Shop";
 import Login from "./Screens/Login";
-import Register from "./Screens/Register";
+// import Register from "./Screens/Login/Register";
 import Dashboard from "./Screens/Dashboard";
 import VerifyScreen from "./Screens/VerifyScreen";
 import CompleteProfile from "./Screens/CompleteProfile";
@@ -34,10 +34,10 @@ const AppRoutes = [
     path: "/Login",
     element: <Login />,
   },
-  {
-    path: "/Register",
-    element: <Register />,
-  },
+  // {
+  //   path: "/Register",
+  //   element: <Register />,
+  // },
   {
     path: "/Dashboard",
     element: <Dashboard />,

@@ -1,22 +1,30 @@
 import React from "react";
 import logo from "../assets/images/logoapp.png";
 
-function Loading({ isLoading = false, ...props }) {
+function Loading({
+  isLoading = false,
+  opacity = false,
+  logo = true,
+  ...props
+}) {
   return (
     <>
       {props.children}
       {isLoading ? (
-        <div className="main-loading">
-          <img src={logo} alt="caronine logo" className="loading-logo" />
-
-          <div class="spinner">
-            <div class="blob top"></div>
-            <div class="blob bottom"></div>
-            <div class="blob left"></div>
-
-            <div class="blob move-blob"></div>
+        <>
+          <div className={`loading-bg${opacity ? " opacity-bg" : ""}`} />
+          <div className="main-loading">
+          {logo? (
+            <img src={logo} alt="caronine logo" className="loading-logo" />
+            ): <></>}
+            <div className="spinner">
+              <div className="blob top"></div>
+              <div className="blob bottom"></div>
+              <div className="blob left"></div>
+              <div className="blob move-blob"></div>
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <></>
       )}
