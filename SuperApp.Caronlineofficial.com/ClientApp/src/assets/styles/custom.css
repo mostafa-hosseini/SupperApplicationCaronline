@@ -487,6 +487,7 @@ img {
 .account-hover {
   position: relative;
   padding: 6px 12px;
+  cursor: pointer;
 }
 
 .account-hover ul {
@@ -497,6 +498,7 @@ img {
   padding: 0;
   padding-top: 9px;
   list-style: none;
+  z-index: 99;
   transition: all 0.3s ease-in;
   transform-origin: top;
   transform: rotateX(90deg);
@@ -530,10 +532,28 @@ img {
   border-bottom: 1px solid #eee;
 }
 
+.account-hover:active ul,
+.account-hover:focus ul,
 .account-hover:hover ul {
   transform: rotateX(0);
   opacity: 1;
   visibility: visible;
+}
+
+.menu-btn {
+  border-radius: 0.75rem;
+  transition: all 0.3s ease-in;
+  box-shadow: -4px -4px 12px hsla(0, 0%, 100%, 0.7),
+    -4px -4px 8px hsla(0, 0%, 100%, 0.5), 4px 4px 6px hsla(0, 0%, 100%, 0.075),
+    4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn:active,
+.menu-btn:focus,
+.menu-btn:hover {
+  box-shadow: -2px -2px 6px hsla(0, 0%, 100%, 0.6),
+    -2px -2px 4px hsla(0, 0%, 100%, 0.4), 2px 2px 2px hsla(0, 0%, 100%, 0.05),
+    2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .main-loading {
