@@ -40,14 +40,14 @@ export default function Layout({ children }) {
             <button
               // onClick={() => setIsOpen(!isOpen)}
               type="button"
-              class="btn "
+              class="btn menu-btn ms-2"
             >
               <CiWallet size={25} />
             </button>
 
             <div
               // onClick={() => setIsOpen(!isOpen)}
-              class="account-hover"
+              class="account-hover menu-btn"
             >
               <CiUser size={23} />
 
