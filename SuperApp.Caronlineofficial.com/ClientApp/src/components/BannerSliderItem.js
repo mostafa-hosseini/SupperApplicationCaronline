@@ -4,7 +4,7 @@ import defaultTest from "../assets/testImages/default-test.jpg";
 
 function BannerSliderItem({ imgSrc, title }) {
   return (
-    <div className="mx-3 banner-slider-item">
+    <div className="mx-2 banner-slider-item">
       <LazyLoadImage
         width={"100%"}
         src={imgSrc}

@@ -45,7 +45,9 @@ export function Home() {
   }, []);
 
   return (
-    <Loading isLoading={loading}>
+    <Loading
+     isLoading={loading}
+     >
       <div className="main-page">
         <section className="w-100">
           <div className="row">
