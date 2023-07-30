@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISmsService, SmsService>();
-
+builder.Services.AddSwaggerGen();
 string connectionString;
 if (builder.Environment.IsDevelopment())
 {
@@ -106,6 +106,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
+});
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
