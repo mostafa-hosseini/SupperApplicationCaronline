@@ -4,7 +4,7 @@ import logo from "../assets/images/logoapp.png";
 function Loading({
   isLoading = false,
   opacity = false,
-  logo = true,
+  hasLogo = true,
   ...props
 }) {
   return (
@@ -14,9 +14,11 @@ function Loading({
         <>
           <div className={`loading-bg${opacity ? " opacity-bg" : ""}`} />
           <div className="main-loading">
-          {logo? (
-            <img src={logo} alt="caronine logo" className="loading-logo" />
-            ): <></>}
+            {hasLogo ? (
+              <img src={logo} alt="caronine logo" className="loading-logo" />
+            ) : (
+              <></>
+            )}
             <div className="spinner">
               <div className="blob top"></div>
               <div className="blob bottom"></div>

@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Layout>
       <div className="row">
-        <div className="col-12 col-md-7 col-lg-5 mx-auto">
+        <div className="col-12 col-md-7 col-lg-5 mx-auto main-col">
           <Routes>
             {AppRoutes.map((route, index) => {
               const { element, ...rest } = route;

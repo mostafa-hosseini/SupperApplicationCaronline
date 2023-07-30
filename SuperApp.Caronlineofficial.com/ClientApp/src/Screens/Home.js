@@ -46,8 +46,8 @@ export function Home() {
 
   return (
     <Loading isLoading={loading}>
-      <div className="row justify-content-center main-page">
-        <div className="col-12">
+      <div className="main-page">
+        <section className="w-100">
           <div className="row">
             <div className="col-3">
               <RowItem
@@ -130,7 +130,7 @@ export function Home() {
               />
             </div>
           </div>
-        </div>
+        </section>
 
         {/* <div className="col-12   mt-3 row justify-content-around">
         {rendericon(
@@ -155,7 +155,7 @@ export function Home() {
         )}
       </div> */}
 
-        <div className="col-lg-12 w-100">
+        <section className="w-100">
           <Swiper
             style={{ paddingBottom: 30 }}
             // slidesPerView={3}
@@ -208,9 +208,9 @@ export function Home() {
               />
             </SwiperSlide>
           </Swiper>
-        </div>
+        </section>
 
-        <div className="col-12 mt-5 w-100">
+        <section className="mt-5 w-100">
           <ListTitle title="به دلخواه خود تخفیف بگیرید" color="yellow" />
 
           <div className="col-12 p-0 w-100">
@@ -258,9 +258,9 @@ export function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-        </div>
+        </section>
 
-        <div className="col-12 mt-3 w-100">
+        <section className="mt-3 w-100">
           <ListTitle title="انتخاب از بین بیمه های متنوع" color="pink" />
 
           <div className="col-12 p-0 w-100">
@@ -295,9 +295,9 @@ export function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-        </div>
+        </section>
 
-        <div className="col-12 mt-3 w-100">
+        <section className="mt-3 w-100">
           <ListTitle
             title="انتخاب از بین بیمه های متنوع"
             color="orange"
@@ -347,9 +347,9 @@ export function Home() {
               </div> */}
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="col-12 mt-3 w-100">
+        <section className="mt-3 w-100">
           <ListTitle title="انتخاب از بین بیمه های متنوع" color="pink" />
 
           <div className="col-12 p-0 w-100">
@@ -384,9 +384,9 @@ export function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-        </div>
+        </section>
 
-        <div className="col-12 mt-5 w-100">
+        <section className="mt-5 w-100">
           <ListTitle
             title="پاسخ به تمامی سوالات شما"
             color="green"
@@ -445,7 +445,7 @@ export function Home() {
               ]}
             />
           </div>
-        </div>
+        </section>
 
         {/* <div className="col-12 mt-5 w-100">
           <h5 className="text-center">همکاران بزرگ ما</h5>
@@ -493,12 +493,12 @@ export function Home() {
           <div className="row">
             <div className="col-3">
               <a
-                referrerpolicy="origin"
+                referrerPolicy="origin"
                 target="_blank"
                 href="https://trustseal.enamad.ir/?id=250334&amp;Code=4xPomj4RIcWL9XDvGyUq"
               >
                 <img
-                  referrerpolicy="origin"
+                  referrerPolicy="origin"
                   src="https://Trustseal.eNamad.ir/logo.aspx?id=250334&amp;Code=4xPomj4RIcWL9XDvGyUq"
                   alt=""
                   style={{ cursor: "pointer" }}

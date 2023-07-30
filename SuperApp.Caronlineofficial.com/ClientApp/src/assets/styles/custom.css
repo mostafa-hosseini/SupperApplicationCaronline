@@ -3,6 +3,17 @@ a {
   color: #0366d6;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-right: unset;
+  margin-left: unset;
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn-link.nav-link:focus,
@@ -347,7 +358,7 @@ img {
   width: 100%;
   height: auto;
   max-height: 220px;
-  min-height: 100px;
+  min-height: 80px;
   border-radius: 15px;
   box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.08);
 }
@@ -573,13 +584,13 @@ img {
 }
 
 .main-loading .loading-logo {
-  width: 45vw;
+  width: 70vw;
   height: auto;
   max-width: 450px;
 }
 
 .loading-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -756,8 +767,8 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1.5rem;
-  border-radius: 5rem;
+  padding: 3rem 1.5rem;
+  border-radius: 3rem;
   border: 1px solid #d6d6d6;
 }
 
@@ -776,6 +787,7 @@ img {
   font-size: 1.3em;
   font-weight: 900;
   color: #5b5b5b;
+  text-align: center;
 }
 
 .login-box .login-text .desc {
@@ -783,6 +795,7 @@ img {
   font-weight: 300;
   color: #6e6e6e;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .btn-login {
