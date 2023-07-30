@@ -8,6 +8,9 @@ import Dashboard from "./Screens/Dashboard";
 // import VerifyScreen from "./Screens/VerifyScreen";
 import CompleteProfile from "./Screens/CompleteProfile";
 import ClinickAccess from "./Screens/ClinickAccess";
+import Faq from "./Screens/Faq";
+import AboutUs from "./Screens/AboutUs";
+import ContactUs from "./ContactUs";
 
 const AppRoutes = [
   {
@@ -49,6 +52,18 @@ const AppRoutes = [
   {
     path: "/CompleteProfile",
     element: <CompleteProfile />,
+  },
+  {
+    path: "/Faq",
+    element: <Faq />,
+  },
+  {
+    path: "/About-Us",
+    element: <AboutUs />,
+  },
+  {
+    path: "/Contact-Us",
+    element: <ContactUs />,
   },
 ];
 

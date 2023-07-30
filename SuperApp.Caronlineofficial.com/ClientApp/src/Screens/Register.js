@@ -49,7 +49,7 @@ export default function Login() {
         setLoading(false);
 
         if (data.isSuccess) {
-          navigate("/CompleteProfile");
+          navigate("/CompleteProfile", { state: { isRegistering: true } });
           localStorage.setItem("token", data.data.code);
         }
       };
@@ -104,7 +104,7 @@ export default function Login() {
   //         seconds--;
   //       }
   //       setTimer(`${("0" + minutes).slice(-2)} : ${("0" + seconds).slice(-2)}`);
-  //     }, 1000);
+  //     }, 500);
   //   }
 
   //   const endTimer = () => {

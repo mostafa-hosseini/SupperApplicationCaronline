@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
+import $ from "jquery";
 
 function Accordion({ data }) {
   const [activeItem, setActiveItem] = useState(false);
 
-  const clickHandler = (id) => setActiveItem(id);
+  const clickHandler = (id) => {
+    setActiveItem(id);
+  };
 
   return (
     <div className="custom-accordion-wrapper">
@@ -22,7 +25,16 @@ function Accordion({ data }) {
             <BiChevronLeft size={25} color="rgba(0,0,0,.54)" />
             {item.title}
           </div>
-          <div className="custom-accordion-body">{item.desc}</div>
+          <div
+            className="custom-accordion-body"
+            style={{
+              height: `${
+                item.id === activeItem ? $(`#${item.id}`).outerHeight() + 32 : 0
+              }px`,
+            }}
+          >
+            <div id={item.id}>{item.desc}</div>
+          </div>
         </div>
       ))}
     </div>

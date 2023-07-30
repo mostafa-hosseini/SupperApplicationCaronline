@@ -43,7 +43,7 @@ export default function Login() {
       //   setLoading(false);
       //   toast.success("با موفقیت وارد شدید!");
       //   navigate("/");
-      // }, 1000);
+      // }, 500);
     } else {
       if (!validatePhone(phonenumber)) {
         toast.error("لطفا شماره تماس خود را به درستی وارد کنید!");

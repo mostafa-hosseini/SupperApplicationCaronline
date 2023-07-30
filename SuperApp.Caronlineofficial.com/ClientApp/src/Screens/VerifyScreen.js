@@ -30,7 +30,7 @@ export default function VerifyScreen() {
                     seconds--;
                 }
                 setTimer(`${("0" + minutes).slice(-2)} : ${("0" + seconds).slice(-2)}`);
-            }, 1000);
+            }, 500);
         }
 
         const endTimer = () => {

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { DatePicker } from "zaman";
 import Loading from "../components/Loading";
 import http from "../api";
+import logo from "../assets/images/Icons/logo/caronline.png";
 
 export default function CompleteProfile() {
   const [loading, setLoading] = useState(false);
@@ -20,6 +21,7 @@ export default function CompleteProfile() {
   const [datePickerModal, setDatePickerModal] = useState(false);
   const api = http();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const submitHandler = (e) => {
     setLoading(true);
@@ -40,17 +42,23 @@ export default function CompleteProfile() {
     api.CompleteProfile(callback, input, errorHandler);
   };
 
+  // useEffect(() => {
+  //   if (!location?.state?.isRegistering) {
+  //     navigate("/");
+  //   }
+  // }, []);
+
   return (
     <Loading loading={loading}>
       <div className="login-wrapper">
         <div className="login-box form-box">
           <form onSubmit={submitHandler}>
             <div className="w-100 h-auto row justify-content-center">
-              <div className="col-12">
-                <div className="icon-aut d-flex justify-content-center">
-                  <FaUserPlus size={50} color="#000" />
+              <div className="col-12 d-flex flex-column align-items-center">
+                <div className="login-img">
+                  <img src={logo} alt="car online logo" />
                 </div>
-                <h3 className="text-center mt-2 w-100">تکمیل حساب کاربری</h3>
+                <h3 className="text-center m0-2 w-100">تکمیل حساب کاربری</h3>
               </div>
 
               <div className="col-12 col-lg-6 mt-3">

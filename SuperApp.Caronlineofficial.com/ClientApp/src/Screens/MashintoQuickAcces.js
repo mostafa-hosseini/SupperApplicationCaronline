@@ -18,7 +18,7 @@ export default function MashintoQuickAccess() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
