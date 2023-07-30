@@ -320,8 +320,8 @@ export function Home() {
                 src={require("../assets/images/Banners/05.jpg")}
                 height={"100%"}
                 effect="black-and-white"
-                style={{ position: "relative", minHeight: 150, maxHeight: 270 }}
                 placeholderSrc={defaultTest}
+                className="full-img"
               />
 
               {/* <div

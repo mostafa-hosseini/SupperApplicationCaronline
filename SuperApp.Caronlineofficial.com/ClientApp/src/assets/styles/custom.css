@@ -308,6 +308,12 @@ img {
   object-position: center;
 }
 
+.full-img {
+  object-fit: unset;
+  width: 100%;
+  height: auto;
+}
+
 .row-item {
   margin-bottom: 0.75rem;
 }
