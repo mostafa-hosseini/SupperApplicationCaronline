@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import React, { Component } from "react";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { BiLineChart, BiMobileAlt } from "react-icons/bi";
@@ -22,11 +22,27 @@ import { Navbar, NavbarBrand } from "reactstrap";
 // import { NavbarToggler } from "reactstrap";
 import "react-modern-drawer/dist/index.css";
 import { CiUser, CiWallet } from "react-icons/ci";
+import toast from "react-hot-toast";
 // import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const navigation = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLoggedIn(true);
+    }
+  }, []);
+
+  const logOutHandler = () => {
+    localStorage.removeItem("token");
+    navigation.push("/");
+    toast.success("با موفقیت خارج شدید!");
+  };
+
   return (
     <div>
       <header>
@@ -51,10 +67,27 @@ export default function Layout({ children }) {
             >
               <CiUser size={23} />
 
-              <ul>
-                <li><Link to="/Login">ورود</Link></li>
-                <li><Link to="/Register">ثبت نام</Link></li>
-              </ul>
+              {!loggedIn ? (
+                <ul>
+                  <li>
+                    <Link to="/Login">ورود</Link>
+                  </li>
+                  <li>
+                    <Link to="/Register">ثبت نام</Link>
+                  </li>
+                </ul>
+              ) : (
+                <ul>
+                  <li>
+                    <Link to="/Dashboard">داشبورد</Link>
+                  </li>
+                  <li>
+                    <a href="#" onClick={logOutHandler}>
+                      خروج
+                    </a>
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
 

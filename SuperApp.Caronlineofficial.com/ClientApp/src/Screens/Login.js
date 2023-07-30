@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/images/Icons/logo/caronline.png";
 import Loading from "../components/Loading";
 import toast from "react-hot-toast";
 import { validatePhone } from "../utils/validate";
 import { useNavigate } from "react-router-dom";
+import http from "../api/index";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [phonenumber, setPhonenumber] = useState("");
   const [password, setPassword] = useState("");
+
+  const api = http();
   const navigate = useNavigate();
 
   const submitPhone = (e) => {
@@ -17,11 +20,30 @@ export default function Login() {
     if (validatePhone(phonenumber) && password.trim().length) {
       setLoading(true);
 
-      setTimeout(() => {
+      const callback = ({ data }) => {
         setLoading(false);
-        toast.success("با موفقیت وارد شدید!");
-        navigate("/");
-      }, 1000);
+        if (data.isSuccess) {
+          localStorage.setItem("token", data.data);
+          navigate("/");
+        }
+      };
+
+      const errorHandler = (e) => {
+        setLoading(false);
+        console.log(e);
+      };
+
+      api.Login(
+        callback,
+        { phoneNumber: phonenumber, password: password, redirectUri: "" },
+        errorHandler
+      );
+
+      // setTimeout(() => {
+      //   setLoading(false);
+      //   toast.success("با موفقیت وارد شدید!");
+      //   navigate("/");
+      // }, 1000);
     } else {
       if (!validatePhone(phonenumber)) {
         toast.error("لطفا شماره تماس خود را به درستی وارد کنید!");
@@ -30,6 +52,15 @@ export default function Login() {
       }
     }
   };
+
+  useEffect(() => {
+    const _token = localStorage.getItem("token");
+
+    if (_token) {
+      navigate("/");
+      toast.error("شما در سایت وارد شده اید!");
+    }
+  }, []);
 
   return (
     <Loading opacity hasLogo={false} isLoading={loading}>

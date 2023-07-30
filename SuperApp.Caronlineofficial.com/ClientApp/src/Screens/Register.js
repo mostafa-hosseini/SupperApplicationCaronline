@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/images/Icons/logo/caronline.png";
 import Loading from "../components/Loading";
 import toast from "react-hot-toast";
@@ -11,6 +11,8 @@ export default function Login() {
   const [phonenumber, setPhonenumber] = useState("");
   const [code, setCode] = useState("");
   const [isCode, setIsCode] = useState(false);
+  // const [showTimer, setShowTimer] = useState(false);
+  // const [timer, setTimer] = useState("02 : 05");
 
   const navigate = useNavigate();
   const api = http();
@@ -24,17 +26,16 @@ export default function Login() {
 
         if (data.isSuccess) {
           setIsCode(true);
+          // setShowTimer(true);
         }
       };
 
-      api.Register(callback, { phone: phonenumber });
+      const errorHandler = (e) => {
+        setLoading(false);
+        console.log(e);
+      };
 
-      // setTimeout(() => {
-      //   setLoading(false);
-      //   toast.success("کد ورود برای شما ارسال شد!");
-      //   setIsCode(true);
-      //   // navigate("/");
-      // }, 1000);
+      api.Register(callback, { phone: phonenumber }, errorHandler);
     } else {
       toast.error("لطفا شماره تماس خود را به درستی وارد کنید!");
     }
@@ -44,11 +45,21 @@ export default function Login() {
     if (validatePhone(phonenumber) && code.trim().length) {
       setLoading(true);
 
-      setTimeout(() => {
+      const callback = ({ data }) => {
         setLoading(false);
-        toast.success("ثبت نام شما موفقیت آمیز بود!");
-        navigate("/CompleteProfile");
-      }, 1000);
+
+        if (data.isSuccess) {
+          navigate("/CompleteProfile");
+          localStorage.setItem("token", data.data.code);
+        }
+      };
+
+      const errorHandler = (e) => {
+        setLoading(false);
+        console.log(e);
+      };
+
+      api.Verify(callback, { phone: phonenumber, code: code }, errorHandler);
     } else {
       if (!validatePhone(phonenumber)) {
         toast.error("لطفا شماره تماس خود را به درستی وارد کنید!");
@@ -67,6 +78,56 @@ export default function Login() {
       submitPhone();
     }
   };
+
+  // const resetPasswordHandler = () => {
+  //   setShowTimer(true);
+  //   setTimer(""02 : 05"");
+  //   submitCode();
+  // };
+
+  // useEffect(() => {
+  //   const fullTime = 125;
+  //   let minutes = Math.floor(fullTime / 60);
+  //   let seconds = fullTime % 60;
+  //   let timer = undefined;
+
+  //   if (showTimer) {
+  //     timer = setInterval(() => {
+  //       if (seconds === 0) {
+  //         if (minutes === 0) {
+  //           endTimer();
+  //         } else {
+  //           seconds = 59;
+  //           minutes--;
+  //         }
+  //       } else {
+  //         seconds--;
+  //       }
+  //       setTimer(`${("0" + minutes).slice(-2)} : ${("0" + seconds).slice(-2)}`);
+  //     }, 1000);
+  //   }
+
+  //   const endTimer = () => {
+  //     if (timer) {
+  //       clearInterval(timer);
+  //     }
+  //     setShowTimer(false);
+  //     // Do Something when time is off.
+
+  //     console.log("time is over!");
+  //   };
+
+  //   return () => endTimer;
+  // }, [showTimer]);
+
+  useEffect(() => {
+    const _token = localStorage.getItem("token");
+
+    if (_token) {
+      navigate("/");
+      toast.error("شما در سایت وارد شده اید!");
+    }
+  }, []);
 
   return (
     <Loading opacity hasLogo={false} isLoading={loading}>
@@ -122,6 +183,21 @@ export default function Login() {
               >
                 ورود
               </button>
+
+              {/* {isCode && (
+                <p className="mb-0 mt-3 text-center ltr">
+                  {showTimer ? (
+                    timer
+                  ) : (
+                    <span
+                      className="reset-password"
+                      onClick={resetPasswordHandler}
+                    >
+                      ارسال مجدد کد
+                    </span>
+                  )}
+                </p>
+              )} */}
             </div>
           </form>
 

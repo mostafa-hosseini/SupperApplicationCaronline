@@ -19,7 +19,6 @@ export default function VerifyScreen() {
 
         if (showTimer) {
             timer = setInterval(() => {
-                console.log("hi");
                 if (seconds === 0) {
                     if (minutes === 0) {
                         endTimer();
