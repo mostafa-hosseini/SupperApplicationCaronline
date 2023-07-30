@@ -19,34 +19,12 @@ export default function ClinickAccess() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
     <Loading isLoading={loading}>
       <div className="row">
-        <div className="col-3">
-          <RowItem imgSrc={axasi} imgalt="عکاسی" title="عکاسی" to={"/"} />
-        </div>
-        <div className="col-3">
-          <RowItem imgSrc={app} imgalt="اپلیکیشن" title="اپلیکیشن" to={"/"} />
-        </div>
-        <div className="col-3">
-          <RowItem
-            imgSrc={brandsazi}
-            imgalt="برندسازی"
-            title="برندسازی"
-            to={"/"}
-          />
-        </div>
-        <div className="col-3">
-          <RowItem
-            imgSrc={catalog}
-            imgalt="کاتالوگ دیجیتال"
-            title="کاتالوگ دیجیتال"
-            to={"/"}
-          />
-        </div>
         <div className="col-3">
           <RowItem
             imgSrc={digitalmarketing}
@@ -55,20 +33,7 @@ export default function ClinickAccess() {
             to={"/"}
           />
         </div>
-        <div className="col-3">
-          <RowItem imgSrc={graphic} imgalt="گرافیک" title="گرافیک" to={"/"} />
-        </div>
-        <div className="col-3">
-          <RowItem
-            imgSrc={sabtbrand}
-            imgalt="ثبت برند"
-            title="ثبت برند"
-            to={"/"}
-          />
-        </div>
-        <div className="col-3">
-          <RowItem imgSrc={seo} imgalt="سئو" title="سئو" to={"/"} />
-        </div>
+
         <div className="col-3">
           <RowItem
             imgSrc={tarahi}
@@ -77,6 +42,20 @@ export default function ClinickAccess() {
             to={"/"}
           />
         </div>
+
+        <div className="col-3">
+          <RowItem imgSrc={seo} imgalt="سئو" title="سئو" to={"/"} />
+        </div>
+
+        <div className="col-3">
+          <RowItem
+            imgSrc={app}
+            imgalt="ساخت اپلیکیشن"
+            title="ساخت اپلیکیشن"
+            to={"/"}
+          />
+        </div>
+
         <div className="col-3">
           <RowItem
             imgSrc={teaser}
@@ -85,6 +64,16 @@ export default function ClinickAccess() {
             to={"/"}
           />
         </div>
+
+        <div className="col-3">
+          <RowItem
+            imgSrc={graphic}
+            imgalt="طراحی گرافیک"
+            title="طراحی گرافیک"
+            to={"/"}
+          />
+        </div>
+
         <div className="col-3">
           <RowItem
             imgSrc={tolidmohtava}
@@ -92,6 +81,37 @@ export default function ClinickAccess() {
             title="تولید محتوا"
             to={"/"}
           />
+        </div>
+
+        <div className="col-3">
+          <RowItem
+            imgSrc={catalog}
+            imgalt="کاتالوگ دیجیتال"
+            title="کاتالوگ دیجیتال"
+            to={"/"}
+          />
+        </div>
+
+        <div className="col-3">
+          <RowItem
+            imgSrc={brandsazi}
+            imgalt="برندسازی"
+            title="برندسازی"
+            to={"/"}
+          />
+        </div>
+
+        <div className="col-3">
+          <RowItem
+            imgSrc={sabtbrand}
+            imgalt="ثبت شرکت و برند"
+            title="ثبت شرکت و برند"
+            to={"/"}
+          />
+        </div>
+
+        <div className="col-3">
+          <RowItem imgSrc={axasi} imgalt="عکاسی" title="عکاسی" to={"/"} />
         </div>
       </div>
     </Loading>

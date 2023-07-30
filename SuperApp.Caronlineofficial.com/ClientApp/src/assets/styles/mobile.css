@@ -4,7 +4,7 @@
   }
   .abslout-icon {
     position: fixed;
-    bottom: -6vh;
+    bottom: -2vh;
     z-index: 9998;
     background: rgba(255, 255, 255, 0.423);
     border-radius: 16px;
@@ -13,6 +13,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     width: 350px;
+    max-width: 90vw;
     display: flex;
     justify-content: space-around;
     /* right: 30%; */
@@ -24,5 +25,16 @@
 
   .main-col {
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .dashboard-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dashboard-title h2 {
+    margin-top: 1rem;
   }
 }

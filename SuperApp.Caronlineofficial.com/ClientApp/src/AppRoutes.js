@@ -5,7 +5,7 @@ import Shop from "./Screens/Shop";
 import Login from "./Screens/Login";
 import Register from "./Screens/Register";
 import Dashboard from "./Screens/Dashboard";
-import VerifyScreen from "./Screens/VerifyScreen";
+// import VerifyScreen from "./Screens/VerifyScreen";
 import CompleteProfile from "./Screens/CompleteProfile";
 import ClinickAccess from "./Screens/ClinickAccess";
 
@@ -42,10 +42,10 @@ const AppRoutes = [
     path: "/Dashboard",
     element: <Dashboard />,
   },
-  {
-    path: "/Verify",
-    element: <VerifyScreen />,
-  },
+  // {
+  //   path: "/Verify",
+  //   element: <VerifyScreen />,
+  // },
   {
     path: "/CompleteProfile",
     element: <CompleteProfile />,

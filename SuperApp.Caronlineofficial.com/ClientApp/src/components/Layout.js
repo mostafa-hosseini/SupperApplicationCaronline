@@ -21,8 +21,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Navbar, NavbarBrand } from "reactstrap";
 // import { NavbarToggler } from "reactstrap";
 import "react-modern-drawer/dist/index.css";
-import { CiUser, CiWallet } from "react-icons/ci";
 import toast from "react-hot-toast";
+import userImg from "../assets/images/Icons/user.svg";
+import walletImg from "../assets/images/Icons/wallet.svg";
 // import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
@@ -56,16 +57,16 @@ export default function Layout({ children }) {
             <button
               // onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="btn menu-btn ms-2"
+              className="btn menu-btn img-icon ms-2"
             >
-              <CiWallet size={25} />
+              <img src={walletImg} alt="user icon" />
             </button>
 
             <div
               // onClick={() => setIsOpen(!isOpen)}
-              className="account-hover menu-btn"
+              className="account-hover menu-btn img-icon"
             >
-              <CiUser size={23} />
+              <img src={userImg} alt="user icon" />
 
               {!loggedIn ? (
                 <ul>
@@ -83,7 +84,7 @@ export default function Layout({ children }) {
                   </li>
                   <li>
                     <a href="#" onClick={logOutHandler}>
-                      خروج
+                      خروج از حساب
                     </a>
                   </li>
                 </ul>

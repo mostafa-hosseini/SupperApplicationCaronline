@@ -323,7 +323,6 @@ body {
   border-top: unset;
   border-left: unset;
   transform: rotate(45deg);
-
 }
 
 img {
@@ -516,7 +515,7 @@ img {
 
 .custom-accordion-item.active .custom-accordion-body {
   min-height: 100%;
-  height: 150px;
+  height: 180px;
   padding: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.18);
 }
@@ -587,6 +586,20 @@ img {
   box-shadow: -4px -4px 12px hsla(0, 0%, 100%, 0.7),
     -4px -4px 8px hsla(0, 0%, 100%, 0.5), 4px 4px 6px hsla(0, 0%, 100%, 0.075),
     4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn.img-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 40px;
+}
+
+.menu-btn.img-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: unset;
 }
 
 .menu-btn:active,
@@ -691,6 +704,11 @@ img {
   border: 1px solid #d6d6d6;
 }
 
+.login-box.form-box {
+  max-width: unset;
+  width: 100%;
+}
+
 .login-box .login-img {
   width: 35%;
   max-width: 120px;
@@ -740,6 +758,52 @@ img {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #e06569;
 }
 
+.btn-custom-success {
+  background: rgb(28, 217, 129);
+  background: linear-gradient(
+    135deg,
+    rgba(28, 217, 129, 1) 8%,
+    rgba(25, 135, 84, 1) 100%
+  );
+  color: #fff;
+  border-radius: 1.25rem;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in;
+}
+
+.btn-custom-success:active,
+.btn-custom-success:hover,
+.btn-custom-success:focus {
+  color: #fff !important;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #36fea1;
+}
+
+.btn-custom-primary {
+  background: rgb(18, 135, 252);
+  background: linear-gradient(
+    135deg,
+    rgba(18, 135, 252, 1) 13%,
+    rgba(27, 110, 194, 1) 100%
+  );
+  color: #fff;
+  border-radius: 1.25rem;
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in;
+}
+
+.btn-custom-primary:active,
+.btn-custom-primary:hover,
+.btn-custom-primary:focus {
+  color: #fff !important;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #36fea1;
+}
+
 .login-box .notes {
   font-size: 0.7em;
   font-weight: 100;
@@ -752,6 +816,34 @@ img {
   color: #c90101;
 }
 
+.dark-color {
+  color: #322733 !important;
+}
+
+.text-color {
+  color: #697085 !important;
+}
+
+.font-size-5x {
+  font-size: 3em !important;
+}
+
+.font-size-4x {
+  font-size: 2em !important;
+}
+
+.font-size-3x {
+  font-size: 1.5em !important;
+}
+
+.font-size-2x {
+  font-size: 1.25em !important;
+}
+
+.font-size-1x {
+  font-size: 1em !important;
+}
+
 .reset-password {
   cursor: pointer;
   font-size: 1em;
@@ -762,4 +854,10 @@ img {
 
 .reset-password:hover {
   color: #b20808;
+}
+
+.dashboard-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
