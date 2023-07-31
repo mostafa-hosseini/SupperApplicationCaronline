@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import http from "../api/index";
-import Loading from "./Loading";
+import SmallLoading from "./SmallLoading";
 import BlogListItem from "./BlogListItem";
 
-export default function NewsList({ id = 1 }) {
+export default function NewsList({ id = 1, onChange }) {
   const navigate = useNavigate();
   const api = http();
 
@@ -22,21 +22,30 @@ export default function NewsList({ id = 1 }) {
   //     );
   //   }, []);
 
+  useEffect(() => {
+    if (onChange) {
+      onChange();
+    }
+  }, [search]);
+
   return (
-    <Loading isLoading={loading}>
-      <div className="row">
-        <div className="col-12">
-          <input
-            type="text"
-            name="search-currency"
-            className="form-control back-ground mb-4 bg-white"
-            placeholder="جستجو در ارز ها"
-            id="news-search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-        {/* {news
+    <>
+      {loading ? (
+        <SmallLoading />
+      ) : (
+        <div className="row">
+          <div className="col-12">
+            <input
+              type="text"
+              name="search-currency"
+              className="form-control back-ground mb-4 bg-white"
+              placeholder="جستجو در اخبار"
+              id="news-search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          {/* {news
           .filter((item) => item.title.includes(search))
           .map((item) => (
             <>
@@ -81,7 +90,8 @@ export default function NewsList({ id = 1 }) {
               </div>
             </>
           ))} */}
-      </div>
-    </Loading>
+        </div>
+      )}
+    </>
   );
 }
