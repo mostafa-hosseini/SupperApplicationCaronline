@@ -1,13 +1,14 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function BlogListItem({ imgSrc, disc, date }) {
+function BlogListItem({ imgSrc, title = "", disc, date }) {
   return (
     <div className="car-slider-item">
       <LazyLoadImage
         src={imgSrc}
         effect="black-and-white"
         wrapperClassName="car-lazy-loader"
+        alt={title ? title : "no alt"}
       />
 
       <div className="w-100 blur">

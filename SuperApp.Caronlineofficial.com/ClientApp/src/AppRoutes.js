@@ -11,6 +11,7 @@ import ClinickAccess from "./Screens/ClinickAccess";
 import Faq from "./Screens/Faq";
 import AboutUs from "./Screens/AboutUs";
 import ContactUs from "./ContactUs";
+import Crypto from "./Screens/Crypto";
 
 const AppRoutes = [
   {
@@ -64,6 +65,10 @@ const AppRoutes = [
   {
     path: "/Contact-Us",
     element: <ContactUs />,
+  },
+  {
+    path: "/Crypto",
+    element: <Crypto />,
   },
 ];
 
