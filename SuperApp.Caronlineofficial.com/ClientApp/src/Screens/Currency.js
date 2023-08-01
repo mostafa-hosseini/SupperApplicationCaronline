@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import CustomTab from "../components/CustomTab";
-import GoldList from "../components/GoldList";
-import CoinList from "../components/CoinList";
+import CurrencyList from "../components/CurrencyList";
 // import NewsList from "../components/NewsList";
 import CryptoAnalysis from "./CryptoAnalysis";
 
@@ -21,14 +20,9 @@ function Crypto(props) {
         <CustomTab
           setLoading={setLoading}
           data={[
-            {
-              title: "قیمت طلا و فلزات گرانبها",
-              Component: <GoldList />,
-              id: "tab-1",
-            },
-            { title: "قیمت سکه", Component: <CoinList />, id: "tab-2" },
-            // { title: "اخبار", Component: <NewsList id="1" />, id: "tab-3" },
-            { title: "تحلیل ها", Component: <CryptoAnalysis />, id: "tab-4" },
+            { title: "قیمت ها", Component: <CurrencyList />, id: "tab-1" },
+            // { title: "اخبار", Component: <NewsList id="1" />, id: "tab-2" },
+            { title: "تحلیل ها", Component: <CryptoAnalysis />, id: "tab-3" },
           ]}
         />
       </div>
