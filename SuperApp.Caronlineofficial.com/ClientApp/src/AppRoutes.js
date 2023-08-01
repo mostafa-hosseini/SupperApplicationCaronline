@@ -17,6 +17,7 @@ import Forex from "./Screens/Forex";
 import Market from "./Screens/Market";
 import Gold from "./Screens/Gold";
 import Currency from "./Screens/Currency";
+import RealEstate from "./Screens/RealEstate";
 import DetailNews from "./Screens/DetailNews";
 
 const AppRoutes = [
@@ -79,6 +80,10 @@ const AppRoutes = [
   {
     path: "/Currency",
     element: <Currency />,
+  },
+  {
+    path: "/RealEstate",
+    element: <RealEstate />,
   },
   {
     path: "/News/:id",
