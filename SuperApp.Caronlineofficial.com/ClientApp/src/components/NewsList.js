@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import http from "../api/index";
+import http from "../api/testApi";
 import SmallLoading from "./SmallLoading";
 import BlogListItem from "./BlogListItem";
 
@@ -8,19 +8,19 @@ export default function NewsList({ id = 1, onChange }) {
   const navigate = useNavigate();
   const api = http();
 
-  const [news, setNews] = useState(["1", "2"]);
-  const [loading, setLoading] = useState(false);
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  //   useEffect(() => {
-  //     api.GetNews(
-  //       ({ data }) => {
-  //         setNews(data);
-  //         setLoading(false);
-  //       },
-  //       { categoryId: id }
-  //     );
-  //   }, []);
+  useEffect(() => {
+    api.GetNews(
+      ({ data }) => {
+        setNews(data.data);
+        setLoading(false);
+      },
+      { categoryId: id }
+    );
+  }, []);
 
   useEffect(() => {
     if (onChange) {
@@ -33,7 +33,7 @@ export default function NewsList({ id = 1, onChange }) {
       {loading ? (
         <SmallLoading />
       ) : (
-        <div className="row">
+        <div className="row pt-4">
           <div className="col-12">
             <input
               type="text"
@@ -45,42 +45,10 @@ export default function NewsList({ id = 1, onChange }) {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          {/* {news
-          .filter((item) => item.title.includes(search))
-          .map((item) => (
-            <>
-              <div className="col-12 col-md-6 mb-3 col-lg-4 mb-2 ">
-                <div
-                  className="row w-100 news-item"
-                  onClick={() =>
-                    navigate("/DetailNews/" + item.id, {
-                      state: { news: item },
-                    })
-                  }
-                >
-                  <div className="col-4 p-0">
-                    <img
-                      className="w-100"
-                      style={{ borderRadius: 15, height: 100 }}
-                      src={item.imageSrc}
-                      alt={item.title}
-                    />
-                  </div>
-                  <div className="col-8">
-                    <h5 className="text-right">{item.title}</h5>
-                    <h6 className="text-right mt-4">{item.type}</h6>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="col-12 col-md-6 mb-3"
-                onClick={() =>
-                  navigate("/DetailNews/" + item.id, {
-                    state: { news: item },
-                  })
-                }
-              >
+          {news
+            .filter((item) => item.title.includes(search))
+            .map((item) => (
+              <div className="col-12 col-lg-6 mb-3 col-lg-4 mb-2 ">
                 <BlogListItem
                   imgSrc={item.imageSrc}
                   title={item.title}
@@ -88,8 +56,7 @@ export default function NewsList({ id = 1, onChange }) {
                   date={item.type}
                 />
               </div>
-            </>
-          ))} */}
+            ))}
         </div>
       )}
     </>

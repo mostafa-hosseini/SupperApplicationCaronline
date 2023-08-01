@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaUserPlus } from "react-icons/fa";
+// import { FaUserPlus } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import { DatePicker } from "zaman";
 import Loading from "../components/Loading";
@@ -42,15 +42,15 @@ export default function CompleteProfile() {
     api.CompleteProfile(callback, input, errorHandler);
   };
 
-  // useEffect(() => {
-  //   if (!location?.state?.isRegistering) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!location?.state?.isRegistering) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <Loading loading={loading}>
-      <div className="login-wrapper">
+      <div className="login-wrapper mb-5">
         <div className="login-box form-box">
           <form onSubmit={submitHandler}>
             <div className="w-100 h-auto row justify-content-center">
@@ -210,7 +210,7 @@ export default function CompleteProfile() {
                   id=""
                 />
               </div>
-              <div className="col-12 col-lg-6 mt-3">
+              <div className="col-12 col-lg-6 mt-4">
                 <button
                   type="submit"
                   className="btn btn-login btn-block w-100 p-2"

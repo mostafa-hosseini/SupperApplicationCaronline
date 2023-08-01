@@ -3,6 +3,7 @@ import Loading from "../components/Loading";
 import CustomTab from "../components/CustomTab";
 import CryptoList from "../components/CryptoList";
 import NewsList from "../components/NewsList";
+import CryptoAnalysis from "./CryptoAnalysis";
 
 function Crypto(props) {
   const [loading, setLoading] = useState(true);
@@ -15,11 +16,16 @@ function Crypto(props) {
 
   return (
     <Loading isLoading={loading}>
-      <CustomTab
-        setLoading={setLoading}
-        tabNames={["نمای بازار", "اخبار", "تحلیل ها"]}
-        tabComponents={[CryptoList, NewsList, CryptoList]}
-      />
+      <div className="mb-4">
+        <CustomTab
+          setLoading={setLoading}
+          data={[
+            { title: "نمای بازار", Component: CryptoList, id: "tab-1" },
+            { title: "اخبار", Component: NewsList, id: "tab-2" },
+            { title: "تحلیل ها", Component: CryptoAnalysis, id: "tab-3" },
+          ]}
+        />
+      </div>
     </Loading>
   );
 }

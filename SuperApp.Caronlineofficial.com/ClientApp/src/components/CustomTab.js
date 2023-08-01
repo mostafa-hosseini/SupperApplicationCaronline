@@ -1,47 +1,36 @@
-import React, { useState, useEffect } from "react";
-import $ from "jquery";
+import React, { useState } from "react";
 
-function CustomTab({ tabNames, tabComponents, ...props }) {
-  const [activeId, setActiveId] = useState(0);
-  const [height, setHeight] = useState(150);
-
-  const resetHeight = () => {
-    const h = $(`#tab-${activeId}`).outerHeight() + 32;
-    setHeight(h);
-  };
-
-  useEffect(() => {
-    resetHeight();
-  }, [activeId]);
+function CustomTab({ data, ...props }) {
+  const [activeId, setActiveId] = useState("tab-1");
 
   return (
     <div className="custom-tab">
       <div className="tabs-wrapper">
-        {tabNames.map((name, index) => (
+        {data.map((item) => (
           <div
-            key={index}
-            className={`tab-btn${index === activeId ? " active" : ""}`}
-            onClick={() => setActiveId(index)}
+            key={item.id}
+            id={item.id}
+            className={`tab-btn${item.id === activeId ? " active" : ""}`}
+            onClick={() => setActiveId(item.id)}
           >
-            {name}
+            {item.title}
           </div>
         ))}
       </div>
-      <div className="tab-body" style={{ height: height }}>
-        {tabComponents.map((Component, index) => {
-          const changeHandler = activeId === index ? resetHeight : undefined;
-          return (
-            <div
-              key={index}
-              id={"tab-" + index}
-              className={`tab-body-wrapper${
-                activeId === index ? " active" : ""
-              }`}
-            >
-              <Component onChange={changeHandler} {...props} />
-            </div>
-          );
-        })}
+      <div className="tab-body">
+        {data
+          .filter((item) => item.id === activeId)
+          .map((item) => {
+            return (
+              <div
+                key={item.id}
+                id={"tab-" + item.id}
+                className="tab-body-wrapper active"
+              >
+                <item.Component {...props} />
+              </div>
+            );
+          })}
       </div>
     </div>
   );

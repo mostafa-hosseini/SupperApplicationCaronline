@@ -4,7 +4,7 @@ import priceNumber from "../utils/priceNumber";
 import SmallLoading from "./SmallLoading";
 // import { useNavigate } from "react-router-dom";
 
-function CryptoList({ onChange }) {
+function CryptoList() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
@@ -19,7 +19,6 @@ function CryptoList({ onChange }) {
         const data = await res.json();
         setCoins(data);
         setLoading(false);
-        
       } catch (e) {
         setLoading(false);
         toast.error("مشکلی رخ داده.\n لطفا دوباره تلاش کنید.");
@@ -30,18 +29,12 @@ function CryptoList({ onChange }) {
     loadData();
   }, []);
 
-  useEffect(() => {
-    if (onChange) {
-      onChange();
-    }
-  }, [search, coins]);
-
   if (loading) {
     return <SmallLoading />;
   }
 
   return (
-    <>
+    <div className="pt-4">
       {!coins.length ? (
         <p className="text-center font-size-3x my-4">ارزی پیدا نشد!</p>
       ) : (
@@ -114,7 +107,7 @@ function CryptoList({ onChange }) {
             ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

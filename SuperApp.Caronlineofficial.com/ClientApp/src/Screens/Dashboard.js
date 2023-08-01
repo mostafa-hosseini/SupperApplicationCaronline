@@ -36,7 +36,7 @@ export default function Dashboard() {
 
   return (
     <Loading isLoading={loaded}>
-      <div className="w-100 h-auto p-4 back-ground mt-5 row dashboard-title">
+      <div className="w-100 h-auto p-4 back-ground row dashboard-title">
         <div className="col-auto">
           <div className="icon-aut ">
             <FaUser size={50} color="#000" />
@@ -77,7 +77,7 @@ export default function Dashboard() {
         <div className="w-100"></div>
       </div>
 
-      <div className="w-100 h-auto p-4 back-ground mt-3 row align-items-center">
+      <div className="w-100 h-auto p-4 back-ground my-3 row align-items-center">
         <div className="col-12 d-flex align-items-center justify-content-center mb-3">
           <button className="btn btn-custom-primary px-5 d-flex align-items-center">
             <FaUserEdit size={35} style={{ marginLeft: "10" }} />
