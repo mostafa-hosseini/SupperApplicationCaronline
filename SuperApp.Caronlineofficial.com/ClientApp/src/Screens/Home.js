@@ -34,6 +34,7 @@ import BannerSliderItem from "../components/BannerSliderItem";
 import Accordion from "../components/Accordion";
 import AdSliderItem from "../components/AdSliderItem";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const [loading, setLoading] = useState(true);
@@ -72,8 +73,7 @@ export function Home() {
                 imgSrc={bimeh}
                 imgalt="بیمه"
                 title="بیمه"
-                to={"/املاک"}
-              />
+                to={"https://bimehato.com/"} />
             </div>
 
             <div className="col-3">
@@ -81,7 +81,7 @@ export function Home() {
                 imgSrc={froshgah}
                 imgalt="فروشگاه"
                 title="فروشگاه"
-                to={"/املاک"}
+                to={"/فروشگاه"}
               />
             </div>
 
@@ -90,7 +90,7 @@ export function Home() {
                 imgSrc={moshavereh}
                 imgalt="مشاوره"
                 title="مشاوره"
-                to={"/املاک"}
+                to={"https://mashverato.com"}
               />
             </div>
 
@@ -99,7 +99,7 @@ export function Home() {
                 imgSrc={game}
                 imgalt="سرگرمی"
                 title="سرگرمی"
-                to={"/املاک"}
+                to={"https://navar.live"}
               />
             </div>
 
@@ -108,7 +108,7 @@ export function Home() {
                 imgSrc={amoozesh}
                 imgalt="آموزش"
                 title="آموزش"
-                to={"/املاک"}
+                to={"https://academy.caronlineofficial.com"}
               />
             </div>
 
@@ -117,7 +117,7 @@ export function Home() {
                 imgSrc={sarmaye}
                 imgalt="سرمایه گذاری"
                 title="سرمایه گذاری"
-                to={"/املاک"}
+                to={"https://club.caronlineofficial.com"}
               />
             </div>
 
@@ -181,7 +181,7 @@ export function Home() {
           >
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <AdSliderItem
                 imgSrc={require("../assets/images/Banners/01.jpg")}
@@ -191,7 +191,7 @@ export function Home() {
 
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <AdSliderItem
                 imgSrc={require("../assets/images/Banners/02.jpg")}
@@ -201,7 +201,7 @@ export function Home() {
 
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <LazyLoadImage
                 width={"100%"}
@@ -240,7 +240,7 @@ export function Home() {
                   slidesPerView: 2.2,
                 },
               }}
-              // className="new-car-slider-container"
+            // className="new-car-slider-container"
             >
               <SwiperSlide key="1w">
                 <BlogListItem
@@ -521,42 +521,58 @@ export function Home() {
 
       <div className="abslout-icon">
         <div className="col-3 row">
-          <div
-            onClick={() => {}}
-            className={`col-auto mx-auto d-flex align-items-center `}
-          >
-            <img src={mashinto} className="w-100 img-logo" alt="" />
-          </div>
-          <h6 className="text-center mt-2 text-mobile p-0">ماشین تو</h6>
+          <Link to={"https://mashinto.com"} target={"_self"}>
+
+            <div
+              onClick={() => { }}
+              className={`col-auto mx-auto d-flex align-items-center `}
+            >
+              <img src={mashinto} className="w-100 img-logo" alt="" />
+            </div>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">ماشین تو</h6>
+          </Link>
+        </div>
+
+
+        <div className="col-3 row">
+          <Link to={"https://amlakto.com"} target={"_self"}>
+
+            <div
+              onClick={() => { }}
+              className={`col-auto mx-auto  d-flex align-items-center `}
+            >
+              <img src={amlakto} className="w-100 img-logo" alt="" />
+            </div>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">املاک تو</h6>
+          </Link>
         </div>
 
         <div className="col-3 row">
-          <div
-            onClick={() => {}}
-            className={`col-auto mx-auto  d-flex align-items-center `}
-          >
-            <img src={amlakto} className="w-100 img-logo" alt="" />
-          </div>
-          <h6 className="text-center mt-2 text-mobile p-0">املاک تو</h6>
+          <Link to={"https://mashverato.com"} target={"_self"}>
+
+            <div
+              onClick={() => { }}
+              className={`col-auto mx-auto  d-flex align-items-center `}
+            >
+              <img src={moshaverto} className="w-100 img-logo" alt="" />
+            </div>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">مشورتو</h6>
+          </Link>
         </div>
+
         <div className="col-3 row">
-          <div
-            onClick={() => {}}
-            className={`col-auto mx-auto  d-flex align-items-center `}
-          >
-            <img src={moshaverto} className="w-100 img-logo" alt="" />
-          </div>
-          <h6 className="text-center mt-2 text-mobile p-0">مشورتو</h6>
+          <Link to={"https://mashinto.com/shop"} target={"_self"}>
+
+            <div
+              onClick={() => { }}
+              className={`col-auto mx-auto  d-flex align-items-center `}
+            >
+              <img src={kalato} className="w-100 img-logo" alt="" />
+            </div>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">کالاتو</h6>
+          </Link>
         </div>
-        <div className="col-3 row">
-          <div
-            onClick={() => {}}
-            className={`col-auto mx-auto  d-flex align-items-center `}
-          >
-            <img src={kalato} className="w-100 img-logo" alt="" />
-          </div>
-          <h6 className="text-center mt-2 text-mobile p-0">کالاتو</h6>
-        </div>
+
       </div>
     </Loading>
   );

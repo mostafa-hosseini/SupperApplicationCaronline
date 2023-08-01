@@ -22,6 +22,7 @@ import RealEstate from "./Screens/RealEstate";
 import CommodityExchange from "./Screens/CommodityExchange";
 import NewsPaper from "./Screens/NewsPaper";
 import DetailNews from "./Screens/DetailNews";
+import ShopQuikAccess from "./Screens/ShopQuikAccess";
 
 const AppRoutes = [
   {
@@ -29,8 +30,8 @@ const AppRoutes = [
     element: <Home />,
   },
   {
-    path: "/Shop",
-    element: <Shop />,
+    path: "/فروشگاه",
+    element: <ShopQuikAccess />,
   },
   {
     path: "/خودرو",

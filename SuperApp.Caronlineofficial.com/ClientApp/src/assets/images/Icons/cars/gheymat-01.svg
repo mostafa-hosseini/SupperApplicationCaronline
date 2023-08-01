@@ -6,9 +6,9 @@
 	.st0{fill:url(#SVGID_1_);}
 	.st1{fill:#FFFFFF;}
 </style>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1.841" y1="9.0792" x2="62.805" y2="55.6504">
-	<stop  offset="0.3374" style="stop-color:#76DFFF"/>
-	<stop  offset="1" style="stop-color:#0483AF"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1.8445" y1="-5547.7832" x2="62.8085" y2="-5594.3545" gradientTransform="matrix(1 0 0 -1 0 -5538.7095)">
+	<stop  offset="0" style="stop-color:#4565EE"/>
+	<stop  offset="1" style="stop-color:#1237B7"/>
 </linearGradient>
 <path class="st0" d="M46.6,65H18.4C8.2,65,0,56.8,0,46.6V18.4C0,8.2,8.2,0,18.4,0h28.3C56.8,0,65,8.2,65,18.4v28.3
 	C65,56.8,56.8,65,46.6,65z"/>
