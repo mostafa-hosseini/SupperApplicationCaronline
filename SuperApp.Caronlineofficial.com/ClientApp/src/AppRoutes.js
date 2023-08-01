@@ -15,6 +15,7 @@ import ReportError from "./Screens/ReportError";
 import Crypto from "./Screens/Crypto";
 import Forex from "./Screens/Forex";
 import Market from "./Screens/Market";
+import Gold from "./Screens/Gold";
 import DetailNews from "./Screens/DetailNews";
 
 const AppRoutes = [
@@ -69,6 +70,10 @@ const AppRoutes = [
   {
     path: "/Market",
     element: <Market />,
+  },
+  {
+    path: "/Gold",
+    element: <Gold />,
   },
   {
     path: "/News/:id",

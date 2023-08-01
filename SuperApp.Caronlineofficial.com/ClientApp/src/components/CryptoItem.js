@@ -10,6 +10,7 @@ function CryptoItem({
   desc,
   CurrentPrice,
   CurrentPriceStyle = true,
+  rtlCurrentPrice = false,
   thirdText = "",
 }) {
   return (
@@ -47,7 +48,7 @@ function CryptoItem({
           <p className="text-name mb-0">{desc}</p>
 
           <p
-            className={`text-price ltr mb-0${
+            className={`text-price ${!rtlCurrentPrice ? "" : "ltr"} mb-0${
               CurrentPriceStyle ? " text-success" : " text-danger"
             }`}
           >
