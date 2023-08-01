@@ -27,7 +27,7 @@ function CustomTab({ data, ...props }) {
                 id={"tab-" + item.id}
                 className="tab-body-wrapper active"
               >
-                <item.Component {...props} />
+                {item.Component}
               </div>
             );
           })}

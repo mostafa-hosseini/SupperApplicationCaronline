@@ -13,6 +13,7 @@ import AboutUs from "./Screens/AboutUs";
 import ContactUs from "./Screens/ContactUs";
 import ReportError from "./Screens/ReportError";
 import Crypto from "./Screens/Crypto";
+import DetailNews from "./Screens/DetailNews";
 
 const AppRoutes = [
   {
@@ -58,6 +59,10 @@ const AppRoutes = [
   {
     path: "/Crypto",
     element: <Crypto />,
+  },
+  {
+    path: "/News/:id",
+    element: <DetailNews />,
   },
   {
     path: "/Faq",
