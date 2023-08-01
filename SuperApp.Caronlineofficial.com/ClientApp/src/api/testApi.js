@@ -669,7 +669,7 @@ export default function http() {
     },
     GetNewsPaper: (callback, id, errCallback) => {
       return instance
-        .get(`https://localhost:5001/api/Jaar/GetData?id=${id}`)
+        .get(`/Jaar/GetData?id=${id}`)
         .then((data) => {
           callback(data);
           success_display(data.data);

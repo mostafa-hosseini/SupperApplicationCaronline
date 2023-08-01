@@ -19,6 +19,7 @@ import Gold from "./Screens/Gold";
 import Currency from "./Screens/Currency";
 import RealEstate from "./Screens/RealEstate";
 import CommodityExchange from "./Screens/CommodityExchange";
+import NewsPaper from "./Screens/NewsPaper";
 import DetailNews from "./Screens/DetailNews";
 
 const AppRoutes = [
@@ -89,6 +90,10 @@ const AppRoutes = [
   {
     path: "/CommodityExchange",
     element: <CommodityExchange />,
+  },
+  {
+    path: "/NewsPaper",
+    element: <NewsPaper />,
   },
   {
     path: "/News/:id",

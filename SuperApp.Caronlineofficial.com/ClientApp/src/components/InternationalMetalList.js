@@ -41,8 +41,8 @@ function SuperMarketList() {
                 noTopPriceStyle
                 CurrentPrice={
                   item.percent +
-                  `${item.type == "high" ? "+" : ""} ${
-                    item.type == "low" ? "-" : ""
+                  `${item.type === "high" ? "+" : ""} ${
+                    item.type === "low" ? "-" : ""
                   }`
                 }
                 rtlCurrentPrice
