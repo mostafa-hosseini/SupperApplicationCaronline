@@ -5,10 +5,12 @@ function CryptoItem({
   name,
   topPrice,
   noTopPriceStyle = false,
+  rtlTopPrice = false,
   topPriceStyle = true,
   desc,
   CurrentPrice,
   CurrentPriceStyle = true,
+  thirdText = "",
 }) {
   return (
     <div
@@ -29,7 +31,7 @@ function CryptoItem({
         <div className="text-row">
           <p className="text-name mb-2">{name}</p>
           <p
-            className={`text-price ltr mb-2${
+            className={`text-price${rtlTopPrice ? "" : " ltr "}mb-2${
               !noTopPriceStyle
                 ? topPriceStyle
                   ? " text-success"
@@ -52,6 +54,14 @@ function CryptoItem({
             {CurrentPrice ? CurrentPrice : "بدون قیمت"}
           </p>
         </div>
+
+        {thirdText ? (
+          <div className="text-row mt-2">
+            <p className="text-name mb-0">{thirdText}</p>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

@@ -5,15 +5,14 @@ import SmallLoading from "./SmallLoading";
 import CryptoItem from "./CryptoItem";
 // import { useNavigate } from "react-router-dom";
 
-function ForexList() {
+function SuperMarketList() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  //   const navigate = useNavigate();
   const api = http();
 
-  //   const navigate = useNavigate();
-
   useEffect(() => {
-    api.DiffCurrency(({ data }) => {
+    api.OTCPrice(({ data }) => {
       setLoading(false);
       setData(data);
     }, "");
@@ -35,14 +34,16 @@ function ForexList() {
               key={index}
             >
               <CryptoItem
-                name={item.name}
-                desc={item.time}
-                topPrice={"$" + item.price}
+                name={item.nikName}
+                desc={item.name}
+                topPrice={priceNumber(item.lastPrice) + "ریال"}
+                rtlTopPrice
                 noTopPriceStyle
-                CurrentPrice={`${item.type === "high" ? "+" : ""} ${
-                  item.type === "low" ? "-" : ""
-                } ${item.percent}`}
-                CurrentPriceStyle={item.type === "high"}
+                CurrentPriceStyle={item.type.includes("up")}
+                CurrentPrice={`${item.type.includes("up") ? "+" : ""} ${
+                  item.type.includes("down") ? "-" : ""
+                } ${item.percent} %`}
+                thirdText={item.time}
               />
             </div>
           ))}
@@ -52,4 +53,4 @@ function ForexList() {
   );
 }
 
-export default ForexList;
+export default SuperMarketList;

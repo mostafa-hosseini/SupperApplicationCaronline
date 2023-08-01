@@ -1011,7 +1011,7 @@ img {
   align-items: flex-start;
   padding: 1rem 0.5rem;
   border-radius: 0.5rem;
-  max-width: 300px;
+  /* max-width: 300px; */
   box-shadow: -2px 2px 6px hsla(0, 0%, 0%, 0.1);
   transition: all 0.3s ease-in;
   height: calc(100% - 0.5rem);
