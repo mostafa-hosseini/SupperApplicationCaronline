@@ -19,6 +19,7 @@ function CryptoList({ onChange }) {
         const data = await res.json();
         setCoins(data);
         setLoading(false);
+        
       } catch (e) {
         setLoading(false);
         toast.error("مشکلی رخ داده.\n لطفا دوباره تلاش کنید.");
@@ -33,7 +34,7 @@ function CryptoList({ onChange }) {
     if (onChange) {
       onChange();
     }
-  }, [search]);
+  }, [search, coins]);
 
   if (loading) {
     return <SmallLoading />;
@@ -71,7 +72,7 @@ function CryptoList({ onChange }) {
                 key={item.id}
               >
                 <div
-                  className="crypto-item m-0"
+                  className="crypto-item"
                   onClick={() =>
                     // navigate(`/crypto/${item.symbol}`, { state: { coin: item } })
                     console.log("hi")

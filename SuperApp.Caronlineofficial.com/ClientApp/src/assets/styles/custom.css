@@ -476,6 +476,7 @@ img {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   margin: 1rem 0;
   border-radius: 0.75rem;
+  background-color: #fff;
 }
 
 .custom-accordion-wrapper .custom-accordion-item {
@@ -869,6 +870,10 @@ img {
   font-size: 1em !important;
 }
 
+.font-size-small {
+  font-size: 0.9em !important;
+}
+
 .reset-password {
   cursor: pointer;
   font-size: 1em;
@@ -942,10 +947,11 @@ img {
 }
 
 .about-us-box {
-  background-color: #f7f7f7;
+  background-color: #fff;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   margin-bottom: 2rem;
+  border-radius: 1rem;
 }
 
 .about-us-box .title {
@@ -958,6 +964,7 @@ img {
   font-size: 1em;
   font-weight: 400;
   color: #424750;
+  margin-bottom: 0;
 }
 
 .link {
@@ -998,12 +1005,13 @@ img {
   align-items: flex-start;
   padding: 1rem 0.5rem;
   border-radius: 0.5rem;
-  height: 100%;
   max-width: 300px;
   box-shadow: -2px -2px 6px hsla(0, 0%, 100%, 0.6),
     -2px -2px 4px hsla(0, 0%, 100%, 0.4), 2px 2px 2px hsla(0, 0%, 100%, 0.05),
     2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in;
+  height: calc(100% - 0.5rem);
+  margin-bottom: 0.5rem;
 }
 
 .crypto-item:hover {
@@ -1084,4 +1092,27 @@ img {
 .tab-body-wrapper.active {
   opacity: 1;
   visibility: visible;
+}
+
+.bg-light-custom {
+  background-color: #f7f7f7;
+}
+
+.contact-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  box-shadow: -4px -4px 12px hsla(0, 0%, 100%, 0.7),
+    -4px -4px 8px hsla(0, 0%, 100%, 0.5), 4px 4px 6px hsla(0, 0%, 100%, 0.075),
+    4px 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+.contact-box .contact-text span {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #333333;
+  display: block;
 }

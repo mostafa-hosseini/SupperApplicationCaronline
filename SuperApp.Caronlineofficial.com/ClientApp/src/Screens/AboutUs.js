@@ -3,7 +3,7 @@ import logo from "../assets/images/Icons/logo/caronline.png";
 
 function AboutUs(props) {
   return (
-    <>
+    <div className="back-ground bg-light-custom h-auto px-3 mb-5 mt-3 py-4">
       <div className="faq-header mb-5">
         <img src={logo} alt="faq icon" />
         <h3 className="title">ما کی هستیم؟</h3>
@@ -77,7 +77,7 @@ function AboutUs(props) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

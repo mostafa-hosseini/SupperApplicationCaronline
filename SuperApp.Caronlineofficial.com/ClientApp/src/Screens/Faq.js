@@ -4,7 +4,7 @@ import logo from "../assets/images/Icons/logo/caronline.png";
 
 function Faq(props) {
   return (
-    <div>
+    <div className="back-ground h-auto bg-light-custom p-3">
       <div className="faq-header">
         <img src={logo} alt="faq icon" />
         <h3 className="title">سولات متداول</h3>

@@ -6,7 +6,7 @@ function CustomTab({ tabNames, tabComponents, ...props }) {
   const [height, setHeight] = useState(150);
 
   const resetHeight = () => {
-    const h = $(`#tab-${activeId}`).outerHeight();
+    const h = $(`#tab-${activeId}`).outerHeight() + 32;
     setHeight(h);
   };
 

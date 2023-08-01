@@ -45,9 +45,7 @@ export function Home() {
   }, []);
 
   return (
-    <Loading
-     isLoading={loading}
-     >
+    <Loading isLoading={loading}>
       <div className="main-page">
         <section className="w-100">
           <div className="row">
@@ -129,6 +127,15 @@ export function Home() {
                 imgalt="کلینیک کسب و کار"
                 title="کلینیک کسب و کار"
                 to={"/کلینیک-کسب-و-کار"}
+              />
+            </div>
+
+            <div className="col-3">
+              <RowItem
+                imgSrc={cars}
+                imgalt="کریپتو و ارز دیجیتال"
+                title="کریپتو و ارز دیجیتال"
+                to={"/Crypto"}
               />
             </div>
           </div>

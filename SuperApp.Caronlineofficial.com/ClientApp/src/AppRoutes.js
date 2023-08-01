@@ -10,7 +10,8 @@ import CompleteProfile from "./Screens/CompleteProfile";
 import ClinickAccess from "./Screens/ClinickAccess";
 import Faq from "./Screens/Faq";
 import AboutUs from "./Screens/AboutUs";
-import ContactUs from "./ContactUs";
+import ContactUs from "./Screens/ContactUs";
+import ReportError from "./Screens/ReportError";
 import Crypto from "./Screens/Crypto";
 
 const AppRoutes = [
@@ -55,6 +56,10 @@ const AppRoutes = [
     element: <CompleteProfile />,
   },
   {
+    path: "/Crypto",
+    element: <Crypto />,
+  },
+  {
     path: "/Faq",
     element: <Faq />,
   },
@@ -67,8 +72,8 @@ const AppRoutes = [
     element: <ContactUs />,
   },
   {
-    path: "/Crypto",
-    element: <Crypto />,
+    path: "/Report-error",
+    element: <ReportError />,
   },
 ];
 
