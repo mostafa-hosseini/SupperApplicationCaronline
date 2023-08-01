@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import priceNumber from "../utils/priceNumber";
 import SmallLoading from "./SmallLoading";
+import CryptoItem from "./CryptoItem";
 // import { useNavigate } from "react-router-dom";
 
 function CryptoList() {
@@ -59,50 +60,22 @@ function CryptoList() {
                   .toLocaleLowerCase()
                   .includes(search.toLocaleLowerCase())
             )
-            .map((item) => (
+            .map((item,index) => (
               <div
                 className="col-12 col-lg-6 mb-2 row justify-content-center"
-                key={item.id}
+                key={index}
               >
-                <div
-                  className="crypto-item"
-                  onClick={() =>
-                    // navigate(`/crypto/${item.symbol}`, { state: { coin: item } })
-                    console.log("hi")
+                <CryptoItem
+                  imgSrc={item.image}
+                  name={item.name}
+                  topPrice={
+                    Number(item.price_change_percentage_24h).toFixed(2) + "%"
                   }
-                >
-                  <div className="crypto-img">
-                    <img src={item.image} alt={item.name} />
-                  </div>
-                  <div className="crupto-text">
-                    <div className="text-row">
-                      <p className="text-name mb-2">{item.name}</p>
-                      <p
-                        className={`text-price mb-2${
-                          item.price_change_percentage_24h > 0
-                            ? " text-success"
-                            : " text-danger"
-                        }`}
-                      >
-                        {item.price_change_percentage_24h.toFixed(2)}%
-                      </p>
-                    </div>
-
-                    <div className="text-row">
-                      <p className="text-name mb-0">{item.symbol}</p>
-
-                      <p
-                        className={`text-price mb-0${
-                          item.price_change_percentage_24h > 0
-                            ? " text-success"
-                            : " text-danger"
-                        }`}
-                      >
-                        ${priceNumber(item.current_price)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  topPriceStyle={item.price_change_percentage_24h > 0}
+                  CurrentPriceStyle={item.price_change_percentage_24h > 0}
+                  CurrentPrice={"$" + priceNumber(item.current_price)}
+                  desc={item.symbol}
+                />
               </div>
             ))}
         </div>

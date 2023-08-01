@@ -13,6 +13,7 @@ import AboutUs from "./Screens/AboutUs";
 import ContactUs from "./Screens/ContactUs";
 import ReportError from "./Screens/ReportError";
 import Crypto from "./Screens/Crypto";
+import Forex from "./Screens/Forex";
 import DetailNews from "./Screens/DetailNews";
 
 const AppRoutes = [
@@ -59,6 +60,10 @@ const AppRoutes = [
   {
     path: "/Crypto",
     element: <Crypto />,
+  },
+  {
+    path: "/Forex",
+    element: <Forex />,
   },
   {
     path: "/News/:id",
