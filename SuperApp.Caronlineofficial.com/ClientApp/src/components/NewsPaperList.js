@@ -50,6 +50,7 @@ export default function NewsList({ id = 1, onChange }) {
                   imgSrc={item.src}
                   title={item.title}
                   disc={item.title}
+                  noBottom
                 />
               </div>
             ))}

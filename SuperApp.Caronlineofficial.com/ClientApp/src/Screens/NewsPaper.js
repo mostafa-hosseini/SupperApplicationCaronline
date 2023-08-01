@@ -21,8 +21,8 @@ function Crypto(props) {
             { title: "اقتصادی", Component: <NewsPaperList id={2} />, id: "tab-1" },
             { title: "ورزشی", Component: <NewsPaperList id={3} />, id: "tab-2" },
             { title: "استانها", Component: <NewsPaperList id={4} />, id: "tab-3" },
-            { title: "مجله", Component: <NewsPaperList id={5} />, id: "tab-4" },
-            { title: "سایر", Component: <NewsPaperList id={6} />, id: "tab-5" },
+            { title: "مجله", Component: <NewsPaperList id={6} />, id: "tab-4" },
+            { title: "سایر", Component: <NewsPaperList id={5} />, id: "tab-5" },
           ]}
         />
       </div>
