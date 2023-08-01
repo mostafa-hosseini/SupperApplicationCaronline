@@ -15,13 +15,7 @@ function CryptoItem({
   thirdText = "",
 }) {
   return (
-    <div
-      className="crypto-item"
-      onClick={() =>
-        // navigate(`/crypto/${desc}`, { state: { coin: item } })
-        console.log("hi")
-      }
-    >
+    <div className="crypto-item">
       {imgSrc ? (
         <div className="crypto-img">
           <img src={imgSrc} alt={name} />

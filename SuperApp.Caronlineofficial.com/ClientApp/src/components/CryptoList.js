@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import priceNumber from "../utils/priceNumber";
 import SmallLoading from "./SmallLoading";
 import CryptoItem from "./CryptoItem";
+import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 function CryptoList() {
@@ -60,22 +61,24 @@ function CryptoList() {
                   .toLocaleLowerCase()
                   .includes(search.toLocaleLowerCase())
             )
-            .map((item,index) => (
+            .map((item, index) => (
               <div
                 className="col-12 col-lg-6 mb-2 row justify-content-center"
                 key={index}
               >
-                <CryptoItem
-                  imgSrc={item.image}
-                  name={item.name}
-                  topPrice={
-                    Number(item.price_change_percentage_24h).toFixed(2) + "%"
-                  }
-                  topPriceStyle={item.price_change_percentage_24h > 0}
-                  CurrentPriceStyle={item.price_change_percentage_24h > 0}
-                  CurrentPrice={"$" + priceNumber(item.current_price)}
-                  desc={item.symbol}
-                />
+                <Link to={`/Crypto/${item.name}`}>
+                  <CryptoItem
+                    imgSrc={item.image}
+                    name={item.name}
+                    topPrice={
+                      Number(item.price_change_percentage_24h).toFixed(2) + "%"
+                    }
+                    topPriceStyle={item.price_change_percentage_24h > 0}
+                    CurrentPriceStyle={item.price_change_percentage_24h > 0}
+                    CurrentPrice={"$" + priceNumber(item.current_price)}
+                    desc={item.symbol}
+                  />
+                </Link>
               </div>
             ))}
         </div>
