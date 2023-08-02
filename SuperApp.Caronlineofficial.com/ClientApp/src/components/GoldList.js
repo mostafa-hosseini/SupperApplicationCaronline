@@ -35,12 +35,9 @@ function CryptoList() {
                 topPrice={"$" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
-                rtlCurrentPrice
                 CurrentPrice={
                   item.percent +
-                  `${item.type === "high" ? "+" : ""} ${
-                    item.type === "low" ? "-" : ""
-                  }`
+                  `${item.type === "high" ? "+" : "-"}`
                 }
               />
             </div>
@@ -57,12 +54,9 @@ function CryptoList() {
                 topPrice={"$" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
-                rtlCurrentPrice
                 CurrentPrice={
                   item.percent +
-                  `${item.type === "high" ? "+" : ""} ${
-                    item.type === "low" ? "-" : ""
-                  }`
+                  `${item.type === "high" ? "+" : "-"}`
                 }
               />
             </div>
@@ -79,12 +73,9 @@ function CryptoList() {
                 topPrice={"$" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
-                rtlCurrentPrice
                 CurrentPrice={
                   item.percent +
-                  `${item.type === "high" ? "+" : ""} ${
-                    item.type === "low" ? "-" : ""
-                  }`
+                  `${item.type === "high" ? "+" : "-"}`
                 }
               />
             </div>
@@ -101,12 +92,9 @@ function CryptoList() {
                 topPrice={"$" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
-                rtlCurrentPrice
                 CurrentPrice={
                   item.percent +
-                  `${item.type === "high" ? "+" : ""} ${
-                    item.type === "low" ? "-" : ""
-                  }`
+                  `${item.type === "high" ? "+" : "-"}`
                 }
               />
             </div>

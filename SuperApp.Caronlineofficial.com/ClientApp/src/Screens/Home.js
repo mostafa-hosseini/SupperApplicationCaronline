@@ -73,7 +73,8 @@ export function Home() {
                 imgSrc={bimeh}
                 imgalt="بیمه"
                 title="بیمه"
-                to={"https://bimehato.com/"} />
+                to={"https://bimehato.com/"}
+              />
             </div>
 
             <div className="col-3">
@@ -181,7 +182,7 @@ export function Home() {
           >
             <SwiperSlide
               className="nbt banner-slider-item"
-            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <AdSliderItem
                 imgSrc={require("../assets/images/Banners/01.jpg")}
@@ -191,7 +192,7 @@ export function Home() {
 
             <SwiperSlide
               className="nbt banner-slider-item"
-            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <AdSliderItem
                 imgSrc={require("../assets/images/Banners/02.jpg")}
@@ -201,7 +202,7 @@ export function Home() {
 
             <SwiperSlide
               className="nbt banner-slider-item"
-            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
               <LazyLoadImage
                 width={"100%"}
@@ -240,7 +241,7 @@ export function Home() {
                   slidesPerView: 2.2,
                 },
               }}
-            // className="new-car-slider-container"
+              // className="new-car-slider-container"
             >
               <SwiperSlide key="1w">
                 <BlogListItem
@@ -395,67 +396,6 @@ export function Home() {
           </div>
         </section>
 
-        <section className="mt-5 w-100">
-          <ListTitle
-            title="پاسخ به تمامی سوالات شما"
-            color="green"
-            showMore={false}
-          />
-
-          {/* <div className="w-100 p-0 mt-2">
-            <Accordion defaultActiveKey="">
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>
-                  <FaPlus size={30} style={{ marginLeft: 15 }} />
-                  چرا به بیمه شخص ثالث نیاز داریم؟
-                </Accordion.Header>
-                <Accordion.Body>
-                  لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی
-                  آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                  می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی
-                  برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش
-                  گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                  نوع و اندازه فونت و ظاهر متن ب{" "}
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>
-                  <FaPlus size={30} style={{ marginLeft: 15 }} />
-                  شرایط بیمه عمر چیست؟
-                </Accordion.Header>
-                <Accordion.Body>
-                  لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی
-                  آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                  می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی
-                  برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش
-                  گرفته شده استفاده می نماید، تا از نظر گرافیکی نشان
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </div> */}
-          <div className="w-100 p-0 mt-2">
-            <Accordion
-              data={[
-                {
-                  id: "item-1",
-                  title: " چرا به بیمه شخص ثالث نیاز داریم؟",
-                  desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
-                },
-                {
-                  id: "item-2",
-                  title: " چرا به بیمه شخص ثالث نیاز داریم؟",
-                  desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
-                },
-                {
-                  id: "item-3",
-                  title: " چرا به بیمه شخص ثالث نیاز داریم؟",
-                  desc: "لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن ب",
-                },
-              ]}
-            />
-          </div>
-        </section>
-
         {/* <div className="col-12 mt-5 w-100">
           <h5 className="text-center">همکاران بزرگ ما</h5>
 
@@ -522,57 +462,59 @@ export function Home() {
       <div className="abslout-icon">
         <div className="col-3 row">
           <Link to={"https://mashinto.com"} target={"_self"}>
-
             <div
-              onClick={() => { }}
+              onClick={() => {}}
               className={`col-auto mx-auto d-flex align-items-center `}
             >
               <img src={mashinto} className="w-100 img-logo" alt="" />
             </div>
-            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">ماشین تو</h6>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">
+              ماشین تو
+            </h6>
           </Link>
         </div>
 
-
         <div className="col-3 row">
           <Link to={"https://amlakto.com"} target={"_self"}>
-
             <div
-              onClick={() => { }}
+              onClick={() => {}}
               className={`col-auto mx-auto  d-flex align-items-center `}
             >
               <img src={amlakto} className="w-100 img-logo" alt="" />
             </div>
-            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">املاک تو</h6>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">
+              املاک تو
+            </h6>
           </Link>
         </div>
 
         <div className="col-3 row">
           <Link to={"https://mashverato.com"} target={"_self"}>
-
             <div
-              onClick={() => { }}
+              onClick={() => {}}
               className={`col-auto mx-auto  d-flex align-items-center `}
             >
               <img src={moshaverto} className="w-100 img-logo" alt="" />
             </div>
-            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">مشورتو</h6>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">
+              مشورتو
+            </h6>
           </Link>
         </div>
 
         <div className="col-3 row">
           <Link to={"https://mashinto.com/shop"} target={"_self"}>
-
             <div
-              onClick={() => { }}
+              onClick={() => {}}
               className={`col-auto mx-auto  d-flex align-items-center `}
             >
               <img src={kalato} className="w-100 img-logo" alt="" />
             </div>
-            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">کالاتو</h6>
+            <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">
+              کالاتو
+            </h6>
           </Link>
         </div>
-
       </div>
     </Loading>
   );

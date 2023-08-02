@@ -24,6 +24,7 @@ import "react-modern-drawer/dist/index.css";
 import toast from "react-hot-toast";
 import userImg from "../assets/images/Icons/user.svg";
 import walletImg from "../assets/images/Icons/wallet.svg";
+import NaviToggle from "./NavToggle";
 // import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
@@ -55,11 +56,19 @@ export default function Layout({ children }) {
           {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} className="mr-2" /> */}
           <div className="d-flex">
             <button
-              // onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen(!isOpen)}
               type="button"
               className="btn menu-btn img-icon ms-2"
             >
               <img src={walletImg} alt="user icon" />
+            </button>
+
+            <button
+              // onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="btn menu-btn img-icon ms-2"
+            >
+              <NaviToggle />
             </button>
 
             <div
@@ -111,61 +120,60 @@ export default function Layout({ children }) {
       <div className="container-fluid" tag="main">
         {children}
       </div>
-      {false && (
-        <div className="row">
-          <div className="header-container">
-            <Drawer
-              open={isOpen}
-              onClose={() => setIsOpen(!isOpen)}
-              direction="right"
-              className="drawer-container d-flex flex-column justify-content-between pb-5"
-              style={{ overflowY: "auto" }}
-            >
-              <ul className="drawer-list">
-                <li className="drawer-list-item mt-4">
-                  <IoHomeOutline style={{ marginLeft: 10 }} />
+      <div className="row">
+        <div className="header-container">
+          <Drawer
+            open={isOpen}
+            onClose={() => setIsOpen(!isOpen)}
+            direction="right"
+            className="drawer-container d-flex flex-column justify-content-between pb-5"
+            style={{ overflowY: "auto" }}
+          >
+            <ul className="drawer-list">
+              <li className="drawer-list-item mt-4">
+                <IoHomeOutline style={{ marginLeft: 10 }} />
 
-                  <span onClick={() => navigation("/")}>صفحه اصلی</span>
-                </li>
-                {/* <li className="drawer-list-item mt-4">
+                <span onClick={() => navigation("/")}>صفحه اصلی</span>
+              </li>
+              {/* <li className="drawer-list-item mt-4">
             <GiCarKey style={{ marginLeft: 10 }} />
 
             <span href={status ? "/buycar" : "login"}>درخواست خرید خودرو</span>
           </li> */}
-                <li className="drawer-list-item mt-4">
-                  <BiLineChart style={{ marginLeft: 10 }} />
-                  <span onClick={() => navigation("/carprice")}>
-                    قیمت روز خودرو
-                  </span>
-                </li>
-                <li className="drawer-list-item mt-4">
-                  <RiFindReplaceLine style={{ marginLeft: 10 }} />
+              <li className="drawer-list-item mt-4">
+                <BiLineChart style={{ marginLeft: 10 }} />
+                <span onClick={() => navigation("/carprice")}>
+                  قیمت روز خودرو
+                </span>
+              </li>
+              <li className="drawer-list-item mt-4">
+                <RiFindReplaceLine style={{ marginLeft: 10 }} />
 
-                  <span onClick={() => navigation("/search")}>
-                    راهنمای خرید خودرو
-                  </span>
-                </li>
-                <li className="drawer-list-item mt-4">
-                  <AiOutlineCalculator style={{ marginLeft: 10 }} />
-                  <span onClick={() => navigation("/محاسبه-قیمت")}>
-                    محاسبه قیمت خودرو
-                  </span>
-                </li>
-                {/* <li className="drawer-list-item mt-4">
+                <span onClick={() => navigation("/search")}>
+                  راهنمای خرید خودرو
+                </span>
+              </li>
+              <li className="drawer-list-item mt-4">
+                <AiOutlineCalculator style={{ marginLeft: 10 }} />
+                <span onClick={() => navigation("/محاسبه-قیمت")}>
+                  محاسبه قیمت خودرو
+                </span>
+              </li>
+              {/* <li className="drawer-list-item mt-4">
             <GrCircleInformation style={{ marginLeft: 10 }} />
             <span href="/#">درباره ما</span>
           </li> */}
-                <li className="drawer-list-item mt-4">
-                  <FaRegHandshake style={{ marginLeft: 10 }} />
-                  <span onClick={() => navigation("/cooperation")}>
-                    همکاری با ماشین تو
-                  </span>
-                </li>
-                <li className="drawer-list-item mt-4">
-                  <IoStorefrontOutline style={{ marginLeft: 10 }} />
-                  <span onClick={() => navigation("/shop")}>فروشگاه</span>
-                </li>
-                {/* <li className="drawer-list-item mt-4">
+              <li className="drawer-list-item mt-4">
+                <FaRegHandshake style={{ marginLeft: 10 }} />
+                <span onClick={() => navigation("/cooperation")}>
+                  همکاری با ماشین تو
+                </span>
+              </li>
+              <li className="drawer-list-item mt-4">
+                <IoStorefrontOutline style={{ marginLeft: 10 }} />
+                <span onClick={() => navigation("/shop")}>فروشگاه</span>
+              </li>
+              {/* <li className="drawer-list-item mt-4">
             <IoCarOutline style={{ marginLeft: 10 }} />
             <span
               onClick={() =>
@@ -177,70 +185,69 @@ export default function Layout({ children }) {
               آگهی های قیمت مناسب
             </span>
           </li> */}
-                <li className="drawer-list-item mt-4">
-                  <MdOutlinePrivacyTip style={{ marginLeft: 10 }} />
-                  <span onClick={() => navigation(`/Privacy`)}>
-                    قوانین و مقررات
-                  </span>
-                </li>
-                <li className="drawer-list-item mt-4">
-                  <MdOutlineReportProblem style={{ marginLeft: 10 }} />
-                  <span
-                    onClick={() =>
-                      navigation(`/problem`, {
-                        title: " آگهی های قیمت مناسب",
-                      })
-                    }
-                  >
-                    ثبت مشکل کاربری
-                  </span>
-                </li>
-                <li className="drawer-list-item mt-4">
-                  <BiMobileAlt style={{ marginLeft: 10 }} />
-                  <span onClick={() => navigation(`/InstallIos`)}>
-                    راهنمای نصب در ios
-                  </span>
-                </li>
-                {/* <li className="drawer-list-item mt-4">
+              <li className="drawer-list-item mt-4">
+                <MdOutlinePrivacyTip style={{ marginLeft: 10 }} />
+                <span onClick={() => navigation(`/Privacy`)}>
+                  قوانین و مقررات
+                </span>
+              </li>
+              <li className="drawer-list-item mt-4">
+                <MdOutlineReportProblem style={{ marginLeft: 10 }} />
+                <span
+                  onClick={() =>
+                    navigation(`/problem`, {
+                      title: " آگهی های قیمت مناسب",
+                    })
+                  }
+                >
+                  ثبت مشکل کاربری
+                </span>
+              </li>
+              <li className="drawer-list-item mt-4">
+                <BiMobileAlt style={{ marginLeft: 10 }} />
+                <span onClick={() => navigation(`/InstallIos`)}>
+                  راهنمای نصب در ios
+                </span>
+              </li>
+              {/* <li className="drawer-list-item mt-4">
             <BiMobile style={{ marginLeft: 10 }} />
             <span onClick={() => navigation(`/InstallAndroid`)}>
               راهنمای نصب در android
             </span>
           </li> */}
 
-                <>
-                  <li className="drawer-list-item mt-4">
-                    <IoMdLogIn style={{ marginLeft: 10 }} />
-                    <span className="" onClick={() => navigation("/login")}>
-                      ورود
-                    </span>
-                  </li>
-                  <li className="drawer-list-item mt-4">
-                    <IoPersonAddOutline style={{ marginLeft: 10 }} />
-                    <span className="" onClick={() => navigation("/register")}>
-                      ثبت نام
-                    </span>
-                  </li>
-                </>
-              </ul>
-              <div
-                style={{ marginTop: "auto" }}
-                className="justify-content-center align-items-end mb-3"
-              >
-                <h6 className="text-center text-dark cp">
-                  All &nbsp; &nbsp; rights &nbsp;&nbsp; reserved &nbsp;&nbsp;for
-                  <br />
-                  mashinto.com
-                  <br />
-                  ©powered &nbsp; &nbsp; by &nbsp; &nbsp; CarOnline
-                  <br />
-                  <span>2023</span>
-                </h6>
-              </div>
-            </Drawer>
-          </div>
+              <>
+                <li className="drawer-list-item mt-4">
+                  <IoMdLogIn style={{ marginLeft: 10 }} />
+                  <span className="" onClick={() => navigation("/login")}>
+                    ورود
+                  </span>
+                </li>
+                <li className="drawer-list-item mt-4">
+                  <IoPersonAddOutline style={{ marginLeft: 10 }} />
+                  <span className="" onClick={() => navigation("/register")}>
+                    ثبت نام
+                  </span>
+                </li>
+              </>
+            </ul>
+            <div
+              style={{ marginTop: "auto" }}
+              className="justify-content-center align-items-end mb-3"
+            >
+              <h6 className="text-center text-dark cp">
+                All &nbsp; &nbsp; rights &nbsp;&nbsp; reserved &nbsp;&nbsp;for
+                <br />
+                mashinto.com
+                <br />
+                ©powered &nbsp; &nbsp; by &nbsp; &nbsp; CarOnline
+                <br />
+                <span>2023</span>
+              </h6>
+            </div>
+          </Drawer>
         </div>
-      )}
+      </div>
     </div>
   );
 }
