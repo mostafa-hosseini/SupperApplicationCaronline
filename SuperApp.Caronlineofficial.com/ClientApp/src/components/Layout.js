@@ -24,7 +24,7 @@ import "react-modern-drawer/dist/index.css";
 import toast from "react-hot-toast";
 import userImg from "../assets/images/Icons/user.svg";
 import walletImg from "../assets/images/Icons/wallet.svg";
-import NaviToggle from "./NavToggle";
+import NavToggle from "./NavToggle";
 // import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
@@ -56,7 +56,7 @@ export default function Layout({ children }) {
           {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} className="mr-2" /> */}
           <div className="d-flex">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              
               type="button"
               className="btn menu-btn img-icon ms-2"
             >
@@ -68,7 +68,7 @@ export default function Layout({ children }) {
               type="button"
               className="btn menu-btn img-icon ms-2"
             >
-              <NaviToggle />
+              <NavToggle onClick={() => setIsOpen(!isOpen)} />
             </button>
 
             <div

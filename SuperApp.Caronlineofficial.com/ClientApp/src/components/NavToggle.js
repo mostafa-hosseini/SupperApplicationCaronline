@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 
-function NavToggle(props) {
+function NavToggle({ onClick }) {
   const [active, setActive] = useState(false);
+
+  const clickHandler = () => {
+    setActive(!active);
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <div
       id="menuToggle"
       className={active ? "active" : ""}
       // className="active"
-      onClick={() => setActive(!active)}
+      onClick={clickHandler}
     >
       <span></span>
       <span></span>
