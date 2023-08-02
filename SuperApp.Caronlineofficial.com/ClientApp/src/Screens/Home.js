@@ -135,7 +135,7 @@ export function Home() {
                 imgSrc={cars}
                 imgalt="کریپتو و ارز دیجیتال"
                 title="کریپتو و ارز دیجیتال"
-                to={"/Crypto"}
+                to={"/دیده-بان"}
               />
             </div>
           </div>

@@ -23,6 +23,7 @@ import CommodityExchange from "./Screens/CommodityExchange";
 import NewsPaper from "./Screens/NewsPaper";
 import DetailNews from "./Screens/DetailNews";
 import ShopQuikAccess from "./Screens/ShopQuikAccess";
+import CryptoQuickAccess from "./Screens/CryptoQuickAccess";
 
 const AppRoutes = [
   {
@@ -44,6 +45,10 @@ const AppRoutes = [
   {
     path: "/کلینیک-کسب-و-کار",
     element: <ClinickAccess />,
+  },
+  {
+    path: "/دیده-بان",
+    element: <CryptoQuickAccess />,
   },
   {
     path: "/Login",
