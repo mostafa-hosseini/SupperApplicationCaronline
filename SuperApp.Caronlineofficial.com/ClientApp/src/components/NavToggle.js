@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function NavToggle({ onClick }) {
+function NavToggle({ onClick, isActive }) {
   const [active, setActive] = useState(false);
 
   const clickHandler = () => {
     setActive(!active);
     if (onClick) {
-      onClick();
+      onClick(active);
     }
   };
+
+  useEffect(() => {
+    setActive(isActive);
+  }, [isActive]);
 
   return (
     <div

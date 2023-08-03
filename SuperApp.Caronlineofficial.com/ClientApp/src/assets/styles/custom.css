@@ -261,21 +261,51 @@ body {
 
 .drawer-container {
   padding-inline: 20px;
+  top: 57px !important;
+  height: calc(100vh - 57px) !important;
+}
+
+.navbar {
+  position: relative;
+  z-index: 101;
+  background-color: #fff;
 }
 
 .drawer-list {
-  padding-inline: 0;
+  padding: 0;
   margin-top: 10px;
+  list-style: none;
 }
 
 .drawer-list-item {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.drawer-list-item.active {
+  padding-right: 1rem;
+}
+
+.drawer-list-item.active a {
+  color: #c90000;
 }
 
 .drawer-list-item a {
   font-size: 15px;
   color: #151d3b;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
 }
+
+.drawer-list-item a:hover {
+  color: #c90000;
+}
+
+.drawer-list-item a:hover::after,
+.drawer-list-item a::after {
+  border-color: #c90000;
+  bottom: -0.25rem;
+}
+
 .mobile-header-container {
   display: flex;
   flex-direction: row;
