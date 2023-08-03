@@ -9,23 +9,25 @@ import {
 import { TiMessages } from "react-icons/ti";
 import { GoReport } from "react-icons/go";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { BsArrowLeft } from "react-icons/bs";
 import Drawer from "react-modern-drawer";
 // import { NavMenu } from "./NavMenu";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Navbar, NavbarBrand } from "reactstrap";
 // import { NavbarToggler } from "reactstrap";
 import "react-modern-drawer/dist/index.css";
 import toast from "react-hot-toast";
 import userImg from "../assets/images/Icons/user.svg";
 import walletImg from "../assets/images/Icons/wallet.svg";
-import NavToggle from "./NavToggle";
+// import NavToggle from "./NavToggle";
 // import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const navigation = useNavigate();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -44,7 +46,9 @@ export default function Layout({ children }) {
     <div>
       <header>
         <Navbar
-          className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3"
+          className={`navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow${
+            location.pathname !== "/" ? " mb-6" : " mb-3"
+          }`}
           container
           light
         >
@@ -100,13 +104,27 @@ export default function Layout({ children }) {
           >
             <CiMenuKebab size={25} />
           </button> */}
-          <NavbarBrand tag={Link} to="/">
-            <img
-              src={require("../assets/images/logoapp.png")}
-              style={{ width: 135, height: 25 }}
-              alt=""
-            />
-          </NavbarBrand>
+          <div className="d-flex align-items-center">
+            <NavbarBrand tag={Link} to="/">
+              <img
+                src={require("../assets/images/logoapp.png")}
+                style={{ width: 135, height: 25 }}
+                alt="caronline logo"
+              />
+            </NavbarBrand>
+
+            {location.pathname !== "/" ? (
+              <button
+                type="button"
+                onClick={() => navigation(-1)}
+                className="btn menu-btn img-icon me-2 back-button"
+              >
+                <BsArrowLeft size={68} />
+              </button>
+            ) : (
+              <></>
+            )}
+          </div>
         </Navbar>
       </header>
       <div className="container-fluid" tag="main">

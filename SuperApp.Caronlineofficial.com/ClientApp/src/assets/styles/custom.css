@@ -1220,3 +1220,7 @@ a:active {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
+
+.mb-6 {
+  margin-bottom: 4rem !important;
+}
