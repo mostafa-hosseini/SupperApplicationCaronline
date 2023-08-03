@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 
-function CustomTab({ data, ...props }) {
+function CustomTab({ data, smallTab, scrollTabs, ...props }) {
   const [activeId, setActiveId] = useState("tab-1");
 
   return (
     <div className="custom-tab">
-      <div className="tabs-wrapper">
+      <div className={`tabs-wrapper${scrollTabs ? " scrollable-tab" : ""}`}>
         {data.map((item) => (
           <div
             key={item.id}
             id={item.id}
-            className={`tab-btn${item.id === activeId ? " active" : ""}`}
+            className={`tab-btn${item.id === activeId ? " active" : ""}${
+              smallTab ? " small-tab" : ""
+            }`}
             onClick={() => setActiveId(item.id)}
           >
             {item.title}

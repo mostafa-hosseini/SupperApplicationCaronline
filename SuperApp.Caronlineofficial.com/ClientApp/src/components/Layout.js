@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import React, { Component } from "react";
-import { AiOutlineCalculator } from "react-icons/ai";
-import { BiLineChart, BiMobileAlt } from "react-icons/bi";
-import { FaRegHandshake } from "react-icons/fa";
-import { IoMdLogIn } from "react-icons/io";
 import {
   IoHomeOutline,
-  IoPersonAddOutline,
-  IoStorefrontOutline,
+  IoPeopleOutline,
+  IoCallOutline,
+  IoDocumentTextOutline,
 } from "react-icons/io5";
-// import {
-//   IoMenu,
-//   IoPersonOutline,
-// } from "react-icons/io5";
-import { MdOutlinePrivacyTip, MdOutlineReportProblem } from "react-icons/md";
-import { RiFindReplaceLine } from "react-icons/ri";
+import { TiMessages } from "react-icons/ti";
+import { GoReport } from "react-icons/go";
+import { RxHamburgerMenu } from "react-icons/rx";
 import Drawer from "react-modern-drawer";
 // import { NavMenu } from "./NavMenu";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -56,16 +50,17 @@ export default function Layout({ children }) {
         >
           {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} className="mr-2" /> */}
           <div className="d-flex">
-            <button type="button" className="btn menu-btn img-icon ms-2">
+            {/* <button type="button" className="btn menu-btn img-icon ms-2">
               <img src={walletImg} alt="user icon" />
-            </button>
+            </button> */}
 
             <button
-              // onClick={() => setIsOpen(!isOpen)}
               type="button"
               className="btn menu-btn img-icon ms-2"
+              onClick={() => setIsOpen(!isOpen)}
             >
-              <NavToggle onClick={() => setIsOpen(!isOpen)} isActive={isOpen} />
+              {/* <NavToggle onClick={() => setIsOpen(!isOpen)} isActive={isOpen} /> */}
+              <RxHamburgerMenu size={68} />
             </button>
 
             <div
@@ -127,130 +122,45 @@ export default function Layout({ children }) {
             style={{ overflowY: "auto" }}
           >
             <ul className="drawer-list">
-              <li
-                className={`drawer-list-item${
-                  pathname === "/" ? " active" : ""
-                }`}
-              >
+              <li className={`drawer-list-item`}>
                 <Link className="link" to="/">
-                  <IoHomeOutline style={{ marginLeft: 10 }} />
+                  <IoHomeOutline size={18} style={{ marginLeft: 10 }} />
                   صفحه اصلی
                 </Link>
               </li>
 
-              <li
-                className={`drawer-list-item${
-                  pathname === "/خودرو" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="/خودرو">
-                  <BiLineChart style={{ marginLeft: 10 }} />
-                  خودرو
+              <li className={`drawer-list-item`}>
+                <Link className="link" to="/About-Us">
+                  <IoPeopleOutline size={18} style={{ marginLeft: 10 }} />
+                  درباره ما
                 </Link>
               </li>
 
-              <li
-                className={`drawer-list-item${
-                  pathname === "/املاک" ? " active" : ""
-                }`}
-              >
-                <Link className="link" onClick="/املاک">
-                  <RiFindReplaceLine style={{ marginLeft: 10 }} />
-                  املاک
+              <li className={`drawer-list-item`}>
+                <Link className="link" to="/Contact-Us">
+                  <IoCallOutline size={18} style={{ marginLeft: 10 }} />
+                  تماس با ما
                 </Link>
               </li>
 
-              <li
-                className={`drawer-list-item${
-                  pathname === "https://bimehato.com/" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="https://bimehato.com/">
-                  <AiOutlineCalculator style={{ marginLeft: 10 }} />
-                  بیمه
+              <li className={`drawer-list-item`}>
+                <Link className="link" to="/Faq">
+                  <TiMessages size={18} style={{ marginLeft: 10 }} />
+                  سوالات متداول
                 </Link>
               </li>
 
-              <li
-                className={`drawer-list-item${
-                  pathname === "https://mashverato.com" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="https://mashverato.com">
-                  <FaRegHandshake style={{ marginLeft: 10 }} />
-                  مشاوره
+              <li className={`drawer-list-item`}>
+                <Link className="link" to="/Report-error">
+                  <GoReport size={18} style={{ marginLeft: 10 }} />
+                  گزارش مشکلات
                 </Link>
               </li>
 
-              <li
-                className={`drawer-list-item${
-                  pathname === "https://navar.live" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="https://navar.live">
-                  <IoStorefrontOutline style={{ marginLeft: 10 }} />
-                  سرگرمی
-                </Link>
-              </li>
-
-              <li
-                className={`drawer-list-item${
-                  pathname === "https://academy.caronlineofficial.com"
-                    ? " active"
-                    : ""
-                }`}
-              >
-                <Link
-                  className="link"
-                  to="https://academy.caronlineofficial.com"
-                >
-                  <MdOutlinePrivacyTip style={{ marginLeft: 10 }} />
-                  آموزش
-                </Link>
-              </li>
-
-              <li
-                className={`drawer-list-item${
-                  pathname === "https://club.caronlineofficial.com"
-                    ? " active"
-                    : ""
-                }`}
-              >
-                <Link className="link" to="https://club.caronlineofficial.com">
-                  <MdOutlineReportProblem style={{ marginLeft: 10 }} />
-                  سرمایه گذاری
-                </Link>
-              </li>
-
-              <li
-                className={`drawer-list-item${
-                  pathname === "/کلینیک-کسب-و-کار" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="/کلینیک-کسب-و-کار">
-                  <BiMobileAlt style={{ marginLeft: 10 }} />
-                  کلینیک کسب و کار
-                </Link>
-              </li>
-
-              <li
-                className={`drawer-list-item${
-                  pathname === "/دیده-بان" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="/دیده-بان">
-                  <IoMdLogIn style={{ marginLeft: 10 }} />
-                  کریپتو و ارز دیجیتال
-                </Link>
-              </li>
-              <li
-                className={`drawer-list-item${
-                  pathname === "/" ? " active" : ""
-                }`}
-              >
-                <Link className="link" to="/register">
-                  <IoPersonAddOutline style={{ marginLeft: 10 }} />
-                  ثبت نام
+              <li className={`drawer-list-item`}>
+                <Link className="link" to="/Policy">
+                  <IoDocumentTextOutline size={18} style={{ marginLeft: 10 }} />
+                  قوانین و مقررات
                 </Link>
               </li>
             </ul>

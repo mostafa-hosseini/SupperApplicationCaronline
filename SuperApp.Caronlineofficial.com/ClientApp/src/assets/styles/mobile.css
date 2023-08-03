@@ -32,6 +32,24 @@
   .main-col {
     padding: 0;
   }
+
+  .custom-tab .tabs-wrapper .tab-btn.small-tab {
+    max-width: 25% !important;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 0.9em;
+  }
+
+  .custom-tab .tabs-wrapper .scrollable-tab {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .newspaper-list .car-slider-item {
+    max-width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 @media only screen and (max-width: 480px) {

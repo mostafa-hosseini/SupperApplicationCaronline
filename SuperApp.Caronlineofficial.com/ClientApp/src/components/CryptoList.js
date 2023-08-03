@@ -66,7 +66,7 @@ function CryptoList() {
                 className="col-12 col-lg-6 mb-2 row justify-content-center"
                 key={index}
               >
-                <Link to={`/Crypto/${item.symbol}`}>
+                <Link to={`/Crypto/${item.symbol}`} className="p-0">
                   <CryptoItem
                     imgSrc={item.image}
                     name={item.name}

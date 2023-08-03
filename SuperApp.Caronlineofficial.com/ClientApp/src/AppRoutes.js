@@ -1,7 +1,7 @@
 import MashintoQuickAccess from "./Screens/MashintoQuickAcces";
 import AmlaktoQuickAccess from "./Screens/AmlaktoQuickAccess";
 import { Home } from "./Screens/Home";
-import Shop from "./Screens/Shop";
+// import Shop from "./Screens/Shop";
 import Login from "./Screens/Login";
 import Register from "./Screens/Register";
 import Dashboard from "./Screens/Dashboard";
@@ -10,6 +10,7 @@ import CompleteProfile from "./Screens/CompleteProfile";
 import ClinickAccess from "./Screens/ClinickAccess";
 import Faq from "./Screens/Faq";
 import AboutUs from "./Screens/AboutUs";
+import Policy from "./Screens/Policy";
 import ContactUs from "./Screens/ContactUs";
 import ReportError from "./Screens/ReportError";
 import Crypto from "./Screens/Crypto";
@@ -125,6 +126,10 @@ const AppRoutes = [
   {
     path: "/Report-error",
     element: <ReportError />,
+  },
+  {
+    path: "/Policy",
+    element: <Policy />,
   },
 ];
 

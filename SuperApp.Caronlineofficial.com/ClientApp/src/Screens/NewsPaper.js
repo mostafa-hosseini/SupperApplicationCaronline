@@ -14,9 +14,10 @@ function Crypto(props) {
 
   return (
     <Loading isLoading={loading}>
-      <div className="mb-4">
+      <div className="mb-4 newspaper-list">
         <CustomTab
           setLoading={setLoading}
+          scrollTabs
           data={[
             { title: "اقتصادی", Component: <NewsPaperList id={2} />, id: "tab-1" },
             { title: "ورزشی", Component: <NewsPaperList id={3} />, id: "tab-2" },

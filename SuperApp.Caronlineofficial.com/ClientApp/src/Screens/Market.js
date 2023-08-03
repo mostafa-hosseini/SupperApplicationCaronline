@@ -21,6 +21,7 @@ function Crypto(props) {
       <div className="mb-4">
         <CustomTab
           setLoading={setLoading}
+          smallTab
           data={[
             { title: "بورس", Component: <MarketList />, id: "tab-1" },
             { title: "فرابورس", Component: <SuperMarketList />, id: "tab-2" },

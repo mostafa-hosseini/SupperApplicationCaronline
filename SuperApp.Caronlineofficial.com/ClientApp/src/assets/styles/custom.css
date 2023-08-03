@@ -261,13 +261,10 @@ body {
 
 .drawer-container {
   padding-inline: 20px;
-  top: 57px !important;
-  height: calc(100vh - 57px) !important;
 }
 
 .navbar {
   position: relative;
-  z-index: 101;
   background-color: #fff;
 }
 
@@ -1102,6 +1099,7 @@ img {
   z-index: 1;
   cursor: pointer;
   transition: all 0.3s ease-in;
+  text-align: center;
 }
 
 .custom-tab .tabs-wrapper .tab-btn.active {
@@ -1189,7 +1187,7 @@ a:active {
 #menuToggle span {
   display: block;
   width: 33px;
-  height: 4px;
+  height: 2px;
   margin-bottom: 5px;
   position: relative;
   background: #232323;
@@ -1210,12 +1208,12 @@ a:active {
 
 #menuToggle.active span {
   opacity: 1;
-  transform: rotate(45deg) translate(6px, 0px);
+  transform: rotate(45deg) translate(1px, 0px);
   background: #c90000;
 }
 
 #menuToggle.active span:nth-last-child(1) {
-  transform: rotate(-45deg) translate(-2px, 6px);
+  transform: rotate(-45deg) translate(-4px, 5px);
 }
 
 #menuToggle.active span:nth-child(2) {
