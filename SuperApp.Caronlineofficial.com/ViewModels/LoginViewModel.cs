@@ -11,8 +11,7 @@ public class LoginViewModel
     public string PhoneNumber { get; set; }
 
     public string Password { get; set; }
-    public bool Verify { get; set; } = false;
-    public string RedirectUri { get; set; }
+
 }
 
 public class VerifyViewModel

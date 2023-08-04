@@ -4,13 +4,16 @@ import Loading from "../components/Loading";
 import toast from "react-hot-toast";
 import http from "../api/index";
 import { validatePhone } from "../utils/validate";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import queryString from "query-string";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [phonenumber, setPhonenumber] = useState("");
   const [code, setCode] = useState("");
   const [isCode, setIsCode] = useState(false);
+  const { search } = useLocation();
+  const values = queryString.parse(search);
   // const [showTimer, setShowTimer] = useState(false);
   // const [timer, setTimer] = useState("02 : 05");
 
@@ -49,7 +52,7 @@ export default function Login() {
         setLoading(false);
 
         if (data.isSuccess) {
-          navigate("/CompleteProfile", { state: { isRegistering: true } });
+          navigate("/CompleteProfile", { state: { isRegistering: true, search: "?ref=" + values.ref } });
           localStorage.setItem("token", data.data.code);
         }
       };
@@ -157,7 +160,8 @@ export default function Login() {
               <input
                 type="text"
                 name="code"
-                className="form-control back-ground mt-3"
+                className="form-control back-ground mt-3 text-center"
+                maxLength={5}
                 placeholder="کد خود را وارد کنید"
                 id="code"
                 value={code}

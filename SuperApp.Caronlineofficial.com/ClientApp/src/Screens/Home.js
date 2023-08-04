@@ -20,6 +20,7 @@ import house from "../assets/images/Icons/house-01.svg";
 import moshavereh from "../assets/images/Icons/moshavereh-01.svg";
 import sarmaye from "../assets/images/Icons/sarmaye-01.svg";
 import clinick from "../assets/images/Icons/clinick-01.svg";
+import dideban from "../assets/images/Icons/dideban-01.svg";
 
 import amlakto from "../assets/images/Icons/logo/amlakto-01.png";
 import kalato from "../assets/images/Icons/logo/kalato-01.png";
@@ -133,9 +134,9 @@ export function Home() {
 
             <div className="col-3">
               <RowItem
-                imgSrc={cars}
+                imgSrc={dideban}
                 imgalt="کریپتو و ارز دیجیتال"
-                title="کریپتو و ارز دیجیتال"
+                title="دیده بان"
                 to={"/دیده-بان"}
               />
             </div>

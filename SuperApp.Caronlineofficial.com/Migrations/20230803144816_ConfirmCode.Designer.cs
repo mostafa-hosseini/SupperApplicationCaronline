@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SuperApp.Caronlineofficial.com.Data;
 
@@ -11,9 +12,11 @@ using SuperApp.Caronlineofficial.com.Data;
 namespace SuperApp.Caronlineofficial.com.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230803144816_ConfirmCode")]
+    partial class ConfirmCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,9 +200,6 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ExpireActiveCode")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -317,7 +317,7 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                         {
                             Id = "0a0b379d-0e7a-442e-a90a-ba103f8595885",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f3bf0061-1a32-4e00-8d4e-3daeb00f21dc",
+                            ConcurrencyStamp = "ec409fc8-cc69-4fdf-a89b-e64e53446874",
                             Email = "mostafa@admin.com",
                             EmailConfirmed = true,
                             ExpireLoginCode = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -327,10 +327,10 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "mostafa@admin.com",
                             NormalizedUserName = "_admin_ad",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIXRlzhYL/xZicFXFernu/Gz+DtG5Dp518B6hZpXLfqnqSCwsY1fZU+5RfdRRyopGg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOfUTPBGqYyin3RzMaxNamasthR8yb0d0oO2wprtKcb9p8O4VeUzzMehlFbAFSknZA==",
                             PhoneNumberConfirmed = false,
                             Point = 0,
-                            RefralCode = "QJNQHBYO",
+                            RefralCode = "LNKYMIFH",
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
                             UserName = "_admin_ad"

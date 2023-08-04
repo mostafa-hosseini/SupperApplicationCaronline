@@ -5,9 +5,11 @@ import { DatePicker } from "zaman";
 import Loading from "../components/Loading";
 import http from "../api";
 import logo from "../assets/images/Icons/logo/caronline.png";
-
+import queryString from "query-string";
 export default function CompleteProfile() {
   const [loading, setLoading] = useState(false);
+  const { search } = useLocation();
+  const values = queryString.parse(search);
   const [input, setinput] = useState({
     fullName: "",
     job: "",
@@ -16,7 +18,7 @@ export default function CompleteProfile() {
     email: "",
     password: "",
     confirmPassword: "",
-    invitedUser: "",
+    invitedUser: values?.ref==undefined?"":values.ref
   });
   const [datePickerModal, setDatePickerModal] = useState(false);
   const api = http();
@@ -83,46 +85,46 @@ export default function CompleteProfile() {
                     className="form-select form-control back-ground"
                   >
                     <option value="">لطفا شغل خود را وارد نمایید</option>
-                    <option>تکنسین پزشکی / کارشناس فنی مسائل پزشکی</option>
-                    <option>پرستار</option>
-                    <option>فروشنده یا واسطه املاک / خودرو</option>
-                    <option>درجه دار نظامی و انتظامی</option>
-                    <option>عمده فروش</option>
-                    <option>صراف</option>
-                    <option>پزشک / دندانپزشک / دندانساز / روانپزشک</option>
-                    <option>خانه دار</option>
-                    <option>آموزگار / دبیر / مدرس دانشگاه/ مربی</option>
-                    <option>
+                    <option value="تکنسین پزشکی / کارشناس فنی مسائل پزشکی">تکنسین پزشکی / کارشناس فنی مسائل پزشکی</option>
+                    <option value="پرستار">پرستار</option>
+                    <option value="فروشنده یا واسطه املاک / خودرو">فروشنده یا واسطه املاک / خودرو</option>
+                    <option value="درجه دار نظامی و انتظامی">درجه دار نظامی و انتظامی</option>
+                    <option value="عمده فروش">عمده فروش</option>
+                    <option value="صراف">صراف</option>
+                    <option value="پزشک / دندانپزشک / دندانساز / روانپزشک">پزشک / دندانپزشک / دندانساز / روانپزشک</option>
+                    <option value="خانه دار">خانه دار</option>
+                    <option value="آموزگار / دبیر / مدرس دانشگاه/ مربی">آموزگار / دبیر / مدرس دانشگاه/ مربی</option>
+                    <option value="مغازه دار (آرایشگر، سوپرمارکت، وسایل الکترونیکی و ...)">
                       مغازه دار (آرایشگر، سوپرمارکت، وسایل الکترونیکی و ...)
                     </option>
-                    <option>
+                    <option value="مهندس / (رایانه ، راه و ساختمان ، پزشکی ، صنعت و...)">
                       مهندس / (رایانه ، راه و ساختمان ، پزشکی ، صنعت و...)
                     </option>
-                    <option>وزیر / نماینده مجلس / سفیر</option>
-                    <option>دانشجو / دانش آموز / کارآموز</option>
-                    <option>فروشنده اشیا گرانبها (فرش، عتیقه و ..)</option>
-                    <option>فروشنده طلا / جواهر</option>
-                    <option>دامپزشک</option>
-                    <option>رییس</option>
-                    <option>صنعتگر</option>
-                    <option>کارگر</option>
-                    <option>تولیدکننده / ارایه دهنده خدمات</option>
-                    <option>طراح و تحلیلگر علمی / فنی / پژوهشگر</option>
-                    <option>کشاورز</option>
-                    <option>مدیر عامل / معاون</option>
-                    <option>مشاور / وكيل</option>
-                    <option>راننده</option>
-                    <option>هنرمند (فیلمساز، نقاش، مجسمه ساز و ...)</option>
-                    <option>ورزشکار حرفه ای / خبرنگار</option>
-                    <option>مشغول به خدمت وظیفه</option>
-                    <option>کارمند / کارشناس</option>
-                    <option>صادرکننده / واردکننده (بازرگان)</option>
-                    <option>بیکار</option>
-                    <option>خویش فرما</option>
-                    <option>
+                    <option value="وزیر / نماینده مجلس / سفیر">وزیر / نماینده مجلس / سفیر</option>
+                    <option value="دانشجو / دانش آموز / کارآموز">دانشجو / دانش آموز / کارآموز</option>
+                    <option value="فروشنده اشیا گرانبها (فرش، عتیقه و ..)">فروشنده اشیا گرانبها (فرش، عتیقه و ..)</option>
+                    <option value="فروشنده طلا / جواهر">فروشنده طلا / جواهر</option>
+                    <option value="دامپزشک">دامپزشک</option>
+                    <option value="رییس">رییس</option>
+                    <option value="صنعتگر">صنعتگر</option>
+                    <option value="کارگر">کارگر</option>
+                    <option value="تولیدکننده / ارایه دهنده خدمات">تولیدکننده / ارایه دهنده خدمات</option>
+                    <option value="طراح و تحلیلگر علمی / فنی / پژوهشگر">طراح و تحلیلگر علمی / فنی / پژوهشگر</option>
+                    <option value="کشاورز">کشاورز</option>
+                    <option value="مدیر عامل / معاون">مدیر عامل / معاون</option>
+                    <option value="مشاور / وكيل">مشاور / وكيل</option>
+                    <option value="راننده">راننده</option>
+                    <option value="هنرمند (فیلمساز، نقاش، مجسمه ساز و ...)">هنرمند (فیلمساز، نقاش، مجسمه ساز و ...)</option>
+                    <option value="ورزشکار حرفه ای / خبرنگار">ورزشکار حرفه ای / خبرنگار</option>
+                    <option value="مشغول به خدمت وظیفه">مشغول به خدمت وظیفه</option>
+                    <option value="کارمند / کارشناس">کارمند / کارشناس</option>
+                    <option value="صادرکننده / واردکننده (بازرگان)">صادرکننده / واردکننده (بازرگان)</option>
+                    <option value="بیکار">بیکار</option>
+                    <option value="خویش فرما">خویش فرما</option>
+                    <option value="رستوران دار / هتل دار / آژانس مسافرتی / دفتردار">
                       رستوران دار / هتل دار / آژانس مسافرتی / دفتردار
                     </option>
-                    <option>بازنشسته</option>
+                    <option value="بازنشسته">بازنشسته</option>
                   </select>
                 </div>
               </div>
@@ -137,8 +139,8 @@ export default function CompleteProfile() {
                     }
                   >
                     <option value="">لطفا جنسیت خود را وارد نمایید</option>
-                    <option value="male">مرد</option>
-                    <option value="female">زن</option>
+                    <option value="0">مرد</option>
+                    <option value="1">زن</option>
                   </select>
                 </div>
               </div>

@@ -32,7 +32,7 @@ export default function MashintoQuickAccess() {
           title="محاسبه قیمت خودرو"
           to="https://mashinto.com/محاسبه-قیمت"
           blank
-          disabled
+          
         />
       </div>
       <div className="col-3">

@@ -4,6 +4,7 @@ import { FaPowerOff, FaUser, FaUserEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import http from "../api";
 import Loading from "../components/Loading";
+import { shareOnMobile } from "react-mobile-share";
 
 export default function Dashboard() {
   const api = http();
@@ -25,7 +26,7 @@ export default function Dashboard() {
     };
 
     api.GetUserDashboard(callback, {}, errorHandler);
-    return () => {};
+    return () => { };
   }, []);
 
   const logOutHandler = () => {
@@ -51,7 +52,12 @@ export default function Dashboard() {
 
       <div className="w-100 h-auto p-4 back-ground mt-3 d-flex flex-column align-items-center">
         <div className="col-12 d-flex justify-content-center align-items-center">
-          <h5 className="text-dark mt-3 " style={{ marginLeft: 10 }}>
+          <h5 className="text-dark mt-3 " style={{ marginLeft: 10 }} onClick={() => {
+            navigator.clipboard.writeText(
+              "https://superapp.caronlineOfficial.com/register?ref=" + data.refCode
+            );
+            toast.success("کد سفیر در کلیپ بورد شما کپی شد!");
+          }}>
             کد سفیر شما :
             <span style={{ color: "green", paddingLeft: "10" }}>
               {data.refCode}
@@ -64,7 +70,24 @@ export default function Dashboard() {
           کنند به صورت دائم به شما تعلق خواهد گرفت.
         </h5>
 
-        <button className="btn btn-custom-success px-5">دعوت از دوستان</button>
+        <button className="btn btn-custom-success px-5"   onClick={() =>
+                  shareOnMobile(
+                    {
+                      // text: "سلام رفیق \n مشاین تو ی سوپر اپلیکیشن خودرو که میتونی رایگان توش آگهی بزاری یا قیمت ماشینتو محاسبه کنی یا از قیمت روز خودرو باخبر بشی همه ی اینها بهعلاوه کلی امکانات دیگه و تخفیفات جذاب بیمه ای با لینک زیر نصب کن و حالش رو ببر",
+                      url: "https://superapp.caronlineofficial.com/register?ref=" + data.refCode,
+                      title:
+                        "سلام رفیق \n ماشین تو ، ی سوپر اپلیکیشن خودرویی که میتونی رایگان ماشینتو آگهی کنی یا قیمت ماشینتو محاسبه کنی یا از قیمت روز خودرو باخبر بشی همه ی اینها بعلاوه ی کلی امکانات دیگه و تخفیفات جذاب بیمه ای با یک کلیک برات مهیا میشن \n بزن رو لینک زیر ثبت نام کن و حالش رو ببر",
+                      text: "Hey checkout our package react-mobile-share",
+                      // image : imgBase64,
+                    },
+                    (message) => {
+                      navigator.clipboard.writeText(
+                        "https://superapp.caronlineofficial.com/register?ref=" + data.refCode
+                      );
+                      toast.success("کد سفیر در کلیپ بورد شما کپی شد!");
+                    }
+                  )
+                }>دعوت از دوستان</button>
       </div>
 
       <div className="w-100 h-auto p-4 back-ground mt-3 row align-items-center">

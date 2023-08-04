@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import forosh from "../assets/images/Icons/house/forosh-sefareshi-01.svg";
-import foroshandeh from "../assets/images/Icons/house/foroshandeh.svg";
-import froshgah from "../assets/images/Icons/house/froshgah-01.svg";
-import gheymat from "../assets/images/Icons/house/gheymat-01.svg";
-import hamkari from "../assets/images/Icons/house/hamkari-01.svg";
-import karshenasi from "../assets/images/Icons/house/karshenasi-01.svg";
-import kharid from "../assets/images/Icons/house/kharid-sefareshi-01.svg";
-import moshavere from "../assets/images/Icons/house/moshavere-01.svg";
+
+import bitcoin from '../assets/images/Icons/Dideban/bitcoin-01.svg'
+import borse from '../assets/images/Icons/Dideban/borse-01.svg'
+import camodity from '../assets/images/Icons/Dideban/camodity-01.svg'
+import dollor from '../assets/images/Icons/Dideban/dollor-01.svg'
+import mashin from '../assets/images/Icons/Dideban/mashin-01.svg'
+import melk from '../assets/images/Icons/Dideban/melk-01.svg'
+import newspaper from '../assets/images/Icons/Dideban/newspaper-01.svg'
+import tala from '../assets/images/Icons/Dideban/tala-01.svg'
+import forex from '../assets/images/Icons/Dideban/‌forex-01.svg'
+
+
 import sabt from "../assets/images/Icons/house/sabt-01.svg";
 import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
@@ -24,7 +28,7 @@ export default function AmlaktoQuickAccess() {
       <div className="row">
         <div className="col-3">
           <RowItem
-            imgSrc={sabt}
+            imgSrc={bitcoin}
             imgalt="ارز دیجیتال"
             title="ارز دیجیتال"
             to={"/Crypto"}
@@ -32,7 +36,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={gheymat}
+            imgSrc={forex}
             imgalt="فارکس"
             title="فارکس"
             to={"/Forex"}
@@ -40,7 +44,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={karshenasi}
+            imgSrc={borse}
             imgalt="بورس ایران"
             title="بورس ایران"
             to={"/Market"}
@@ -48,7 +52,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={moshavere}
+            imgSrc={tala}
             imgalt="طلا و سکه"
             title="طلا و سکه"
             to={"/Gold"}
@@ -56,7 +60,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={kharid}
+            imgSrc={dollor}
             imgalt="دلار و ارز"
             title="دلار و ارز"
             to={"/Currency"}
@@ -64,7 +68,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={forosh}
+            imgSrc={melk}
             imgalt="مسکن"
             title="مسکن"
             to={"/RealEstate"}
@@ -72,7 +76,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={foroshandeh}
+            imgSrc={camodity}
             imgalt="کامودیتی"
             title="کامودیتی"
             to={"/CommodityExchange"}
@@ -80,7 +84,7 @@ export default function AmlaktoQuickAccess() {
         </div>
         <div className="col-3">
           <RowItem
-            imgSrc={froshgah}
+            imgSrc={newspaper}
             imgalt="روزنامه های ایران"
             title="روزنامه های ایران"
             to={"/NewsPaper"}

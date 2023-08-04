@@ -137,37 +137,34 @@ public class AuthController : ControllerBase
             });
         }
 
-        var loginCode = new Random().Next(10000, 99999);
-        await _smsService.SendConfirmSMS(request.Phone, loginCode.ToString());
-        UserApp user = new UserApp()
+        if (CheckUserSmsLimit(request.Phone))
         {
-            Email = "",
-            UserName = request.Phone,
-            FullName = "",
-            LoginCode = loginCode.ToString(),
-            ExpireLoginCode = DateTime.Now.AddMinutes(2).AddSeconds(5),
-            Point = 0,
-            Job = "",
-            Gender = Gender.Male,
-            RefralCode = Utils.RandomString(8)
-        };
-
-        _context.SmsActiveCodes.Add(new SmsActiveCode()
-        {
-            PhoneNumber = request.Phone
-        });
-
-        await _userManager.CreateAsync(user);
-        await _context.SaveChangesAsync();
-        return Ok(new ResultDto<VerifyViewModel>()
-        {
-            Message = ConstVariable.SuccessMessage,
-            IsSuccess = true,
-            Data = new VerifyViewModel()
+            var loginCode = new Random().Next(10000, 99999);
+            _context.SmsActiveCodes.Add(new SmsActiveCode()
             {
-                Code = "",
-                Phone = user.PhoneNumber
-            }
+                PhoneNumber = request.Phone,
+                ConfirmCode = loginCode.ToString()
+            });
+            await _context.SaveChangesAsync();
+            await _smsService.SendConfirmSMS(request.Phone, loginCode.ToString());
+            return Ok(new ResultDto<VerifyViewModel>()
+            {
+                Message = ConstVariable.SuccessMessage,
+                IsSuccess = true,
+                Data = new VerifyViewModel()
+                {
+                    Code = "",
+                    Phone = request.Phone
+                }
+            });
+        }
+
+
+        return Ok(new ResultDto()
+        {
+            IsSuccess = true,
+            Message =
+                "کاربر گرامی درخواست های شما برای ارسال کد بسیار است لطفا بعد از ۶ ساعت دوباره تلاش کنید"
         });
     }
 
@@ -175,39 +172,38 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Verify(VerifyViewModel model)
     {
         var result = new ResultDto<RedirectResult>();
-        var user = await _userManager.FindByNameAsync(model.Phone);
-        if (user == null)
+        var code = _context.SmsActiveCodes.FirstOrDefault(c =>
+            c.ExpireActiveCode > DateTime.Now && c.PhoneNumber == model.Phone && c.ConfirmCode == model.Code);
+        if (code == null)
         {
-            result.Message = "خطایی رخ داد کد 605";
-            result.IsSuccess = false;
-            return Ok(result);
-        }
-
-        if (DateTime.Now > user.ExpireLoginCode)
-        {
-            result.Message = "کد واد شده منقضی شده است";
-            result.IsSuccess = false;
-            return Ok(result);
-        }
-
-        if (user.LoginCode == model.Code)
-        {
-            user.PhoneNumberConfirmed = true;
-            await _userManager.UpdateAsync(user);
-            result.Message = "کاربر گرامی خوش آمدید!";
-            result.IsSuccess = true;
-            var role = await _userManager.GetRolesAsync(user);
-            var token = BuildToken(user, role.ToList());
-            result.Data = new RedirectResult()
+            return Ok(new ResultDto()
             {
-                Code = token,
-                RedirectUri = model.RedirectUri
-            };
-            return Ok(result);
+                Message = "کد واد شده منقضی شده است",
+                IsSuccess = false
+            });
         }
 
-        result.Message = "کد وارد شده اشتباه می باشد";
-        result.IsSuccess = false;
+        var res = await RegisterNewUser(model.Phone, model.Code);
+        if (!res.Succeeded)
+        {
+            return Ok(new ResultDto()
+            {
+                Message = "کاربر گرامی هنگام ساخت حساب کاربری خطایی رخ داد لطفا بعدا تلاش کنید",
+                IsSuccess = false
+            });
+        }
+
+        var user = await _userManager.FindByNameAsync(model.Phone);
+
+        result.Message = "کاربر گرامی خوش آمدید!";
+        result.IsSuccess = true;
+        var role = await _userManager.GetRolesAsync(user);
+        var token = BuildToken(user, role.ToList());
+        result.Data = new RedirectResult()
+        {
+            Code = token,
+            RedirectUri = model.RedirectUri
+        };
         return Ok(result);
     }
 
@@ -220,14 +216,43 @@ public class AuthController : ControllerBase
             var user = await _userManager.FindByIdAsync(User.GetUserId());
             if (user != null)
             {
+                if (!string.IsNullOrEmpty(user.FullName))
+                {
+                    return Ok(new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "تکمیل پروفایل کاربری تنها یک بار قابل استفاده است"
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(request.InvitedUser))
+                {
+                    var inviter =
+                        _context.Users.FirstOrDefault(c => c.RefralCode.ToLower() == request.InvitedUser.ToLower());
+                    if (inviter == null)
+                    {
+                        return Ok(new ResultDto()
+                        {
+                            IsSuccess = false,
+                            Message = "کد سفیر وارد شده اشتباه است"
+                        });
+                    }
+
+                    user.InvitedUserId = inviter.Id;
+                    inviter.Point += 10;
+                    await _userManager.UpdateAsync(inviter);
+                }
+
                 user.BrithDay = request.BirthDay;
                 user.Email = request.Email;
-                // user.Gender = request.Gender;
+                user.Gender = Enum.Parse<Gender>(request.Gender);
                 user.FullName = request.FullName;
                 user.Job = request.Job;
                 var hasher = new PasswordHasher<UserApp>();
                 user.PasswordHash = hasher.HashPassword(user, request.Password);
                 var res = await _userManager.UpdateAsync(user);
+
+
                 if (res.Succeeded)
                 {
                     return Ok(new ResultDto()
@@ -264,7 +289,6 @@ public class AuthController : ControllerBase
                     RefCode = user.RefralCode,
                     InvitedUser = _context.Users.Count(c => c.InvitedUserId == user.Id),
                     UserPoint = user.Point,
-
                 };
                 return Ok(model);
             }
@@ -468,5 +492,23 @@ public class AuthController : ControllerBase
         }
 
         return Ok("oifajeoifjioa");
+    }
+
+    private async Task<IdentityResult> RegisterNewUser(string phoneNumber, string code)
+    {
+        UserApp user = new UserApp()
+        {
+            Email = "",
+            UserName = phoneNumber,
+            FullName = "",
+            LoginCode = code,
+            Point = 0,
+            Job = "",
+            Gender = Gender.Male,
+            PhoneNumberConfirmed = true,
+            RefralCode = Utils.RandomString(8)
+        };
+        var res = await _userManager.CreateAsync(user);
+        return res;
     }
 }
