@@ -9,7 +9,7 @@ import {
 import { TiMessages } from "react-icons/ti";
 import { GoReport } from "react-icons/go";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { AiOutlineLeft, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineLeft } from "react-icons/ai";
 import Drawer from "react-modern-drawer";
 // import { NavMenu } from "./NavMenu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
