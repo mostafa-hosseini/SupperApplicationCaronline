@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaUserPlus } from 'react-icons/fa'
 import { useLocation, useNavigate } from 'react-router-dom';
 import http from '../api/index';
+import queryString from 'query-string';
 
 export default function VerifyScreen() {
     const { state } = useLocation();
@@ -10,6 +11,8 @@ export default function VerifyScreen() {
     const [showTimer, setShowTimer] = useState(true);
     const api = http();
     const navigate = useNavigate();
+    const { search } = useLocation();
+    const values = queryString.parse(search);
 
     useEffect(() => {
         const fullTime = 125;

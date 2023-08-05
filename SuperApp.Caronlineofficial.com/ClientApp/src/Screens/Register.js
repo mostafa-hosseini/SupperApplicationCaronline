@@ -52,7 +52,7 @@ export default function Login() {
         setLoading(false);
 
         if (data.isSuccess) {
-          navigate("/CompleteProfile", { state: { isRegistering: true, search: "?ref=" + values.ref } });
+          navigate("/CompleteProfile" + "?ref=" + values.ref, { state: { isRegistering: true, }, search: "?ref=" + values.ref });
           localStorage.setItem("token", data.data.code);
         }
       };

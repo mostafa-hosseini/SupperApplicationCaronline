@@ -66,7 +66,7 @@ export default function Layout({ children }) {
               // onClick={() => setIsOpen(!isOpen)}
               className="account-hover menu-btn img-icon"
             >
-              <img src={userImg} alt="user icon" />
+              <img src={userImg} alt="user icon" onClick={loggedIn ? () => navigation("/dashboard") : () => { }} />
 
               {!loggedIn ? (
                 <ul>
@@ -78,16 +78,7 @@ export default function Layout({ children }) {
                   </li>
                 </ul>
               ) : (
-                <ul>
-                  <li>
-                    <Link to="/Dashboard">داشبورد</Link>
-                  </li>
-                  <li>
-                    <a href="#" onClick={logOutHandler}>
-                      خروج از حساب
-                    </a>
-                  </li>
-                </ul>
+                null
               )}
             </div>
           </div>

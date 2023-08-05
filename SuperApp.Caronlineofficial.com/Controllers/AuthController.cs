@@ -486,7 +486,7 @@ public class AuthController : ControllerBase
         if (_env.IsDevelopment())
         {
             var user = _context.Users.Where(c =>
-                c.UserName == "09363179310" || c.UserName == "09108737900" || c.UserName == "09222729310").ToList();
+                c.UserName == "09363179310" || c.UserName == "09108737900" ).ToList();
             _context.Users.RemoveRange(user);
             await _context.SaveChangesAsync();
         }
