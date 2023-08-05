@@ -19,7 +19,7 @@ function Loading({
             ) : (
               <></>
             )}
-            <div className="lds-ring">
+            <div class="lds-ellipsis">
               <div></div>
               <div></div>
               <div></div>

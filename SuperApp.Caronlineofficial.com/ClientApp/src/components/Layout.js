@@ -9,7 +9,7 @@ import {
 import { TiMessages } from "react-icons/ti";
 import { GoReport } from "react-icons/go";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { BsArrowLeft } from "react-icons/bs";
+import { AiOutlineLeft, AiOutlineUser } from "react-icons/ai";
 import Drawer from "react-modern-drawer";
 // import { NavMenu } from "./NavMenu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -27,7 +27,6 @@ export default function Layout({ children }) {
   const [loggedIn, setLoggedIn] = useState(false);
   const navigation = useNavigate();
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -119,7 +118,7 @@ export default function Layout({ children }) {
                 onClick={() => navigation(-1)}
                 className="btn menu-btn img-icon me-2 back-button"
               >
-                <BsArrowLeft size={68} />
+                <AiOutlineLeft size={68} />
               </button>
             ) : (
               <></>
@@ -135,48 +134,68 @@ export default function Layout({ children }) {
           <Drawer
             open={isOpen}
             onClose={() => setIsOpen(!isOpen)}
-            direction="right"
+            direction="bottom"
             className="drawer-container d-flex flex-column justify-content-between py-4"
             style={{ overflowY: "auto" }}
           >
             <ul className="drawer-list">
               <li className={`drawer-list-item`}>
-                <Link className="link" to="/">
+                <Link className="link" onClick={() => setIsOpen(false)} to="/">
                   <IoHomeOutline size={18} style={{ marginLeft: 10 }} />
                   صفحه اصلی
                 </Link>
               </li>
 
               <li className={`drawer-list-item`}>
-                <Link className="link" to="/About-Us">
+                <Link
+                  className="link"
+                  onClick={() => setIsOpen(false)}
+                  to="/About-Us"
+                >
                   <IoPeopleOutline size={18} style={{ marginLeft: 10 }} />
                   درباره ما
                 </Link>
               </li>
 
               <li className={`drawer-list-item`}>
-                <Link className="link" to="/Contact-Us">
+                <Link
+                  className="link"
+                  onClick={() => setIsOpen(false)}
+                  to="/Contact-Us"
+                >
                   <IoCallOutline size={18} style={{ marginLeft: 10 }} />
                   تماس با ما
                 </Link>
               </li>
 
               <li className={`drawer-list-item`}>
-                <Link className="link" to="/Faq">
+                <Link
+                  className="link"
+                  onClick={() => setIsOpen(false)}
+                  to="/Faq"
+                >
                   <TiMessages size={18} style={{ marginLeft: 10 }} />
                   سوالات متداول
                 </Link>
               </li>
 
               <li className={`drawer-list-item`}>
-                <Link className="link" to="/Report-error">
+                <Link
+                  className="link"
+                  onClick={() => setIsOpen(false)}
+                  to="/Report-error"
+                >
                   <GoReport size={18} style={{ marginLeft: 10 }} />
                   گزارش مشکلات
                 </Link>
               </li>
 
               <li className={`drawer-list-item`}>
-                <Link className="link" to="/Policy">
+                <Link
+                  className="link"
+                  onClick={() => setIsOpen(false)}
+                  to="/Policy"
+                >
                   <IoDocumentTextOutline size={18} style={{ marginLeft: 10 }} />
                   قوانین و مقررات
                 </Link>

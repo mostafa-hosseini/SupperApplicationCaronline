@@ -49,7 +49,7 @@ export function Home() {
     <Loading isLoading={loading}>
       <div className="main-page">
         <section className="w-100">
-          <div className="row">
+          <div className="row home-icons">
             <div className="col-3">
               <RowItem
                 imgSrc={cars}

@@ -4,14 +4,14 @@ function CustomTab({ data, smallTab, scrollTabs, ...props }) {
   const [activeId, setActiveId] = useState("tab-1");
 
   return (
-    <div className="custom-tab">
-      <div className={`tabs-wrapper${scrollTabs ? " scrollable-tab" : ""}`}>
+    <div className={`custom-tab${scrollTabs ? " scrollable-tab" : ""}`}>
+      <div className="tabs-wrapper">
         {data.map((item) => (
           <div
             key={item.id}
             id={item.id}
             className={`tab-btn${item.id === activeId ? " active" : ""}${
-              smallTab ? " small-tab" : ""
+              smallTab ? " small-tab-" + smallTab : ""
             }`}
             onClick={() => setActiveId(item.id)}
           >

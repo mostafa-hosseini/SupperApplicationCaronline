@@ -17,7 +17,7 @@ function Crypto(props) {
       <div className="mb-4 newspaper-list">
         <CustomTab
           setLoading={setLoading}
-          scrollTabs
+          smallTab={5}
           data={[
             { title: "اقتصادی", Component: <NewsPaperList id={2} />, id: "tab-1" },
             { title: "ورزشی", Component: <NewsPaperList id={3} />, id: "tab-2" },

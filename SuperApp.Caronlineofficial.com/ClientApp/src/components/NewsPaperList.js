@@ -51,6 +51,7 @@ export default function NewsList({ id = 1, onChange }) {
                   title={item.title}
                   disc={item.title}
                   noBottom
+                  fitImg
                 />
               </div>
             ))}

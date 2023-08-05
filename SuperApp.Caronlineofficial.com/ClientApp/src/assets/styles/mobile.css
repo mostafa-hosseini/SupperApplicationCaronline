@@ -1,6 +1,8 @@
 @media only screen and (max-width: 992px) {
   .crypto-item {
     max-width: 320px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -8,10 +10,11 @@
   .text-mobile {
     font-size: 0.8rem !important;
   }
+
   .abslout-icon {
     position: fixed;
     bottom: -2vh;
-    z-index: 9998;
+    z-index: 9997;
     background: rgba(255, 255, 255, 0.423);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -20,6 +23,7 @@
     padding-bottom: 5px;
     width: 350px;
     max-width: 90vw;
+    min-width: unset;
     display: flex;
     justify-content: space-around;
     /* right: 30%; */
@@ -33,16 +37,28 @@
     padding: 0;
   }
 
-  .custom-tab .tabs-wrapper .tab-btn.small-tab {
+  .custom-tab .tabs-wrapper .tab-btn.small-tab-4 {
     max-width: 25% !important;
     padding-right: 0.5rem;
     padding-left: 0.5rem;
     font-size: 0.9em;
   }
 
-  .custom-tab .tabs-wrapper .scrollable-tab {
+  .custom-tab .tabs-wrapper .tab-btn.small-tab-5 {
+    max-width: 20% !important;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    font-size: 0.9em;
+  }
+
+  .custom-tab.scrollable-tab .tabs-wrapper {
     overflow-x: scroll;
     overflow-y: hidden;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .custom-tab.scrollable-tab .tab-body {
+    border-radius: 0;
   }
 
   .newspaper-list .car-slider-item {
@@ -68,5 +84,37 @@
     position: absolute;
     top: 65px;
     left: 1.5rem;
+  }
+
+  .home-icons > div {
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+  }
+
+  .home-icons .row-item {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .navbar-brand img {
+    max-width: 38vw;
+    object-fit: contain;
+  }
+
+  .menu-btn {
+    width: 35px !important;
+    height: 30px !important;
+    padding: 0.25rem;
+  }
+
+  .menu-btn.img-icon svg,
+  .menu-btn.img-icon img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .abslout-icon h6 {
+    font-size: 0.6rem !important;
   }
 }
