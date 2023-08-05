@@ -19,21 +19,17 @@ import "react-modern-drawer/dist/index.css";
 import toast from "react-hot-toast";
 import userImg from "../assets/images/Icons/user.svg";
 import walletImg from "../assets/images/Icons/wallet.svg";
+import UseAuth from "../hooks/UseAuth";
 // import NavToggle from "./NavToggle";
 // import { CiMenuKebab} from "react-icons/ci";
 
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const loggedIn = UseAuth();
   const navigation = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setLoggedIn(true);
-    }
-  }, []);
+
 
   const logOutHandler = () => {
     localStorage.removeItem("token");
@@ -45,9 +41,8 @@ export default function Layout({ children }) {
     <div>
       <header>
         <Navbar
-          className={`navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow${
-            location.pathname !== "/" ? " mb-6" : " mb-3"
-          }`}
+          className={`navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow${location.pathname !== "/" ? " mb-6" : " mb-3"
+            }`}
           container
           light
         >
@@ -70,7 +65,7 @@ export default function Layout({ children }) {
               // onClick={() => setIsOpen(!isOpen)}
               className="account-hover menu-btn img-icon"
             >
-              <img src={userImg} alt="user icon" />
+              <img src={userImg} alt="user icon" onClick={loggedIn ? () => navigation("/dashboard") : () => { }} />
 
               {!loggedIn ? (
                 <ul>
@@ -82,16 +77,7 @@ export default function Layout({ children }) {
                   </li>
                 </ul>
               ) : (
-                <ul>
-                  <li>
-                    <Link to="/Dashboard">داشبورد</Link>
-                  </li>
-                  <li>
-                    <a href="#" onClick={logOutHandler}>
-                      خروج از حساب
-                    </a>
-                  </li>
-                </ul>
+                null
               )}
             </div>
           </div>
