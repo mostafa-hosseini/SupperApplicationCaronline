@@ -140,6 +140,15 @@ export function Home() {
                 to={"/دیده-بان"}
               />
             </div>
+
+            <div className="col-3">
+              <RowItem
+                imgSrc={game}
+                imgalt="اخبار"
+                title="اخبار"
+                to={"/اخبار"}
+              />
+            </div>
           </div>
         </section>
 

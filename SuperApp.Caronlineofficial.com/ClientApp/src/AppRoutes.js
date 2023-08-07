@@ -25,6 +25,7 @@ import NewsPaper from "./Screens/NewsPaper";
 import DetailNews from "./Screens/DetailNews";
 import ShopQuikAccess from "./Screens/ShopQuikAccess";
 import CryptoQuickAccess from "./Screens/CryptoQuickAccess";
+import News from "./Screens/News";
 
 const AppRoutes = [
   {
@@ -50,6 +51,10 @@ const AppRoutes = [
   {
     path: "/دیده-بان",
     element: <CryptoQuickAccess />,
+  },
+  {
+    path: "/اخبار",
+    element: <News />,
   },
   {
     path: "/Login",
