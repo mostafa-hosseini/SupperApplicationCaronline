@@ -1308,13 +1308,13 @@ a:active {
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 .story-wrapper {
-  scrollbar-width: auto;
-  scrollbar-color: #bdbcbd #f1e9e9;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Chrome, Edge, and Safari */
 .story-wrapper::-webkit-scrollbar {
-  width: 16px;
+  display: none; /* Safari and Chrome */
 }
 
 .story-wrapper::-webkit-scrollbar-track {
@@ -1353,12 +1353,20 @@ a:active {
 .story-list .story-item .story-img {
   width: 100%;
   height: 200px;
+  overflow: hidden;
+  display: block;
 }
 .story-list .story-item .story-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 0.3s ease-in;
 }
+
+.story-list .story-item .story-img:hover img {
+  transform: scale(1.2);
+}
+
 .story-list .story-item .top-box {
   display: flex;
   justify-content: space-between;
@@ -1375,12 +1383,26 @@ a:active {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: all 0.3s ease-in;
+}
+
+.story-list .story-item .top-box .title:hover {
+  color: #c90000;
 }
 
 .story-list .story-item .top-box .icons {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.story-list .story-item .top-box .icons .icon-link {
+  color: #212529;
+  transition: all 0.3s ease-in;
+}
+
+.story-list .story-item .top-box .icons .icon-link:hover {
+  transform: scale(1.1);
 }
 
 .story-list .story-item .top-box .icons > * {

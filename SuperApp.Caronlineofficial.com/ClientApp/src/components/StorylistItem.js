@@ -4,25 +4,28 @@ import IconToggle from "./IconToggle";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
+import { Link, useLocation } from "react-router-dom";
 
 function StorylistItem(props) {
   const [showMore, setShowMore] = useState(false);
   return (
     <div className="story-item">
-      <div className="story-img">
+      <Link className="story-img" to="/news/1">
         <img src={img} alt="?" />
-      </div>
+      </Link>
 
       <div className="top-box">
-        <div className="title">لورم ایپسوم متن </div>
+        <Link to="/news/1" className="title">
+          لورم ایپسوم متن
+        </Link>
         <div className="icons">
           <span>
             <TbBrandTelegram size={23} />
           </span>
 
-          <span>
+          <Link to="/news/1" className="icon-link">
             <FaRegComment size={23} />
-          </span>
+          </Link>
 
           <IconToggle
             DisableIcon={AiOutlineHeart}
