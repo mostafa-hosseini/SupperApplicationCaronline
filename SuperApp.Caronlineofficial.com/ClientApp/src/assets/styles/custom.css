@@ -1292,6 +1292,7 @@ a:active {
   overflow-x: scroll;
   overflow-y: hidden;
   margin-bottom: 2rem;
+  border-bottom: 1px solid rgb(222, 226, 230);
 }
 
 .story-wrapper .story-item {
@@ -1426,4 +1427,80 @@ a:active {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.single-news-header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(222, 226, 230);
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+}
+
+.single-news-header p {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #161619;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.single-news-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-item {
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 0.5rem;
+  margin-bottom: 2rem;
+  background-color: #ececec;
+  border-radius: 0.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.chat-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: -15px;
+  width: 0;
+  height: 0;
+  z-index: 4;
+  border-bottom: 15px solid #ececec;
+  border-left: 15px solid #ececec;
+  border-right: 15px solid #fff;
+  z-index: 2;
+}
+
+.chat-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #bec1cd;
+}
+
+.sender {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #161619;
+  margin-left: 1rem;
+}
+
+.chat-body {
+  font-weight: 300;
+  font-size: 1rem;
+  color: #697085;
 }
