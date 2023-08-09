@@ -1466,6 +1466,17 @@ a:active {
   border-radius: 0.5rem;
   position: relative;
   z-index: 3;
+  transition: all 0.25s ease-in;
+  position: relative;
+}
+
+.chat-item.active-chat-item {
+  background-color: #e2dfdf;
+}
+
+.chat-item.active-chat-item::before {
+  border-bottom: 15px solid #e2dfdf;
+  border-left: 15px solid #e2dfdf;
 }
 
 .chat-item::before {
@@ -1481,6 +1492,7 @@ a:active {
   border-left: 15px solid #ececec;
   border-right: 15px solid #fff;
   z-index: 2;
+  transition: all 0.25s ease-in;
 }
 
 .chat-footer {
@@ -1503,4 +1515,42 @@ a:active {
   font-weight: 300;
   font-size: 1rem;
   color: #697085;
+}
+
+.reaction-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-color: #fffbfb;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.reaction-box::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.reaction-box::-webkit-scrollbar-track {
+  background: #f1e9e9;
+  border-radius: 0.5rem;
+}
+
+.reaction-box::-webkit-scrollbar-thumb {
+  background-color: #bdbcbd;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+
+.reaction-box span {
+  margin: 0 0.25rem;
 }
