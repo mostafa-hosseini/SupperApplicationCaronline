@@ -12,7 +12,13 @@ import teaser from "../assets/images/Icons/teaser-01.svg";
 import tolidmohtava from "../assets/images/Icons/tolidmohtava-01.svg";
 import RowItem from "../components/RowItem";
 import Loading from "../components/Loading";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function ClinickAccess() {
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +31,105 @@ export default function ClinickAccess() {
   return (
     <Loading isLoading={loading}>
       <div className="row">
-        <div className="col-3">
+        <div className="col-12    row justify-content-around">
+          <Swiper
+            // slidesPerView={3}
+
+            modules={[Navigation]}
+            // navigation={true}
+            breakpoints={{
+              320: {
+                slidesPerView: 1.1,
+                spaceBetween: 10,
+              },
+              // when window width is >= 480px
+            }}
+            className="mb-2"
+          >
+            <SwiperSlide
+              className="nbt "
+              style={{ overflow: "hidden", borderRadius: 15 }}
+              key={"key"}
+            >
+              <LazyLoadImage
+                // height={200}
+                width={"100%"}
+                effect="black-and-white"
+                src={require("../assets/images/Banners/23.jpg")}
+                onClick={() => window.open("https://mashinto.com/BecomeASeller")}
+                alt={""}
+                style={{ width: "100%" }}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src =
+                    "https://mashinto.com/media/ads/defualt.png";
+                  currentTarget.style = "max-height:180px";
+                }}
+              />
+            </SwiperSlide>
+
+            <SwiperSlide
+              className="nbt "
+              style={{ overflow: "hidden", borderRadius: 15 }}
+              key={"key"}
+            >
+              <LazyLoadImage
+                // height={200}
+                onClick={() => window.open("https://amlakto.com/BecomeASeller")}
+                width={"100%"}
+                effect="black-and-white"
+                src={require("../assets/images/Banners/24.jpg")}
+                alt={""}
+                style={{ width: "100%" }}
+              />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt "
+              style={{ overflow: "hidden", borderRadius: 15 }}
+              key={"key"}
+            >
+              <LazyLoadImage
+                // height={200}
+                onClick={() => window.open("https://amlakto.com/BecomeASeller")}
+                width={"100%"}
+                effect="black-and-white"
+                src={require("../assets/images/Banners/25.jpg")}
+                alt={""}
+                style={{ width: "100%" }}
+              />
+            </SwiperSlide>
+            {/* <SwiperSlide
+              className="nbt "
+              style={{ overflow: "hidden", borderRadius: 15 }}
+              key={"key"}
+            >
+              <LazyLoadImage
+                onClick={() => window.open("https://amlakto.com/BecomeASeller")}
+                width={"100%"}
+                effect="black-and-white"
+                src={require("../assets/images/Banners/26.jpg")}
+                alt={""}
+                style={{ width: "100%" }}
+              />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt "
+              style={{ overflow: "hidden", borderRadius: 15 }}
+              key={"key"}
+            >
+              <LazyLoadImage
+                onClick={() => window.open("https://amlakto.com/BecomeASeller")}
+                width={"100%"}
+                effect="black-and-white"
+                src={require("../assets/images/Banners/27.jpg")}
+                alt={""}
+                style={{ width: "100%" }}
+              />
+            </SwiperSlide> */}
+
+          </Swiper>
+        </div>
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={digitalmarketing}
             imgalt="دیجیتال مارکتینگ"
@@ -34,7 +138,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={tarahi}
             imgalt="طراحی سایت"
@@ -43,11 +147,11 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem imgSrc={seo} imgalt="سئو" title="سئو" to={"/"} />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={app}
             imgalt="ساخت اپلیکیشن"
@@ -56,7 +160,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={teaser}
             imgalt="ساخت تیزر"
@@ -65,7 +169,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={graphic}
             imgalt="طراحی گرافیک"
@@ -74,7 +178,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={tolidmohtava}
             imgalt="تولید محتوا"
@@ -83,7 +187,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={catalog}
             imgalt="کاتالوگ دیجیتال"
@@ -92,7 +196,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={brandsazi}
             imgalt="برندسازی"
@@ -101,7 +205,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem
             imgSrc={sabtbrand}
             imgalt="ثبت شرکت و برند"
@@ -110,7 +214,7 @@ export default function ClinickAccess() {
           />
         </div>
 
-        <div className="col-3">
+        <div className="col-3 p-0">
           <RowItem imgSrc={axasi} imgalt="عکاسی" title="عکاسی" to={"/"} />
         </div>
       </div>

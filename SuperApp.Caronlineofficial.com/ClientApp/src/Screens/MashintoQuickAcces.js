@@ -25,7 +25,7 @@ export default function MashintoQuickAccess() {
     <Loading isLoading={loading}>
 
     <div className="row">
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={mohasebe}
           imgalt="محاسبه قیمت خودرو"
@@ -35,7 +35,7 @@ export default function MashintoQuickAccess() {
           
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={gheymat}
           imgalt="قیمت روز خودرو"
@@ -44,7 +44,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={kharid}
           imgalt="خرید سفارشی"
@@ -53,7 +53,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={forosh}
           imgalt="فروش سفارشی"
@@ -62,7 +62,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={karshenasi}
           imgalt="درخواست کارشناسی"
@@ -71,7 +71,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={froshgah}
           imgalt="فروشگاه"
@@ -80,7 +80,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={hamkari}
           imgalt="همکاری با ماشین تو"
@@ -89,7 +89,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={foroshandeh}
           imgalt="فروشنده شوید"
@@ -98,7 +98,7 @@ export default function MashintoQuickAccess() {
           blank
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={sabt}
           imgalt="ثبت آگهی"

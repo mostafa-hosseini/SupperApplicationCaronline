@@ -25,7 +25,7 @@ public class UserApp : IdentityUser
 
     public string Job { get; set; }
     public DateTime? BrithDay { get; set; }
-    public string RefralCode { get; set; } = SuperApp.Caronlineofficial.com.Utils.RandomString(8);
+    public string RefralCode { get; set; } = SuperApp.Caronlineofficial.com.Utils.RandomString(4);
 }
 
 public enum Gender

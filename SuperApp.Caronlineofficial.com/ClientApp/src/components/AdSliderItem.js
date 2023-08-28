@@ -8,6 +8,7 @@ function AdSliderItem({ imgSrc, imgAlt }) {
       effect="black-and-white"
       src={imgSrc}
       alt={imgAlt}
+      className="w-100"
       placeholderSrc={defaultBanner}
     />
   );

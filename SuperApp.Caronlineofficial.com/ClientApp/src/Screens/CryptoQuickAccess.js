@@ -14,7 +14,7 @@ import forex from '../assets/images/Icons/Dideban/‌forex-01.svg'
 import sabt from "../assets/images/Icons/house/sabt-01.svg";
 import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
-export default function AmlaktoQuickAccess() {
+export default function CryptoQuickAccess() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function AmlaktoQuickAccess() {
   return (
     <Loading isLoading={loading}>
       <div className="row">
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={bitcoin}
             imgalt="ارز دیجیتال"
@@ -34,7 +34,7 @@ export default function AmlaktoQuickAccess() {
             to={"/Crypto"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={forex}
             imgalt="فارکس"
@@ -42,7 +42,7 @@ export default function AmlaktoQuickAccess() {
             to={"/Forex"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={borse}
             imgalt="بورس ایران"
@@ -50,7 +50,7 @@ export default function AmlaktoQuickAccess() {
             to={"/Market"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={tala}
             imgalt="طلا و سکه"
@@ -58,7 +58,7 @@ export default function AmlaktoQuickAccess() {
             to={"/Gold"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={dollor}
             imgalt="دلار و ارز"
@@ -66,7 +66,7 @@ export default function AmlaktoQuickAccess() {
             to={"/Currency"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={melk}
             imgalt="مسکن"
@@ -74,7 +74,7 @@ export default function AmlaktoQuickAccess() {
             to={"/RealEstate"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={camodity}
             imgalt="کامودیتی"
@@ -82,7 +82,7 @@ export default function AmlaktoQuickAccess() {
             to={"/CommodityExchange"}
           />
         </div>
-        <div className="col-3">
+        <div className="col-3 p-1">
           <RowItem
             imgSrc={newspaper}
             imgalt="روزنامه های ایران"

@@ -22,47 +22,47 @@ export default function AmlaktoQuickAccess() {
   return (
     <Loading isLoading={loading}>
     <div className="row">
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={sabt}
           imgalt="ثبت آگهی"
           title="ثبت آگهی"
-          to={"/MashintoQuickAcces"}
+          to={"/https://amlakto.com/%D8%AB%D8%A8%D8%AA-%D8%A2%DA%AF%D9%87%DB%8C"}
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={gheymat}
           imgalt="قیمت روز ملک"
           title="قیمت روز ملک"
-          to={"/MashintoQuickAcces"}
+          to={"https://amlakto.com/price"}
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={karshenasi}
           imgalt="درخواست کارشناسی"
           title="درخواست کارشناسی"
-          to={"/MashintoQuickAcces"}
+          
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={moshavere}
           imgalt="مشاوره"
           title="مشاوره"
-          to={"/MashintoQuickAcces"}
+          to={"https://mashverato.com/"}
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={kharid}
           imgalt="خرید سفارشی"
           title="خرید سفارشی"
-          to={"/MashintoQuickAcces"}
+          
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={forosh}
           imgalt="فروش سفارشی"
@@ -70,28 +70,28 @@ export default function AmlaktoQuickAccess() {
           to={"/MashintoQuickAcces"}
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={foroshandeh}
           imgalt="فروشنده شوید"
           title="فروشنده شوید"
-          to={"/MashintoQuickAcces"}
+          to={"https://amlakto.com/becomeASeller"}
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={hamkari}
           imgalt="فایل های زیر قیمت"
           title="فایل های زیر قیمت"
-          to={"/MashintoQuickAcces"}
+          
         />
       </div>
-      <div className="col-3">
+      <div className="col-3 p-1">
         <RowItem
           imgSrc={froshgah}
           imgalt="فروشگاه"
           title="فروشگاه"
-          to={"/MashintoQuickAcces"}
+          to={"https://amlakto.com/shop"}
         />
       </div>
     </div>

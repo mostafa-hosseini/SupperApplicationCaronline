@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,49 +9,58 @@ import "swiper/css/pagination";
 import "../assets/styles/custom.css";
 // import required modules
 // import Accordion from "react-bootstrap/Accordion";
-import { Navigation, Pagination } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 
 import amoozesh from "../assets/images/Icons/amoozesh-01.svg";
 import bimeh from "../assets/images/Icons/bimeh-01.png";
 import cars from "../assets/images/Icons/cars-01.svg";
+import clinic from "../assets/images/Icons/clinic--01.png";
+import clinick from "../assets/images/Icons/clinick-01.svg";
+import dideban from "../assets/images/Icons/dideban-01.svg";
 import froshgah from "../assets/images/Icons/froshgah-01.svg";
 import game from "../assets/images/Icons/game-01.svg";
 import house from "../assets/images/Icons/house-01.svg";
 import moshavereh from "../assets/images/Icons/moshavereh-01.svg";
 import sarmaye from "../assets/images/Icons/sarmaye-01.svg";
-import clinick from "../assets/images/Icons/clinick-01.svg";
-import dideban from "../assets/images/Icons/dideban-01.svg";
 
 import amlakto from "../assets/images/Icons/logo/amlakto-01.png";
-import kalato from "../assets/images/Icons/logo/kalato-01.png";
+import clinicto from "../assets/images/Icons/logo/clinic-01.png";
 import mashinto from "../assets/images/Icons/logo/mashinto-01.svg";
 import moshaverto from "../assets/images/Icons/logo/moshaverto-01.svg";
 
+import { Link, useNavigate } from "react-router-dom";
 import defaultTest from "../assets/testImages/default-test.jpg";
-import RowItem from "../components/RowItem";
-import BlogListItem from "../components/BlogListItem";
+
+import http from '../api/index';
 import ListTitle from "../components/ListTitle";
-import BannerSliderItem from "../components/BannerSliderItem";
-import Accordion from "../components/Accordion";
-import AdSliderItem from "../components/AdSliderItem";
 import Loading from "../components/Loading";
-import { Link } from "react-router-dom";
+import RowItem from "../components/RowItem";
+import CarouselPrice from "../components/CarouselPrice";
 
 export function Home() {
+  const navigate = useNavigate();
+  const api = http();
+  const currentStoryId = localStorage.getItem("story");
+  const [storyId, setstoryId] = useState(0)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    api.CheckStory(({ data }) => {
+      setstoryId(data)
       setLoading(false);
-    }, 500);
+    });
   }, []);
+
+
+
 
   return (
     <Loading isLoading={loading}>
       <div className="main-page">
         <section className="w-100">
           <div className="row home-icons">
-            <div className="col-3">
+
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={cars}
                 imgalt="خودرو"
@@ -60,25 +69,16 @@ export function Home() {
               />
             </div>
 
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={house}
                 imgalt="املاک"
                 title="املاک"
                 to={"/املاک"}
+
               />
             </div>
-
-            <div className="col-3">
-              <RowItem
-                imgSrc={bimeh}
-                imgalt="بیمه"
-                title="بیمه"
-                to={"https://bimehato.com/"}
-              />
-            </div>
-
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={froshgah}
                 imgalt="فروشگاه"
@@ -86,8 +86,25 @@ export function Home() {
                 to={"/فروشگاه"}
               />
             </div>
+            <div className="col-3 p-1 ">
+              <div className="row  align-items-center flex-column row-item">
+                <div className={`w-75  ${currentStoryId < storyId ? "profile-pic" : "profile-pic-noborder"}`} onClick={() => navigate("/story")}  >
+                  <img src={require("../assets/images/Logo.png")} alt="" />
+                </div>
+                <h6 className="text-center mt-2 text-mobile p-0">استوری</h6>
+              </div>
+            </div>
 
-            <div className="col-3">
+            <div className="col-3 p-1">
+              <RowItem
+                imgSrc={bimeh}
+                imgalt="بیمه"
+                title="بیمه"
+                to={"https://bimehato.com/"}
+                disabled
+              />
+            </div>
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={moshavereh}
                 imgalt="مشاوره"
@@ -95,8 +112,7 @@ export function Home() {
                 to={"https://mashverato.com"}
               />
             </div>
-
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={game}
                 imgalt="سرگرمی"
@@ -105,7 +121,7 @@ export function Home() {
               />
             </div>
 
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={amoozesh}
                 imgalt="آموزش"
@@ -114,7 +130,7 @@ export function Home() {
               />
             </div>
 
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={sarmaye}
                 imgalt="سرمایه گذاری"
@@ -123,16 +139,17 @@ export function Home() {
               />
             </div>
 
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={clinick}
-                imgalt="کلینیک کسب و کار"
-                title="کلینیک کسب و کار"
-                to={"/کلینیک-کسب-و-کار"}
+                imgalt="توسعه کسب و کار"
+                title="توسعه کسب و کار"
+                to={"/توسعه-کسب-و-کار"}
+
               />
             </div>
 
-            <div className="col-3">
+            <div className="col-3 p-1">
               <RowItem
                 imgSrc={dideban}
                 imgalt="کریپتو و ارز دیجیتال"
@@ -141,17 +158,58 @@ export function Home() {
               />
             </div>
 
-            <div className="col-3">
+            {/* <div className="col-3 p-1">
               <RowItem
                 imgSrc={game}
                 imgalt="اخبار"
                 title="اخبار"
                 to={"/اخبار"}
               />
+            </div> */}
+
+            <div className="col-3 p-1">
+              <RowItem
+                imgSrc={clinic}
+                imgalt="کلینیک"
+                title="کلینیک"
+                to={"/کلینیک"}
+                disabled
+              />
             </div>
+
           </div>
         </section>
 
+        <section className="mt-3 w-100">
+          <ListTitle
+            title="به خانواده بزرگ کارآنلاین بپیوندید"
+            color="orange"
+            showMore={false}
+          />
+
+          <div className="w-100 p-0 mt-2" style={{ marginBottom: 30 }}>
+            <div
+              className="shadow-sm"
+              style={{
+                borderRadius: 10,
+                overflow: "hidden",
+                position: "relative",
+              }}
+              onClick={() => navigate("/Register")}
+            >
+              <LazyLoadImage
+                width={"100%"}
+                src={require("../assets/images/Banners/05.jpg")}
+                height={"100%"}
+                effect="black-and-white"
+                placeholderSrc={defaultTest}
+                className="full-img"
+              />
+
+
+            </div>
+          </div>
+        </section>
         {/* <div className="col-12   mt-3 row justify-content-around">
         {rendericon(
           <BsFlower1 size={40} color="#fff" className="mx-auto" />,
@@ -174,13 +232,21 @@ export function Home() {
           "iconGray"
         )}
       </div> */}
+        <section className="w-100">
+          <CarouselPrice />
+        </section>
+
 
         <section className="w-100">
           <Swiper
             style={{ paddingBottom: 30 }}
             // slidesPerView={3}
             centeredSlides
-            modules={[Pagination]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[Pagination, Autoplay, Navigation]}
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -192,45 +258,66 @@ export function Home() {
           >
             <SwiperSlide
               className="nbt banner-slider-item"
-              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              onClick={() => { window.open("https://mashverato.com") }}
             >
-              <AdSliderItem
-                imgSrc={require("../assets/images/Banners/01.jpg")}
-                imgAlt="item.title"
-              />
-            </SwiperSlide>
 
+              <img src={require("../assets/images/Banners/07.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
             <SwiperSlide
               className="nbt banner-slider-item"
               // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
-            >
-              <AdSliderItem
-                imgSrc={require("../assets/images/Banners/02.jpg")}
-                imgAlt="item.title"
-              />
-            </SwiperSlide>
+              onClick={() => { window.open("https://mashinto.com") }}
 
+            >
+
+              <img src={require("../assets/images/Banners/08.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
             <SwiperSlide
               className="nbt banner-slider-item"
               // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              onClick={() => { window.open("https://amlakto.com") }}
             >
-              <LazyLoadImage
-                width={"100%"}
-                effect="black-and-white"
-                src={require("../assets/images/Banners/03.jpg")}
-                alt={"item.title"}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src =
-                    "https://mashinto.com/media/ads/defualt.png";
-                  currentTarget.style = "max-height:180px";
-                }}
-              />
+
+              <img src={require("../assets/images/Banners/09.jpg")} alt="" className="w-100" />
             </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              onClick={() => { window.open("https://club.caronlineofficial.com") }}
+            >
+
+              <img src={require("../assets/images/Banners/10.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              onClick={() => { window.open("https://academy.caronlineofficial.com") }}
+            >
+
+              <img src={require("../assets/images/Banners/11.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+              // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+              onClick={() => { window.open("https://navar.live") }}
+
+            >
+
+              <img src={require("../assets/images/Banners/12.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+              onClick={() => navigate(`/دیده-بان`)}
+            >
+
+              <img src={require("../assets/images/Banners/13.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+
+
           </Swiper>
         </section>
 
-        <section className="mt-5 w-100">
+        {/* <section className="mt-5 w-100">
           <ListTitle title="به دلخواه خود تخفیف بگیرید" color="yellow" />
 
           <div className="col-12 p-0 w-100">
@@ -251,7 +338,7 @@ export function Home() {
                   slidesPerView: 2.2,
                 },
               }}
-              // className="new-car-slider-container"
+            // className="new-car-slider-container"
             >
               <SwiperSlide key="1w">
                 <BlogListItem
@@ -278,9 +365,9 @@ export function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-        </section>
+        </section> */}
 
-        <section className="mt-3 w-100">
+        {/* <section className="mt-3 w-100">
           <ListTitle title="انتخاب از بین بیمه های متنوع" color="pink" />
 
           <div className="col-12 p-0 w-100">
@@ -315,61 +402,71 @@ export function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-        </section>
+        </section> */}
 
-        <section className="mt-3 w-100">
-          <ListTitle
-            title="انتخاب از بین بیمه های متنوع"
-            color="orange"
-            showMore={false}
-          />
+        {/* <section className="w-100">
+          <Swiper
+            style={{ paddingBottom: 30 }}
+            // slidesPerView={3}
+            centeredSlides
+            modules={[Pagination]}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+            }}
+            pagination={true}
+            className="new-car-slider-container mb-0"
+          >
 
-          <div className="w-100 p-0 mt-2" style={{ marginBottom: 30 }}>
-            <div
-              className="shadow-sm"
-              style={{
-                borderRadius: 10,
-                overflow: "hidden",
-                position: "relative",
-              }}
+            <SwiperSlide
+              className="nbt banner-slider-item"
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
             >
-              <LazyLoadImage
-                width={"100%"}
-                src={require("../assets/images/Banners/05.jpg")}
-                height={"100%"}
-                effect="black-and-white"
-                placeholderSrc={defaultTest}
-                className="full-img"
-              />
 
-              {/* <div
-                className="w-100 blur"
-                style={{
-                  position: "absolute",
-                  zIndex: 5,
-                  bottom: 0,
-                }}
-              >
-                <hr className="m-0" />
-                <div className="d-flex flex-row align-items-center justify-content-between px-2 mb-2 mt-2 ">
-                  <div className="d-flex flex-row align-items-center">
-                    <h6 className="title-text mx-2 my-0">
-                      متن تست برای این بخش
-                    </h6>
-                  </div>
-                  <span
-                    className="title-text tx-link text-mobile px-4 py-1"
-                    style={{ border: "1.5px solid #3333", borderRadius: 15 }}
-                  >
-                    ادامه مطلب
-                  </span>
-                </div>
-              </div> */}
-            </div>
-          </div>
-        </section>
+              <img src={require("../assets/images/Banners/18.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            >
 
-        <section className="mt-3 w-100">
+              <img src={require("../assets/images/Banners/14.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            >
+
+              <img src={require("../assets/images/Banners/17.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            >
+
+              <img src={require("../assets/images/Banners/15.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+            <SwiperSlide
+              className="nbt banner-slider-item"
+            // onClick={() => history.push(`/shoplist?categoryId=${item.id}`)}
+            >
+
+              <img src={require("../assets/images/Banners/16.jpg")} alt="" className="w-100" />
+            </SwiperSlide>
+
+
+
+
+
+          </Swiper>
+        </section> */}
+
+
+
+
+        {/* <section className="mt-3 w-100">
           <ListTitle title="انتخاب از بین بیمه های متنوع" color="pink" />
 
           <div className="col-12 p-0 w-100">
@@ -404,7 +501,7 @@ export function Home() {
               </SwiperSlide>
             </Swiper>
           </div>
-        </section>
+        </section> */}
 
         {/* <div className="col-12 mt-5 w-100">
           <h5 className="text-center">همکاران بزرگ ما</h5>
@@ -450,7 +547,7 @@ export function Home() {
 
         <div className="col-12">
           <div className="row">
-            <div className="col-3">
+            <div className="col-3 p-1">
               <a
                 referrerPolicy="origin"
                 target="_blank"
@@ -473,7 +570,7 @@ export function Home() {
         <div className="col-3 row">
           <Link to={"https://mashinto.com"} target={"_self"}>
             <div
-              onClick={() => {}}
+              onClick={() => { }}
               className={`col-auto mx-auto d-flex align-items-center `}
             >
               <img src={mashinto} className="w-100 img-logo" alt="" />
@@ -487,7 +584,7 @@ export function Home() {
         <div className="col-3 row">
           <Link to={"https://amlakto.com"} target={"_self"}>
             <div
-              onClick={() => {}}
+              onClick={() => { }}
               className={`col-auto mx-auto  d-flex align-items-center `}
             >
               <img src={amlakto} className="w-100 img-logo" alt="" />
@@ -501,7 +598,7 @@ export function Home() {
         <div className="col-3 row">
           <Link to={"https://mashverato.com"} target={"_self"}>
             <div
-              onClick={() => {}}
+              onClick={() => { }}
               className={`col-auto mx-auto  d-flex align-items-center `}
             >
               <img src={moshaverto} className="w-100 img-logo" alt="" />
@@ -513,15 +610,15 @@ export function Home() {
         </div>
 
         <div className="col-3 row">
-          <Link to={"https://mashinto.com/shop"} target={"_self"}>
+          <Link to={"https://cliniceto.com/"} target={"_self"}>
             <div
-              onClick={() => {}}
+              onClick={() => { }}
               className={`col-auto mx-auto  d-flex align-items-center `}
             >
-              <img src={kalato} className="w-100 img-logo" alt="" />
+              <img src={clinicto} className="w-100 img-logo" alt="" />
             </div>
             <h6 className="text-center mt-2 text-mobile p-0 tx-rm-link">
-              کالاتو
+              کلینیک تو
             </h6>
           </Link>
         </div>

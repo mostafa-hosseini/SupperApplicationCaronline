@@ -26,6 +26,10 @@ import DetailNews from "./Screens/DetailNews";
 import ShopQuikAccess from "./Screens/ShopQuikAccess";
 import CryptoQuickAccess from "./Screens/CryptoQuickAccess";
 import News from "./Screens/News";
+import Story from './Screens/Story';
+import AdminDashboard from "./Screens/AdminPages/AdminDashboard";
+import AddNewStory from './Screens/AdminPages/AddNewStory';
+import ManageStory from './Screens/AdminPages/ManageStory';
 
 const AppRoutes = [
   {
@@ -45,7 +49,7 @@ const AppRoutes = [
     element: <AmlaktoQuickAccess />,
   },
   {
-    path: "/کلینیک-کسب-و-کار",
+    path: "/توسعه-کسب-و-کار",
     element: <ClinickAccess />,
   },
   {
@@ -136,6 +140,24 @@ const AppRoutes = [
     path: "/Policy",
     element: <Policy />,
   },
+  {
+    path: "/Story",
+    element: <Story />,
+  },
+  //admin route
+  {
+    path: "/AdminDashboard",
+    element: <AdminDashboard />,
+  },
+  {
+    path: "/AddNewStory",
+    element: <AddNewStory />,
+  },
+  {
+    path: "/ManageStory",
+    element: <ManageStory />,
+  },
+
 ];
 
 export default AppRoutes;

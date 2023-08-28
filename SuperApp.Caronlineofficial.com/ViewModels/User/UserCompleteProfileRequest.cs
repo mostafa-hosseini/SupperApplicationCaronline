@@ -16,11 +16,11 @@ namespace SuperApp.Caronlineofficial.com.ViewModels.User
         public string Job { get; set; }
         
         [DisplayName("جنسیت")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string Gender { get; set; }
         
         [DisplayName("تاریخ تولد")]
-        public DateTime BirthDay { get; set; }
+        
+        public DateTime BirthDay { get; set; }=DateTime.Now;
         
         public string Email { get; set; }
         [DisplayName("رمز عبور")]

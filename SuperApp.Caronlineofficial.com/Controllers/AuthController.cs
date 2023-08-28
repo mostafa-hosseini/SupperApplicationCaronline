@@ -211,64 +211,79 @@ public class AuthController : ControllerBase
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<IActionResult> CompleteProfile(UserCompleteProfileRequest request)
     {
-        if (ModelState.IsValid)
+        if (string.IsNullOrEmpty(request.FullName))
         {
-            var user = await _userManager.FindByIdAsync(User.GetUserId());
-            if (user != null)
+            return BadRequest(new ResultDto()
             {
-                if (!string.IsNullOrEmpty(user.FullName))
+                Message = "لطفا نام کامل را وارد کنید",
+                IsSuccess = false
+            });
+        }
+        
+        if (string.IsNullOrEmpty(request.Password)||string.IsNullOrEmpty(request.ConfirmPassword))
+        {
+            return BadRequest(new ResultDto()
+            {
+                Message = "لطفا کلمه عبور و تکرار کلمه عبور را وارد کنید",
+                IsSuccess = false
+            });
+        }
+        var user = await _userManager.FindByIdAsync(User.GetUserId());
+        if (user != null)
+        {
+            if (!string.IsNullOrEmpty(user.FullName))
+            {
+                return Ok(new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "تکمیل پروفایل کاربری تنها یک بار قابل استفاده است"
+                });
+            }
+
+            if (!string.IsNullOrEmpty(request.InvitedUser))
+            {
+                var inviter =
+                    _context.Users.FirstOrDefault(c => c.RefralCode.ToLower() == request.InvitedUser.ToLower());
+                if (inviter == null)
                 {
                     return Ok(new ResultDto()
                     {
                         IsSuccess = false,
-                        Message = "تکمیل پروفایل کاربری تنها یک بار قابل استفاده است"
+                        Message = "کد سفیر وارد شده اشتباه است"
                     });
                 }
 
-                if (!string.IsNullOrEmpty(request.InvitedUser))
-                {
-                    var inviter =
-                        _context.Users.FirstOrDefault(c => c.RefralCode.ToLower() == request.InvitedUser.ToLower());
-                    if (inviter == null)
-                    {
-                        return Ok(new ResultDto()
-                        {
-                            IsSuccess = false,
-                            Message = "کد سفیر وارد شده اشتباه است"
-                        });
-                    }
-
-                    user.InvitedUserId = inviter.Id;
-                    inviter.Point += 10;
-                    await _userManager.UpdateAsync(inviter);
-                }
-
-                user.BrithDay = request.BirthDay;
-                user.Email = request.Email;
-                user.Gender = Enum.Parse<Gender>(request.Gender);
-                user.FullName = request.FullName;
-                user.Job = request.Job;
-                var hasher = new PasswordHasher<UserApp>();
-                user.PasswordHash = hasher.HashPassword(user, request.Password);
-                var res = await _userManager.UpdateAsync(user);
-
-
-                if (res.Succeeded)
-                {
-                    return Ok(new ResultDto()
-                    {
-                        IsSuccess = true,
-                        Message = "تکمیل حساب کاربری شما با موفقیت انجام شد"
-                    });
-                }
+                user.InvitedUserId = inviter.Id;
+                inviter.Point += 10;
+                await _userManager.UpdateAsync(inviter);
             }
 
-            return Ok(new ResultDto()
+            user.BrithDay = request.BirthDay;
+            user.Email = request.Email ?? "";
+            user.Gender = string.IsNullOrEmpty(request.Gender) ? Gender.Male : Enum.Parse<Gender>(request.Gender);
+            user.FullName = request.FullName;
+            user.Job = request.Job;
+            var hasher = new PasswordHasher<UserApp>();
+            user.PasswordHash = hasher.HashPassword(user, request.Password);
+            var res = await _userManager.UpdateAsync(user);
+
+
+            if (res.Succeeded)
             {
-                Message = "کاربری یافت نشد",
-                IsSuccess = false
-            });
+                return Ok(new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "تکمیل حساب کاربری شما با موفقیت انجام شد"
+                });
+            }
         }
+
+        return Ok(new ResultDto()
+        {
+            Message = "کاربری یافت نشد",
+            IsSuccess = false
+        });
+
 
         return BadRequest();
     }
@@ -486,7 +501,7 @@ public class AuthController : ControllerBase
         if (_env.IsDevelopment())
         {
             var user = _context.Users.Where(c =>
-                c.UserName == "09363179310" || c.UserName == "09108737900" ).ToList();
+                c.UserName == "09363179310" || c.UserName == "09108737900").ToList();
             _context.Users.RemoveRange(user);
             await _context.SaveChangesAsync();
         }
@@ -506,7 +521,7 @@ public class AuthController : ControllerBase
             Job = "",
             Gender = Gender.Male,
             PhoneNumberConfirmed = true,
-            RefralCode = Utils.RandomString(8)
+            RefralCode = Utils.RandomString(4)
         };
         var res = await _userManager.CreateAsync(user);
         return res;

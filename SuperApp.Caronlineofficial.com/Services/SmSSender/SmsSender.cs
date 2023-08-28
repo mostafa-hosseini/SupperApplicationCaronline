@@ -18,7 +18,7 @@ public class SmsService : ISmsService
             "AccessKey Q-7_yGoRO69tv2W_QjHhIKl8Agqe-EuJT2xpVHYPA9k=");
         var result = await client.PostAsJsonAsync(_baseUrl, new
         {
-            pattern_code = "j2pzj7n65fwgnli",
+            pattern_code = "sevlqkfgpt",
             originator = _phoneNumber,
             recipient = phone,
             values =

@@ -9,7 +9,7 @@ export default function http() {
     baseURL:
       process.env.NODE_ENV == "development"
         ? "https://localhost:7283/api/" :
-        "https://mashinto.com/api/",
+        "https://caronlineOfficial.com/api/",
     // :""
     // "https://mashinto.com/api/",
     // "https://mashinto.com/api/",
@@ -274,6 +274,84 @@ export default function http() {
     RequestSellCar: (callback, data, errCallback) => {
       return instance
         .post("RequestForCar/RequestSellCar", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    UserGetActiveStories: (callback, data, errCallback) => {
+      return instance
+        .get("Story/GetActiveStories", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    // **********
+    // admin apis for stori management
+    // ***********
+    GetActiveStories: (callback, data, errCallback) => {
+      return instance
+        .get("StoriesManagement/GetActiveStories", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    GetNotActiveStories: (callback, data, errCallback) => {
+      return instance
+        .get("StoriesManagement/GetNotActiveStories", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    AddNewStory: (callback, data, errCallback) => {
+      return instance
+        .post("StoriesManagement/AddNewStory", data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    Delete: (callback, data, errCallback) => {
+      return instance
+        .post("StoriesManagement/Delete?id=" + data)
+        .then((data) => {
+          callback(data);
+          success_display(data.data);
+        })
+        .catch((err) => {
+          if (errCallback) errCallback(err);
+          errors_handler(err);
+        });
+    },
+    // **********
+    // check has story
+    // ***********
+    CheckStory: (callback, data, errCallback) => {
+      return instance
+        .get("story/CheckHasStory" , data)
         .then((data) => {
           callback(data);
           success_display(data.data);

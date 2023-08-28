@@ -14,11 +14,11 @@ export default function CompleteProfile() {
     fullName: "",
     job: "",
     gender: "",
-    birthDay: "",
+    birthDay: null,
     email: "",
     password: "",
     confirmPassword: "",
-    invitedUser: values?.ref==undefined?"":values.ref
+    invitedUser: values?.ref == undefined ? "" : values.ref
   });
   const [datePickerModal, setDatePickerModal] = useState(false);
   const api = http();
@@ -40,8 +40,14 @@ export default function CompleteProfile() {
       setLoading(false);
       console.log(e);
     };
-
-    api.CompleteProfile(callback, input, errorHandler);
+    var _input = {};
+    if (input.birthDay == null) {
+      var _input = { ...input };
+      delete _input.birthDay;
+      console.log(_input);
+      setinput({ ..._input });
+    }
+    api.CompleteProfile(callback, _input, errorHandler);
   };
 
   useEffect(() => {
@@ -84,7 +90,7 @@ export default function CompleteProfile() {
                     id="job"
                     className="form-select form-control back-ground"
                   >
-                    <option value="">لطفا شغل خود را وارد نمایید</option>
+                    <option value="">لطفا شغل خود را وارد نمایید (اختیاری)</option>
                     <option value="تکنسین پزشکی / کارشناس فنی مسائل پزشکی">تکنسین پزشکی / کارشناس فنی مسائل پزشکی</option>
                     <option value="پرستار">پرستار</option>
                     <option value="فروشنده یا واسطه املاک / خودرو">فروشنده یا واسطه املاک / خودرو</option>
@@ -138,7 +144,7 @@ export default function CompleteProfile() {
                       setinput({ ...input, gender: e.target.value })
                     }
                   >
-                    <option value="">لطفا جنسیت خود را وارد نمایید</option>
+                    <option value=""> لطفا جنسیت خود را وارد نمایید (اختیاری)</option>
                     <option value="0">مرد</option>
                     <option value="1">زن</option>
                   </select>
@@ -155,7 +161,7 @@ export default function CompleteProfile() {
                   round="x2"
                   inputClass="p-2 form-control back-ground disabled "
                   inputAttributes={{
-                    placeholder: "تاریخ تولد خود را وارد نمایید",
+                    placeholder: " تاریخ تولد خود را وارد نمایید (اختیاری)",
                   }}
                 />
               </div>
@@ -164,7 +170,7 @@ export default function CompleteProfile() {
                   type="text"
                   name="Email"
                   className="p-2 form-control back-ground "
-                  placeholder="ایمیل خود را وارد کنید"
+                  placeholder="ایمیل خود را وارد کنید (اختیاری)"
                   value={input.email}
                   onChange={(e) =>
                     setinput({ ...input, email: e.target.value })
@@ -177,7 +183,7 @@ export default function CompleteProfile() {
                   type="text"
                   name="invitedUser"
                   className="p-2 form-control back-ground "
-                  placeholder="کد سفیر خود را وارد کنید"
+                  placeholder="کد سفیر خود را وارد کنید (اختیاری)"
                   maxLength={8}
                   value={input.invitedUser}
                   onChange={(e) =>

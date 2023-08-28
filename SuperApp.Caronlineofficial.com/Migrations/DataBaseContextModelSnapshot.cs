@@ -209,6 +209,47 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                     b.ToTable("SmsActiveCodes");
                 });
 
+            modelBuilder.Entity("SuperApp.Caronlineofficial.com.Models.Stories.Story", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpiredTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StoryType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("ViewCount")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Stories");
+                });
+
             modelBuilder.Entity("SuperApp.Caronlineofficial.com.Models.UserApp", b =>
                 {
                     b.Property<string>("Id")
@@ -317,7 +358,7 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                         {
                             Id = "0a0b379d-0e7a-442e-a90a-ba103f8595885",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f3bf0061-1a32-4e00-8d4e-3daeb00f21dc",
+                            ConcurrencyStamp = "b6f19466-6198-4344-9b8e-8e5e8a8d60ed",
                             Email = "mostafa@admin.com",
                             EmailConfirmed = true,
                             ExpireLoginCode = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -326,14 +367,15 @@ namespace SuperApp.Caronlineofficial.com.Migrations
                             Job = "",
                             LockoutEnabled = false,
                             NormalizedEmail = "mostafa@admin.com",
-                            NormalizedUserName = "_admin_ad",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIXRlzhYL/xZicFXFernu/Gz+DtG5Dp518B6hZpXLfqnqSCwsY1fZU+5RfdRRyopGg==",
-                            PhoneNumberConfirmed = false,
+                            NormalizedUserName = "09173365950",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPSvTMS3S//RKior6GA/5mWJi4QkHyboibnvP34/SfMj1Ec/UYqhPgoLJSfuH4khLQ==",
+                            PhoneNumber = "09173365950",
+                            PhoneNumberConfirmed = true,
                             Point = 0,
-                            RefralCode = "QJNQHBYO",
+                            RefralCode = "HMLRXZMD",
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
-                            UserName = "_admin_ad"
+                            UserName = "09173365950"
                         });
                 });
 

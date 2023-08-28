@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Security.Claims;
 using System.Text;
 
@@ -51,4 +52,11 @@ public static class Utils
         }
         return builder.ToString();
     }
+    public static string ToShamsiWhitTime(this DateTime dateTime)
+    {
+        PersianCalendar pc = new PersianCalendar();
+        return pc.GetYear(dateTime) + "/" + pc.GetMonth(dateTime).ToString("00") + "/" + pc.GetDayOfMonth(dateTime)
+            .ToString("00") + " " + pc.GetHour(dateTime).ToString("00") + ":" + pc.GetMinute(dateTime).ToString("00");
+    }
+    
 }

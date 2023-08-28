@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import React, { Component } from "react";
+import { AiOutlineLeft } from "react-icons/ai";
+import { GoReport } from "react-icons/go";
 import {
-  IoHomeOutline,
-  IoPeopleOutline,
   IoCallOutline,
   IoDocumentTextOutline,
+  IoHomeOutline,
+  IoLogInOutline,
+  IoPeopleOutline,
+  IoPersonAddOutline,
+  IoPersonOutline
 } from "react-icons/io5";
-import { TiMessages } from "react-icons/ti";
-import { GoReport } from "react-icons/go";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { AiOutlineLeft } from "react-icons/ai";
+import { TiMessages } from "react-icons/ti";
 import Drawer from "react-modern-drawer";
 // import { NavMenu } from "./NavMenu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Navbar, NavbarBrand } from "reactstrap";
 // import { NavbarToggler } from "reactstrap";
-import "react-modern-drawer/dist/index.css";
 import toast from "react-hot-toast";
+import "react-modern-drawer/dist/index.css";
 import userImg from "../assets/images/Icons/user.svg";
-import walletImg from "../assets/images/Icons/wallet.svg";
 import UseAuth from "../hooks/UseAuth";
+import UseCheckAdmin from "../hooks/UseCheckAdmin";
 // import NavToggle from "./NavToggle";
 // import { CiMenuKebab} from "react-icons/ci";
 
@@ -28,26 +31,49 @@ export default function Layout({ children }) {
   const loggedIn = UseAuth();
   const navigation = useNavigate();
   const location = useLocation();
-
-
-
+  const isAdmin = UseCheckAdmin()
+  const [time, settime] = useState("");
+  const [date, setdate] = useState("")
   const logOutHandler = () => {
     localStorage.removeItem("token");
     navigation.push("/");
     toast.success("با موفقیت خارج شدید!");
   };
 
+  useEffect(() => {
+    const weekday = ["یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
+    const weekdayEn = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const date = new Date();
+    const persian = new Date().toLocaleDateString('fa-IR');
+    const enDate = new Date().toLocaleDateString("en-US", { year: "numeric", day: "numeric", month: "short", });
+
+    const day = weekday[date.getDay()];
+    settime(enDate + " " + weekdayEn[date.getDay()])
+
+    setdate(day + " " + persian)
+    // settime(date+" ")
+    // const timer = setInterval(() => {
+    //   const d = new Date();
+    //   let hour = d.getHours() + ":" + ("0" + d.getMinutes().toString()).slice(-2);
+    //   settime(hour);
+    // }, 500);
+    // return () => {
+    //   clearInterval(timer)
+    // }
+  }, [])
+
+
   return (
     <div>
       <header>
         <Navbar
-          className={`navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow${location.pathname !== "/" ? " mb-6" : " mb-3"
+          className={`navbar-expand-sm navbar-toggleable-sm ng-white border-bottom align-items-center box-shadow${location.pathname !== "/" ? " mb-3" : " mb-3"
             }`}
           container
           light
         >
           {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} className="mr-2" /> */}
-          <div className="d-flex">
+          <div className="d-flex ">
             {/* <button type="button" className="btn menu-btn img-icon ms-2">
               <img src={walletImg} alt="user icon" />
             </button> */}
@@ -60,12 +86,19 @@ export default function Layout({ children }) {
               {/* <NavToggle onClick={() => setIsOpen(!isOpen)} isActive={isOpen} /> */}
               <RxHamburgerMenu size={68} />
             </button>
-
+            {/* 
             <div
               // onClick={() => setIsOpen(!isOpen)}
               className="account-hover menu-btn img-icon"
             >
-              <img src={userImg} alt="user icon" onClick={loggedIn ? () => navigation("/dashboard") : () => { }} />
+              <img src={userImg} alt="user icon" onClick={loggedIn ? () => {
+                if (isAdmin) {
+
+                  navigation("/adminDashboard")
+                } else {
+                  navigation("/dashboard")
+                }
+              } : () => { }} />
 
               {!loggedIn ? (
                 <ul>
@@ -79,7 +112,7 @@ export default function Layout({ children }) {
               ) : (
                 null
               )}
-            </div>
+            </div> */}
           </div>
 
           {/* <button
@@ -89,6 +122,7 @@ export default function Layout({ children }) {
           >
             <CiMenuKebab size={25} />
           </button> */}
+
           <div className="d-flex align-items-center">
             <NavbarBrand tag={Link} to="/">
               <img
@@ -98,6 +132,15 @@ export default function Layout({ children }) {
               />
             </NavbarBrand>
 
+
+          </div>
+
+          <div className="d-flex align-items-center">
+            <h6 className="text-center text-mobile">
+              {time}
+              <br />
+              {date}
+            </h6>
             {location.pathname !== "/" ? (
               <button
                 type="button"
@@ -142,6 +185,37 @@ export default function Layout({ children }) {
                   درباره ما
                 </Link>
               </li>
+
+              {loggedIn ? <li className={`drawer-list-item`}>
+                <Link
+                  className="link"
+                  onClick={() => setIsOpen(false)}
+                  to={isAdmin ? "/adminDashboard" : "/dashboard"}
+                >
+                  <IoPersonOutline size={18} style={{ marginLeft: 10 }} />
+                  حساب کاربری
+                </Link>
+              </li> : <>
+                <li className={`drawer-list-item`}>
+                  <Link
+                    className="link"
+                    onClick={() => setIsOpen(false)}
+                    to="/register"
+                  >
+                    <IoPersonAddOutline size={18} style={{ marginLeft: 10 }} />
+                    ثبت نام
+                  </Link>
+                </li>    <li className={`drawer-list-item`}>
+                  <Link
+                    className="link"
+                    onClick={() => setIsOpen(false)}
+                    to="/login"
+                  >
+                    <IoLogInOutline size={18} style={{ marginLeft: 10 }} />
+                    ورود
+                  </Link>
+                </li>
+              </>}
 
               <li className={`drawer-list-item`}>
                 <Link

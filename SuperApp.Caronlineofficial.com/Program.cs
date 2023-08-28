@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SuperApp.Caronlineofficial.com.Data;
 using SuperApp.Caronlineofficial.com.Models;
+using SuperApp.Caronlineofficial.com.Services.SaveFile;
 using SuperApp.Caronlineofficial.com.Services.SmSSender;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,21 +14,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISmsService, SmsService>();
+builder.Services.AddScoped<ISaveFileService, SaveFileService>();
 builder.Services.AddSwaggerGen();
+
 string connectionString;
 if (builder.Environment.IsDevelopment())
 {
-    connectionString = builder.Configuration.GetConnectionString("develop") ?? throw new InvalidOperationException("Connection string 'CarOnlineWebSiteContext' not found.");
+    connectionString = builder.Configuration.GetConnectionString("develop") ??
+                       throw new InvalidOperationException("Connection string 'CarOnlineWebSiteContext' not found.");
 }
 else
 {
-    connectionString = builder.Configuration.GetConnectionString("webSite") ?? throw new InvalidOperationException("Connection string 'CarOnlineWebSiteContext' not found.");
+    connectionString = builder.Configuration.GetConnectionString("webSite") ??
+                       throw new InvalidOperationException("Connection string 'CarOnlineWebSiteContext' not found.");
 }
-builder.Services.AddDbContext<DataBaseContext>(options =>
-{
 
-    options.UseSqlServer(connectionString);
-});
+builder.Services.AddDbContext<DataBaseContext>(options => { options.UseSqlServer(connectionString); });
 
 builder.Services.AddHttpClient();
 builder.Services.AddIdentity<UserApp, IdentityRole>(options =>
@@ -45,7 +47,6 @@ builder.Services.AddIdentity<UserApp, IdentityRole>(options =>
 
 
 #region JWT
-
 
 builder.Services.AddAuthentication(options =>
     {
@@ -70,6 +71,7 @@ builder.Services.AddAuthentication(options =>
                     // Read the token out of the query string
                     context.Token = accessToken;
                 }
+
                 return Task.CompletedTask;
             }
         };
@@ -81,13 +83,14 @@ builder.Services.AddAuthentication(options =>
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Issuer"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty))
+            IssuerSigningKey =
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty))
         };
-
     });
-#endregion
-#region cors
 
+#endregion
+
+#region cors
 
 builder.Services.AddCors(o => o.AddPolicy("AllowAllPolicy", builder =>
 {
@@ -97,6 +100,7 @@ builder.Services.AddCors(o => o.AddPolicy("AllowAllPolicy", builder =>
 }));
 
 #endregion
+
 var app = builder.Build();
 app.UseCors("AllowAllPolicy");
 // Configure the HTTP request pipeline.
@@ -107,10 +111,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
-});
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1"); });
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

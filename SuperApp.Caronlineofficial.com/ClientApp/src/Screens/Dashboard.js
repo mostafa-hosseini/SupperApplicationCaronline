@@ -54,7 +54,7 @@ export default function Dashboard() {
         <div className="col-12 d-flex justify-content-center align-items-center">
           <h5 className="text-dark mt-3 " style={{ marginLeft: 10 }} onClick={() => {
             navigator.clipboard.writeText(
-              "https://superapp.caronlineOfficial.com/register?ref=" + data.refCode
+              "https://caronlineOfficial.com/register?ref=" + data.refCode
             );
             toast.success("کد سفیر در کلیپ بورد شما کپی شد!");
           }}>
@@ -62,32 +62,41 @@ export default function Dashboard() {
             <span style={{ color: "green", paddingLeft: "10" }}>
               {data.refCode}
             </span>
+            <span className="btn btn-primary " style={{ marginRight: 5 }} onClick={() => {
+              navigator.clipboard.writeText(
+                "https://caronlineOfficial.com/register?ref=" + data.refCode
+              );
+              toast.success("کد سفیر در کلیپ بورد شما کپی شد!");
+            }}>
+              کپی کردن کد سفیر
+            </span>
           </h5>
         </div>
 
         <h5 className="text-dark mt-2 text-center mb-4">
-          درصدی از سود معاملات کسانی که با کد سفیر شما در این اپلیکیشن ثبت نام
-          کنند به صورت دائم به شما تعلق خواهد گرفت.
+          ۳۰           درصد از سود معاملات کسانی که با کد سفیر شما در این اپلیکیشن ثبت نام
+          کنند، در آینده به شما تعلق خواهد گرفت.
         </h5>
 
-        <button className="btn btn-custom-success px-5"   onClick={() =>
-                  shareOnMobile(
-                    {
-                      // text: "سلام رفیق \n مشاین تو ی سوپر اپلیکیشن خودرو که میتونی رایگان توش آگهی بزاری یا قیمت ماشینتو محاسبه کنی یا از قیمت روز خودرو باخبر بشی همه ی اینها بهعلاوه کلی امکانات دیگه و تخفیفات جذاب بیمه ای با لینک زیر نصب کن و حالش رو ببر",
-                      url: "https://superapp.caronlineofficial.com/register?ref=" + data.refCode,
-                      title:
-                        "سلام رفیق \n ماشین تو ، ی سوپر اپلیکیشن خودرویی که میتونی رایگان ماشینتو آگهی کنی یا قیمت ماشینتو محاسبه کنی یا از قیمت روز خودرو باخبر بشی همه ی اینها بعلاوه ی کلی امکانات دیگه و تخفیفات جذاب بیمه ای با یک کلیک برات مهیا میشن \n بزن رو لینک زیر ثبت نام کن و حالش رو ببر",
-                      text: "Hey checkout our package react-mobile-share",
-                      // image : imgBase64,
-                    },
-                    (message) => {
-                      navigator.clipboard.writeText(
-                        "https://superapp.caronlineofficial.com/register?ref=" + data.refCode
-                      );
-                      toast.success("کد سفیر در کلیپ بورد شما کپی شد!");
-                    }
-                  )
-                }>دعوت از دوستان</button>
+        <button className="btn btn-custom-success px-5" onClick={() =>
+          shareOnMobile(
+            {
+              // text: "سلام رفیق \n مشاین تو ی سوپر اپلیکیشن خودرو که میتونی رایگان توش آگهی بزاری یا قیمت ماشینتو محاسبه کنی یا از قیمت روز خودرو باخبر بشی همه ی اینها بهعلاوه کلی امکانات دیگه و تخفیفات جذاب بیمه ای با لینک زیر نصب کن و حالش رو ببر",
+              url: "https://caronlineOfficial.com/register?ref=" + data.refCode,
+              title:
+                `سلام
+ این اپلیکیشن رو نصب کن تا واسه اولین بار، یک رسانه بینظیر از اخبار دست نیافتنی بهمراه کلی امکانات و فروشگاه های معتبر بدست بیاری.`,
+              text: "Hey checkout our package react-mobile-share",
+              // image : imgBase64,
+            },
+            (message) => {
+              navigator.clipboard.writeText(
+                "https://caronlineOfficial.com/register?ref=" + data.refCode
+              );
+              toast.success("کد سفیر در کلیپ بورد شما کپی شد!");
+            }
+          )
+        }>دعوت از دوستان</button>
       </div>
 
       <div className="w-100 h-auto p-4 back-ground mt-3 row align-items-center">
