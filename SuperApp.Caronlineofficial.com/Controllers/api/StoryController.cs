@@ -19,7 +19,11 @@ public class StoryController : Controller
     [HttpGet]
     public async Task<IActionResult> CheckHasStory()
     {
-        return Ok(_context.Stories.OrderBy(c => c.Id).Select(c => c.Id).Last());
+        return Ok(new
+        {
+            lastId = _context.Stories.OrderBy(c => c.Id).Select(c => c.Id).Last(),
+            hasActive = _context.Stories.Any(c => c.CreatedTime > DateTime.Now)
+        });
     }
 
 

@@ -9,18 +9,20 @@ import melk from '../assets/images/Icons/Dideban/melk-01.svg'
 import newspaper from '../assets/images/Icons/Dideban/newspaper-01.svg'
 import tala from '../assets/images/Icons/Dideban/tala-01.svg'
 import forex from '../assets/images/Icons/Dideban/‌forex-01.svg'
+import anim1 from '../assets/Animations/anim2.json'
 
 
 import sabt from "../assets/images/Icons/house/sabt-01.svg";
 import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
+import Lottie from "react-lottie";
 export default function CryptoQuickAccess() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 100);
   }, []);
 
   return (
@@ -89,6 +91,11 @@ export default function CryptoQuickAccess() {
             title="روزنامه های ایران"
             to={"/NewsPaper"}
           />
+        </div>
+
+        <div className="w-100"></div>
+        <div className="col-12 mx-auto mt-5">
+          <Lottie options={{ animationData: anim1, autoplay: true, loop: true }} />
         </div>
       </div>
     </Loading>

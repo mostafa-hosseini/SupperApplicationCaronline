@@ -136,11 +136,12 @@ export default function Layout({ children }) {
           </div>
 
           <div className="d-flex align-items-center">
-            <h6 className="text-center text-mobile">
-              {time}
-              <br />
-              {date}
-            </h6>
+            {location.pathname == "/" ?
+              <h6 className="text-center text-mobile-time time-body">
+                {time}
+                <br />
+                {date}
+              </h6> : <></>}
             {location.pathname !== "/" ? (
               <button
                 type="button"

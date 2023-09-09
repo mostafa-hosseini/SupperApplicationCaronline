@@ -46,7 +46,7 @@ code {
   src: url("../fonts/Estedad/webfonts/statics/Estedad-Medium.woff2");
   src: url("../fonts/Estedad/webfonts/statics/Estedad-Regular.woff2");
   src: url("../fonts/Estedad/webfonts/statics/Estedad-SemiBold.woff2");
-  
+
 
   /* src: url("../fonts/peyda-bold.woff");
   src: url("../fonts/peyda-bold.woff2");
@@ -60,7 +60,7 @@ code {
 body {
   margin: 0;
   font-family: Shabnam;
-  font-weight:  900;
+  font-weight: 900;
 
   /* font-family: Shabnam, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -1155,6 +1155,32 @@ img {
   margin-bottom: 0;
 }
 
+.homePrice-item {
+  background-color: #fff;
+  color: #161619;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  /* max-width: 300px; */
+  box-shadow: -2px 2px 6px hsla(0, 0%, 0%, 0.1);
+  transition: all 0.3s ease-in;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.homePrice-item-up {
+  /* max-width: 300px; */
+  box-shadow: -2px 2px 6px hsla(135, 100%, 64%, 0.489);
+  border:1.5px solid rgb(21, 255, 0);
+}
+.homePrice-item-down {
+  /* max-width: 300px; */
+  box-shadow: -2px 2px 6px hsla(0, 100%, 65%, 0.336);
+  border:1.5px solid rgb(255, 0, 0);
+}
+
 .crypto-item:hover {
   box-shadow: -5px 5px 6px hsla(0, 0%, 0%, 0.1);
 }
@@ -1499,4 +1525,10 @@ a:active {
     padding: 0.2rem 0.25rem;
     border-radius: 1rem;
   }
+}
+
+.time-body {
+  background-color: #ededed;
+  padding: 8px;
+  border-radius: 5px;
 }

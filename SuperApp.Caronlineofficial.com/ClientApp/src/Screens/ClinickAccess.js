@@ -25,13 +25,13 @@ export default function ClinickAccess() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 100);
   }, []);
 
   return (
     <Loading isLoading={loading}>
       <div className="row">
-        <div className="col-12    row justify-content-around">
+        <div className="col-12  mb-3  row justify-content-around">
           <Swiper
             // slidesPerView={3}
 

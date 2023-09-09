@@ -32,6 +32,7 @@ else
 builder.Services.AddDbContext<DataBaseContext>(options => { options.UseSqlServer(connectionString); });
 
 builder.Services.AddHttpClient();
+
 builder.Services.AddIdentity<UserApp, IdentityRole>(options =>
     {
         options.Password.RequiredUniqueChars = 0;

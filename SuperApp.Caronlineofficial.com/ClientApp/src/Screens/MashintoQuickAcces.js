@@ -10,104 +10,123 @@ import froshgah from "../assets/images/Icons/cars/froshgah-01.svg";
 import hamkari from "../assets/images/Icons/cars/hamkari-01.svg";
 import foroshandeh from "../assets/images/Icons/cars/foroshandeh.svg";
 import sabt from "../assets/images/Icons/cars/sabt-01.svg";
+import moshavereh from "../assets/images/Icons/moshavere-mashinto.svg";
 import Loading from "../components/Loading";
-
+import Lottie from "react-lottie";
+import anim1 from '../assets/Animations/anim3.json'
 export default function MashintoQuickAccess() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 100);
   }, []);
 
   return (
     <Loading isLoading={loading}>
 
-    <div className="row">
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={mohasebe}
-          imgalt="محاسبه قیمت خودرو"
-          title="محاسبه قیمت خودرو"
-          to="https://mashinto.com/محاسبه-قیمت"
-          blank
-          
-        />
+      <div className="row">
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={mohasebe}
+            imgalt="محاسبه قیمت خودرو"
+            title="محاسبه قیمت خودرو"
+            to="https://mashinto.com/محاسبه-قیمت"
+            blank
+
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={gheymat}
+            imgalt="قیمت روز خودرو"
+            title="قیمت روز خودرو"
+            to={"https://mashinto.com/carprice"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="خرید سفارشی"
+            title="خرید سفارشی"
+            to={"https://mashinto.com/buycar"}
+            blank
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={forosh}
+            imgalt="فروش سفارشی"
+            title="فروش سفارشی"
+            to={"https://mashinto.com/sellcar"}
+            blank
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={karshenasi}
+            imgalt="درخواست کارشناسی"
+            title="درخواست کارشناسی"
+            to={"https://mashinto.com/"}
+            blank
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={froshgah}
+            imgalt="فروشگاه"
+            title="فروشگاه"
+            to={"https://mashinto.com/shop"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={hamkari}
+            imgalt="همکاری با ماشین تو"
+            title="همکاری با ماشین تو"
+            to={"https://mashinto.com/cooperation"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={foroshandeh}
+            imgalt="فروشنده شوید"
+            title="فروشنده شوید"
+            to={"https://mashinto.com/BecomeASeller"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={sabt}
+            imgalt="ثبت آگهی"
+            title="ثبت آگهی"
+            to={"https://mashinto.com/ثبت-آگهی"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={moshavereh}
+            imgalt="مشاوره"
+            title="مشاوره"
+            to={"https://mashverato.com"}
+            blank
+          />
+        </div>
+        <div className="w-100"></div>
+        <div className="col-12">
+          <Lottie options={{ animationData: anim1, autoplay: true, loop: true }} />
+        </div>
+
       </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={gheymat}
-          imgalt="قیمت روز خودرو"
-          title="قیمت روز خودرو"
-          to={"https://mashinto.com/carprice"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={kharid}
-          imgalt="خرید سفارشی"
-          title="خرید سفارشی"
-          to={"https://mashinto.com/buycar"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={forosh}
-          imgalt="فروش سفارشی"
-          title="فروش سفارشی"
-          to={"https://mashinto.com/sellcar"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={karshenasi}
-          imgalt="درخواست کارشناسی"
-          title="درخواست کارشناسی"
-          to={"https://mashinto.com/"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={froshgah}
-          imgalt="فروشگاه"
-          title="فروشگاه"
-          to={"https://mashinto.com/shop"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={hamkari}
-          imgalt="همکاری با ماشین تو"
-          title="همکاری با ماشین تو"
-          to={"https://mashinto.com/cooperation"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={foroshandeh}
-          imgalt="فروشنده شوید"
-          title="فروشنده شوید"
-          to={"https://mashinto.com/BecomeASeller"}
-          blank
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={sabt}
-          imgalt="ثبت آگهی"
-          title="ثبت آگهی"
-          to={"https://mashinto.com/ثبت-آگهی"}
-          blank
-        />
-      </div>
-    </div>
     </Loading>
   );
 }

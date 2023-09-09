@@ -107,6 +107,11 @@ export default function Login() {
           </form>
 
           <div className="notes">
+            <span style={{ cursor: "pointer" ,color:"red" }} onClick={()=>navigate("/ResetPassword")}>
+              رمز عبور خود را فراموش کرده ام.
+            </span>
+          </div>
+          <div className="notes">
             <span>
               ورود شما به معنای پذیرش شرایط کارآنلاین و قوانین و حریم خصوصی است.
             </span>

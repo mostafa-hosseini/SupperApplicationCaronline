@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import logo from "../assets/images/Icons/logo/caronline.png";
 import Loading from "../components/Loading";
 import toast from "react-hot-toast";
-import { validatePhone } from "../utils/validate";
 import { useLocation, useNavigate } from "react-router-dom";
 import http from "../api/index";
 
 export default function VerifyResetPassword() {
     const [loading, setLoading] = useState(false);
-    const [phonenumber, setPhonenumber] = useState("");
+    const [code, setCode] = useState("");
+    const [password, setPassword] = useState("");
+    const [verifypassword, setverifyPassword] = useState("");
+
     const { state } = useLocation();
     const api = http();
     const navigate = useNavigate();
@@ -16,38 +18,34 @@ export default function VerifyResetPassword() {
     const submitPhone = (e) => {
         e.preventDefault();
 
-        if (validatePhone(phonenumber)) {
-            setLoading(true);
 
-            const callback = ({ data }) => {
-                setLoading(false);
-                if (data.isSuccess) {
+        setLoading(true);
 
-                    navigate("/");
-                }
-            };
-
-            const errorHandler = (e) => {
-                setLoading(false);
-                console.log(e);
-            };
-
-            api.ResetPassword(
-                callback,
-                { phoneNumber: phonenumber, },
-                errorHandler
-            );
-
-            // setTimeout(() => {
-            //   setLoading(false);
-            //   toast.success("با موفقیت وارد شدید!");
-            //   navigate("/");
-            // }, 500);
-        } else {
-            if (!validatePhone(phonenumber)) {
-                toast.error("لطفا شماره تماس خود را به درستی وارد کنید!");
+        const callback = ({ data }) => {
+            setLoading(false);
+            if (data.isSuccess) {
+                localStorage.setItem("token", data.data);
+                navigate("/");
             }
-        }
+        };
+
+        const errorHandler = (e) => {
+            setLoading(false);
+            console.log(e);
+        };
+
+        api.ResetPassword(
+            callback,
+            { phoneNumber: state.phonenumber, code, NewPassword: password, ConfirmNewPassword: verifypassword },
+            errorHandler
+        );
+
+        // setTimeout(() => {
+        //   setLoading(false);
+        //   toast.success("با موفقیت وارد شدید!");
+        //   navigate("/");
+        // }, 500);
+
     };
 
     useEffect(() => {
@@ -71,19 +69,38 @@ export default function VerifyResetPassword() {
                         <div className="login-text w-100 mb-2">
                             <h3 className="title">بازیابی کلمه عبور</h3>
                             <h4 className="desc">
-                                برای بازیابی کلمه عبور شماره موبایل و رمزعبور خود را وارد کنید.
+                                کد تایید ارسال شده به {state.phonenumber} را وارد کنید
                             </h4>
                         </div>
 
+
                         <input
-                            type="text"
-                            name="phoneNumber"
-                            className="form-control back-ground"
-                            placeholder=" شماره موبایل خود را وارد نمایید"
-                            id="phone-number"
-                            value={phonenumber}
-                            onChange={(e) => setPhonenumber(e.target.value)}
-                            maxLength={11}
+                            type="code"
+                            name="code"
+                            className="form-control back-ground mt-3"
+                            placeholder="کد تایید : *****"
+                            id="password"
+                            maxLength="5"
+                            value={code}
+                            onChange={(e) => setCode(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            className="form-control back-ground mt-3"
+                            placeholder="رمزعبور خود را وارد کنید"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            className="form-control back-ground mt-3"
+                            placeholder="تکرار کلمه رمزعبور خود را وارد کنید"
+                            id="password"
+                            value={verifypassword}
+                            onChange={(e) => setverifyPassword(e.target.value)}
                         />
                         <div className="w-100 mt-4">
                             <button className="btn btn-login btn-block w-100 p-2">

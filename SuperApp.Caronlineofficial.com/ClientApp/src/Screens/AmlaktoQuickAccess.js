@@ -10,91 +10,100 @@ import moshavere from "../assets/images/Icons/house/moshavere-01.svg";
 import sabt from "../assets/images/Icons/house/sabt-01.svg";
 import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
+import Lottie from "react-lottie";
+import anim1 from '../assets/Animations/anim1.json'
+
 export default function AmlaktoQuickAccess() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 100);
   }, []);
 
   return (
     <Loading isLoading={loading}>
-    <div className="row">
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={sabt}
-          imgalt="ثبت آگهی"
-          title="ثبت آگهی"
-          to={"/https://amlakto.com/%D8%AB%D8%A8%D8%AA-%D8%A2%DA%AF%D9%87%DB%8C"}
-        />
+      <div className="row">
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={sabt}
+            imgalt="ثبت آگهی"
+            title="ثبت آگهی"
+            to={"/https://amlakto.com/%D8%AB%D8%A8%D8%AA-%D8%A2%DA%AF%D9%87%DB%8C"}
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={gheymat}
+            imgalt="قیمت روز ملک"
+            title="قیمت روز ملک"
+            to={"https://amlakto.com/price"}
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={karshenasi}
+            imgalt="درخواست کارشناسی"
+            title="درخواست کارشناسی"
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={moshavere}
+            imgalt="مشاوره"
+            title="مشاوره"
+            to={"https://mashverato.com/"}
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="خرید سفارشی"
+            title="خرید سفارشی"
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={forosh}
+            imgalt="فروش سفارشی"
+            title="فروش سفارشی"
+            to={"/MashintoQuickAcces"}
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={foroshandeh}
+            imgalt="فروشنده شوید"
+            title="فروشنده شوید"
+            to={"https://amlakto.com/becomeASeller"}
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={hamkari}
+            imgalt="فایل های زیر قیمت"
+            title="فایل های زیر قیمت"
+            disabled
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={froshgah}
+            imgalt="فروشگاه"
+            title="فروشگاه"
+            to={"https://amlakto.com/shop"}
+          />
+        </div>
+
+        <div className="w-100"></div>
+        <div className="col-12">
+          <Lottie options={{ animationData: anim1, autoplay: true, loop: true }} />
+        </div>
       </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={gheymat}
-          imgalt="قیمت روز ملک"
-          title="قیمت روز ملک"
-          to={"https://amlakto.com/price"}
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={karshenasi}
-          imgalt="درخواست کارشناسی"
-          title="درخواست کارشناسی"
-          
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={moshavere}
-          imgalt="مشاوره"
-          title="مشاوره"
-          to={"https://mashverato.com/"}
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={kharid}
-          imgalt="خرید سفارشی"
-          title="خرید سفارشی"
-          
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={forosh}
-          imgalt="فروش سفارشی"
-          title="فروش سفارشی"
-          to={"/MashintoQuickAcces"}
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={foroshandeh}
-          imgalt="فروشنده شوید"
-          title="فروشنده شوید"
-          to={"https://amlakto.com/becomeASeller"}
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={hamkari}
-          imgalt="فایل های زیر قیمت"
-          title="فایل های زیر قیمت"
-          
-        />
-      </div>
-      <div className="col-3 p-1">
-        <RowItem
-          imgSrc={froshgah}
-          imgalt="فروشگاه"
-          title="فروشگاه"
-          to={"https://amlakto.com/shop"}
-        />
-      </div>
-    </div>
     </Loading>
   );
 }

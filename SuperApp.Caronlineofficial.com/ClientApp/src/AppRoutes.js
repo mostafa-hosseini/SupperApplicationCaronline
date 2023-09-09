@@ -30,6 +30,8 @@ import Story from './Screens/Story';
 import AdminDashboard from "./Screens/AdminPages/AdminDashboard";
 import AddNewStory from './Screens/AdminPages/AddNewStory';
 import ManageStory from './Screens/AdminPages/ManageStory';
+import ResetPassword from './Screens/ResetPassword';
+import VerifyResetPassword from './Screens/VerifyResetPassword';
 
 const AppRoutes = [
   {
@@ -156,6 +158,14 @@ const AppRoutes = [
   {
     path: "/ManageStory",
     element: <ManageStory />,
+  },
+  {
+    path: "/ResetPassword",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/VerifyResetPassword",
+    element: <VerifyResetPassword />,
   },
 
 ];

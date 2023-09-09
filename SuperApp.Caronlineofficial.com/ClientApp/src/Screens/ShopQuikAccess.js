@@ -6,11 +6,12 @@ import RowItem from "../components/RowItem";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import anim1 from '../assets/Animations/cart.json'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+import Lottie from "react-lottie";
 export default function ShopQuikAccess() {
     const [loading, setLoading] = useState(true);
 
@@ -25,7 +26,7 @@ export default function ShopQuikAccess() {
             <div className="main-page">
                 <section className="w-100">
                     <div className="row">
-                        <div className="col-12    row justify-content-around">
+                        <div className="col-12 mb-3   row justify-content-around">
                             <Swiper
                                 // slidesPerView={3}
 
@@ -99,6 +100,10 @@ export default function ShopQuikAccess() {
                         </div>
                         <div className="col-3 p-1"></div>
                         <div className="col-3 p-1"></div>
+                        <div className="w-100"></div>
+                        <div className="col-8 mx-auto mt-5">
+                            <Lottie options={{ animationData: anim1, autoplay: true, loop: true }} />
+                        </div>
                     </div>
                 </section>
             </div>
