@@ -12,7 +12,7 @@ function SuperMarketList() {
   const api = http();
 
   useEffect(() => {
-    api.OTCPrice(({ data }) => {
+    api.CommodityExchange(({ data }) => {
       setLoading(false);
       setData(data);
     }, "");

@@ -32,6 +32,7 @@ import AddNewStory from './Screens/AdminPages/AddNewStory';
 import ManageStory from './Screens/AdminPages/ManageStory';
 import ResetPassword from './Screens/ResetPassword';
 import VerifyResetPassword from './Screens/VerifyResetPassword';
+import DesighnQuickAccess from "./Screens/DesighnQuickAccess";
 
 const AppRoutes = [
   {
@@ -166,6 +167,10 @@ const AppRoutes = [
   {
     path: "/VerifyResetPassword",
     element: <VerifyResetPassword />,
+  },
+  {
+    path: "/DesighnQuickAccess",
+    element: <DesighnQuickAccess />,
   },
 
 ];

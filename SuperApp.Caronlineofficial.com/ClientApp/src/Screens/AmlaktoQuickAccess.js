@@ -12,10 +12,11 @@ import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
 import Lottie from "react-lottie";
 import anim1 from '../assets/Animations/anim1.json'
+import { useNavigate } from "react-router-dom";
 
 export default function AmlaktoQuickAccess() {
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -25,6 +26,15 @@ export default function AmlaktoQuickAccess() {
   return (
     <Loading isLoading={loading}>
       <div className="row">
+        <div className="col-6 mt-3  mx-auto">
+          <div className="br-100 shadow " style={{ borderRadius: 15, overflow: "hidden", cursor: "pointer" }} onClick={() => {
+            window.location = "https://amlakto.com/expertRequest"
+          }} >
+            <img src={require("../assets/images/Untitled-5.jpg")} className="w-100 " alt="" />
+            
+          </div>
+        </div>
+        <div className="w-100 mt-5"></div>
         <div className="col-3 p-1">
           <RowItem
             imgSrc={sabt}
@@ -46,7 +56,7 @@ export default function AmlaktoQuickAccess() {
             imgSrc={karshenasi}
             imgalt="درخواست کارشناسی"
             title="درخواست کارشناسی"
-            disabled
+
           />
         </div>
         <div className="col-3 p-1">
@@ -57,21 +67,14 @@ export default function AmlaktoQuickAccess() {
             to={"https://mashverato.com/"}
           />
         </div>
-        <div className="col-3 p-1">
-          <RowItem
-            imgSrc={kharid}
-            imgalt="خرید سفارشی"
-            title="خرید سفارشی"
-            disabled
-          />
-        </div>
+
         <div className="col-3 p-1">
           <RowItem
             imgSrc={forosh}
-            imgalt="فروش سفارشی"
-            title="فروش سفارشی"
+            imgalt="رنت ملک"
+            title="رنت ملک"
             to={"/MashintoQuickAcces"}
-            disabled
+
           />
         </div>
         <div className="col-3 p-1">
@@ -87,7 +90,7 @@ export default function AmlaktoQuickAccess() {
             imgSrc={hamkari}
             imgalt="فایل های زیر قیمت"
             title="فایل های زیر قیمت"
-            disabled
+
           />
         </div>
         <div className="col-3 p-1">
@@ -98,7 +101,84 @@ export default function AmlaktoQuickAccess() {
             to={"https://amlakto.com/shop"}
           />
         </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={sabt}
+            imgalt="مقالات"
+            title="مقالات"
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={sabt}
+            imgalt="3d max"
+            title="3d max"
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="سبک های معماری"
+            title="سبک های معماری"
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="ساختمان های روز "
+            title="ساختمان های روز "
 
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="معماری مدرن"
+            title="معماری مدرن"
+
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="مصالح نوین"
+            title="مصالح نوین"
+
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="معماری نئوکلاسیک"
+            title="معماری نئوکلاسیک"
+
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="معماری سنتی ایران"
+            title="معماری سنتی ایران"
+
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="ساختمان های زیبا ایران"
+            title="ساختمان های زیبا ایران"
+
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="معماران برتر"
+            title="معماران برتر"
+
+          />
+        </div><div className="col-3 p-1">
+          <RowItem
+            imgSrc={kharid}
+            imgalt="طراحی داخلی"
+            title="طراحی داخلی"
+
+          />
+        </div>
         <div className="w-100"></div>
         <div className="col-12">
           <Lottie options={{ animationData: anim1, autoplay: true, loop: true }} />

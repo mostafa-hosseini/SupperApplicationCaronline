@@ -20,7 +20,6 @@ import { Navbar, NavbarBrand } from "reactstrap";
 // import { NavbarToggler } from "reactstrap";
 import toast from "react-hot-toast";
 import "react-modern-drawer/dist/index.css";
-import userImg from "../assets/images/Icons/user.svg";
 import UseAuth from "../hooks/UseAuth";
 import UseCheckAdmin from "../hooks/UseCheckAdmin";
 // import NavToggle from "./NavToggle";
@@ -179,8 +178,8 @@ export default function Layout({ children }) {
               <li className={`drawer-list-item`}>
                 <Link
                   className="link"
-                  onClick={() => setIsOpen(false)}
-                  to="/About-Us"
+                // onClick={() => setIsOpen(false)}
+                // to="/About-Us"
                 >
                   <IoPeopleOutline size={18} style={{ marginLeft: 10 }} />
                   درباره ما
@@ -221,8 +220,8 @@ export default function Layout({ children }) {
               <li className={`drawer-list-item`}>
                 <Link
                   className="link"
-                  onClick={() => setIsOpen(false)}
-                  to="/Contact-Us"
+                // onClick={() => setIsOpen(false)}
+                // to="/Contact-Us"
                 >
                   <IoCallOutline size={18} style={{ marginLeft: 10 }} />
                   تماس با ما
@@ -232,8 +231,8 @@ export default function Layout({ children }) {
               <li className={`drawer-list-item`}>
                 <Link
                   className="link"
-                  onClick={() => setIsOpen(false)}
-                  to="/Faq"
+                // onClick={() => setIsOpen(false)}
+                // to="/Faq"
                 >
                   <TiMessages size={18} style={{ marginLeft: 10 }} />
                   سوالات متداول
@@ -243,19 +242,19 @@ export default function Layout({ children }) {
               <li className={`drawer-list-item`}>
                 <Link
                   className="link"
-                  onClick={() => setIsOpen(false)}
-                  to="/Report-error"
+                // onClick={() => setIsOpen(false)}
+                // to="/Report-error"
                 >
                   <GoReport size={18} style={{ marginLeft: 10 }} />
-                  گزارش مشکلات
+                  گزارش مشکل
                 </Link>
               </li>
 
               <li className={`drawer-list-item`}>
                 <Link
                   className="link"
-                  onClick={() => setIsOpen(false)}
-                  to="/Policy"
+                // onClick={() => setIsOpen(false)}
+                // to="/Policy"
                 >
                   <IoDocumentTextOutline size={18} style={{ marginLeft: 10 }} />
                   قوانین و مقررات

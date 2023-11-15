@@ -30,8 +30,8 @@ export default function MashintoQuickAccess() {
         <div className="col-3 p-1">
           <RowItem
             imgSrc={mohasebe}
-            imgalt="محاسبه قیمت خودرو"
-            title="محاسبه قیمت خودرو"
+            imgalt="قیمت خودروی شما"
+            title="قیمت خودروی شما"
             to="https://mashinto.com/محاسبه-قیمت"
             blank
 
@@ -40,8 +40,8 @@ export default function MashintoQuickAccess() {
         <div className="col-3 p-1">
           <RowItem
             imgSrc={gheymat}
-            imgalt="قیمت روز خودرو"
-            title="قیمت روز خودرو"
+            imgalt="قیمت خودروهای صفر"
+            title="قیمت خودروهای صفر"
             to={"https://mashinto.com/carprice"}
             blank
           />
@@ -49,38 +49,37 @@ export default function MashintoQuickAccess() {
         <div className="col-3 p-1">
           <RowItem
             imgSrc={kharid}
-            imgalt="خرید سفارشی"
-            title="خرید سفارشی"
+            imgalt="رنت خودرو در دبی"
+            title="رنت خودرو در دبی"
             to={"https://mashinto.com/buycar"}
             blank
-            disabled
           />
         </div>
         <div className="col-3 p-1">
           <RowItem
             imgSrc={forosh}
-            imgalt="فروش سفارشی"
-            title="فروش سفارشی"
+            imgalt="رنت خودرو در ایران"
+            title="رنت خودرو در ایران"
             to={"https://mashinto.com/sellcar"}
             blank
-            disabled
+            
           />
         </div>
         <div className="col-3 p-1">
           <RowItem
             imgSrc={karshenasi}
-            imgalt="درخواست کارشناسی"
-            title="درخواست کارشناسی"
+            imgalt="تیونینگ"
+            title="تیونینگ"
             to={"https://mashinto.com/"}
             blank
-            disabled
+            
           />
         </div>
         <div className="col-3 p-1">
           <RowItem
             imgSrc={froshgah}
-            imgalt="فروشگاه"
-            title="فروشگاه"
+            imgalt="فروشگاه تخصصی خودرو"
+            title="فروشگاه تخصصی خودرو"
             to={"https://mashinto.com/shop"}
             blank
           />
@@ -114,6 +113,24 @@ export default function MashintoQuickAccess() {
         </div>
         <div className="col-3 p-1">
           <RowItem
+            imgSrc={sabt}
+            imgalt="استعلام"
+            title="استعلام"
+            to={"https://mashinto.com/ثبت-آگهی"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
+            imgSrc={sabt}
+            imgalt="موزیک های خودرویی"
+            title="موزیک های خودرویی"
+            to={"https://mashinto.com/ثبت-آگهی"}
+            blank
+          />
+        </div>
+        <div className="col-3 p-1">
+          <RowItem
             imgSrc={moshavereh}
             imgalt="مشاوره"
             title="مشاوره"
@@ -122,6 +139,11 @@ export default function MashintoQuickAccess() {
           />
         </div>
         <div className="w-100"></div>
+        <div className="col-8 col-md-6 mx-auto">
+          <button className="btn w-100 mt-2 btn-block btn-primary" style={{backgroundColor:"#1b3fc0"}}>
+            ورود به ماشین تو
+          </button>
+        </div>
         <div className="col-12">
           <Lottie options={{ animationData: anim1, autoplay: true, loop: true }} />
         </div>

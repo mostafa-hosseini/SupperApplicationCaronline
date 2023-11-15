@@ -8,10 +8,22 @@
 
 @media only screen and (max-width: 600px) {
   .text-mobile {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
+    /* padding: 5px !important; */
+    margin-bottom: 0px !important;
   }
+
+  .text-mobile-price {
+    font-size: 0.7rem !important;
+    padding: 0px !important;
+    font-weight: bold !important;
+    /* margin-top: 5px !important; */
+    padding-right: 5px !important;
+    margin-bottom: 0px !important;
+  }
+
   .text-mobile-time {
-    font-size: 0.6rem !important;
+    font-size: 0.7rem !important;
   }
 
   .abslout-icon {
@@ -87,9 +99,11 @@
     position: absolute;
     top: 65px;
     left: 1.5rem;
+    color: "red" !important;
+    z-index: 2147483647;
   }
 
-  .home-icons > div {
+  .home-icons>div {
     padding-right: 0.35rem;
     padding-left: 0.35rem;
   }

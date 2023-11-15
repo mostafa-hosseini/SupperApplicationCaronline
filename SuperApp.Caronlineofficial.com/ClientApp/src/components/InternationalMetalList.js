@@ -36,7 +36,7 @@ function SuperMarketList() {
               <CryptoItem
                 name={item.name}
                 desc={item.time}
-                topPrice={priceNumber(item.price) + "ریال"}
+                topPrice={priceNumber(item.price) + "$"}
                 rtlTopPrice
                 noTopPriceStyle
                 CurrentPrice={

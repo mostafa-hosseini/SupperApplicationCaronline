@@ -18,13 +18,13 @@ export default function AddNewStory() {
                     </label>
                     <input type="text" className="form-control" value={input.Title} onChange={(e) => setinput({ ...input, Title: e.target.value })} />
                 </div>
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 mt-3">
                     <label htmlFor="">
                         فایل استوری
                     </label>
                     <input type="file" className="form-control" onChange={(e) => setinput({ ...input, file: e.target.files[0] })} />
                 </div>
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 mt-3">
                     <label htmlFor="">
                         نوع استوری
                     </label>
@@ -35,7 +35,7 @@ export default function AddNewStory() {
                     </select>
                 </div>
 
-                <div className="w-100"></div>
+                <div className="w-100 mt-5"></div>
                 <div className="col-6 col-md-4 mt-2 mx-auto">
                     <button className="btn btn-custom-success w-100" onClick={() => {
                         const form = new FormData();

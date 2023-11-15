@@ -11,10 +11,16 @@ export default function Story() {
     const api = http();
     const [data, setData] = useState([]);
     const [loading, setloading] = useState(true);
+    const [index, setindex] = useState(0)
+    let currentStoryId = localStorage.getItem("story");
     useEffect(() => {
         api.UserGetActiveStories(({ data }) => {
-            setData(data)
+            setData(data);
             setloading(false)
+            var findedIndex = data.findIndex(c => c.id == currentStoryId);
+            if (findedIndex != -1) {
+                setindex(findedIndex)
+            }
         }, {}, () => { setloading(false) })
 
         return () => {
@@ -27,20 +33,25 @@ export default function Story() {
     return (
         <div>
             <div className="row" style={{ direction: "ltr" }}>
-                <div className="col-12 storis-mobile">
+                <div className={`col-12 ${data.length > 0 ? "storis-mobile" : ""}`}>
                     {data.length > 0 ? <Stories
                         stories={data}
                         defaultInterval={1500}
+                        currentIndex={data.findIndex(c => c.id == currentStoryId)}
                         width={"100%"}
                         onAllStoriesEnd={() => {
                             navigate("/")
                             localStorage.setItem("story", data[data.length - 1].id)
                         }}
-                        onNext={(item) => { }}
-
+                        onNext={() => {
+                            let newIndex = index + 1;
+                            if (data[newIndex] != null) {
+                                localStorage.setItem("story", data[newIndex].id)
+                            }
+                            setindex(newIndex);
+                            console.log(index)
+                        }}
                         height={"100vh"}
-
-
                     /> : null}
 
 

@@ -23,9 +23,16 @@ function Crypto(props) {
           setLoading={setLoading}
           smallTab
           data={[
-            { title: "بورس", Component: <MarketList />, id: "tab-1" },
-            { title: "فرابورس", Component: <SuperMarketList />, id: "tab-2" },
-            { title: "بورس کالا", Component: <CommodityList />, id: "tab-3" },
+            {
+              title: "نمای بازار", Component:
+                <div style={{ height: "80vh" }}>
+                  <iframe src="https://bourse-trader.ir/marketmap/" width="100%" height="100%" ></iframe>
+                </div>
+              , id: "tab-1"
+            },
+            { title: "بورس", Component: <MarketList />, id: "tab-2" },
+            { title: "فرابورس", Component: <SuperMarketList />, id: "tab-3" },
+            { title: "بورس کالا", Component: <CommodityList />, id: "tab-4" },
             // { title: "اخبار", Component: <NewsList id="1" />, id: "tab-4" },
             { title: "تحلیل ها", Component: <CryptoAnalysis />, id: "tab-5" },
           ]}

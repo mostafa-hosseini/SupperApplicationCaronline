@@ -20,9 +20,19 @@ function Crypto(props) {
         <CustomTab
           setLoading={setLoading}
           data={[
-            { title: "نمای بازار", Component: <CryptoList />, id: "tab-1" },
-            // { title: "اخبار", Component: <NewsList id="1" />, id: "tab-2" },
-            { title: "تحلیل ها", Component: <CryptoAnalysis />, id: "tab-3" },
+            {
+              title: "نمای بازار", Component: <div style={{ height: "80vh" }}>
+                <iframe src="https://coin360.com/widget/map?group=all&utm_campaign=https%3A%2F%2Ffactcoins.com&utm_content=https%3A%2F%2Ffactcoins.com%2F&utm_medium=affilate&utm_source=widget&utm_source=embed_map" frameborder="0" title="Coin360.com: Cryptocurrency Market State" width="100%" height="100%"></iframe>
+              </div>, id: "tab-1"
+            },
+            {
+              title: "حجم های بازار", Component: <div style={{ height: "80vh" }}>
+                <iframe src="https://cryptobubbles.net" width="100%" height="100%" styles={{ border: "none" }}></iframe>
+              </div>, id: "tab-2"
+            },
+            { title: "قیمت ها", Component: <CryptoList />, id: "tab-3" },
+            // {title: "اخبار", Component: <NewsList id="1" />, id: "tab-2" },
+            { title: "تحلیل ها", Component: <CryptoAnalysis />, id: "tab-4" },
           ]}
         />
       </div>

@@ -32,7 +32,7 @@ function CryptoList() {
               <CryptoItem
                 name={item.name}
                 desc={item.time}
-                topPrice={"$" + priceNumber(item.price)}
+                topPrice={"ریال" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
                 CurrentPrice={
@@ -51,7 +51,7 @@ function CryptoList() {
               <CryptoItem
                 name={item.name}
                 desc={item.time}
-                topPrice={"$" + priceNumber(item.price)}
+                topPrice={"ریال" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
                 CurrentPrice={
@@ -70,7 +70,7 @@ function CryptoList() {
               <CryptoItem
                 name={item.name}
                 desc={item.time}
-                topPrice={"$" + priceNumber(item.price)}
+                topPrice={"ریال" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
                 CurrentPrice={
@@ -89,7 +89,7 @@ function CryptoList() {
               <CryptoItem
                 name={item.name}
                 desc={item.time}
-                topPrice={"$" + priceNumber(item.price)}
+                topPrice={"ریال" + priceNumber(item.price)}
                 noTopPriceStyle
                 CurrentPriceStyle={item.type === "high"}
                 CurrentPrice={

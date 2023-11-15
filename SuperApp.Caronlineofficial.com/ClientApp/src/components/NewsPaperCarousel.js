@@ -10,30 +10,37 @@ import "../assets/styles/custom.css";
 // import Accordion from "react-bootstrap/Accordion";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import BlogListItem from './BlogListItem';
+let _data = [];
 export default function NewsPaperCarousel() {
     const api = http();
     const [loaded, setLoaded] = useState(false)
     const [news, setNews] = useState([]);
     useEffect(() => {
-        let _data = [];
         Promise.all(
-            api.GetNewsPaper(({ data }) => {
-                _data = [..._data, ...data]
-            }, 2),
-            api.GetNewsPaper(({ data }) => {
-                _data = [..._data, ...data]
-            }, 3),
-            api.GetNewsPaper(({ data }) => {
-                _data = [..._data, ...data]
-            }, 6),
-            api.GetNewsPaper(({ data }) => {
-                _data = [..._data, ...data]
-            }, 5),
+            [
+                api.GetNewsPaper(({ data }) => {
+                    _data = [..._data, ...data];
+                }, 2),
+                api.GetNewsPaper(({ data }) => {
+                    _data = [..._data, ...data];
+                }, 3),
+                api.GetNewsPaper(({ data }) => {
+                    _data = [..._data, ...data];
+                }, 6),
+                api.GetNewsPaper(({ data }) => {
+                    _data = [..._data, ...data];
+                }, 5),
+            ]
 
         ).then(() => {
-            setLoaded(true)
+            console.log(_data.length)
             setNews(_data)
-        }).catch(() => setLoaded(true))
+            setLoaded(true)
+        }).catch((e) => {
+            console.log(_data.length)
+            setNews(_data)
+            setLoaded(true)
+        })
         return () => {
         }
     }, [])
@@ -80,7 +87,8 @@ export default function NewsPaperCarousel() {
                         title={item.title}
                         disc={item.title}
                         noBottom
-                        fitImg
+
+                        carousel
                     />
                 </SwiperSlide>)}
 

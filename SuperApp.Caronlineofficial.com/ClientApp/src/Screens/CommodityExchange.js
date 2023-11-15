@@ -25,11 +25,11 @@ function Crypto(props) {
           data={[
             { title: "فلزات پایه", Component: <BaseMetalList />, id: "tab-1" },
             { title: "ایران", Component: <IranMetalList />, id: "tab-2" },
-            {
-              title: "جهان",
-              Component: <InternationalMetalList />,
-              id: "tab-3",
-            },
+            // {
+            //   title: "جهان",
+            //   Component: <InternationalMetalList />,
+            //   id: "tab-3",
+            // },
             // { title: "اخبار", Component: <NewsList id="1" />, id: "tab-4" },
             { title: "تحلیل ها", Component: <CryptoAnalysis />, id: "tab-5" },
           ]}

@@ -16,7 +16,6 @@ import amoozesh from "../assets/images/Icons/amoozesh-01.svg";
 import bimeh from "../assets/images/Icons/bimeh-01.png";
 import cars from "../assets/images/Icons/cars-01.svg";
 import clinic from "../assets/images/Icons/clinic--01.png";
-import clinick from "../assets/images/Icons/clinick-01.svg";
 import dideban from "../assets/images/Icons/dideban-01.svg";
 import froshgah from "../assets/images/Icons/froshgah-01.svg";
 import game from "../assets/images/Icons/game-01.svg";
@@ -33,12 +32,12 @@ import { Link, useNavigate } from "react-router-dom";
 import defaultTest from "../assets/testImages/default-test.jpg";
 
 import http from '../api/index';
+import CarouselPrice from "../components/CarouselPrice";
 import ListTitle from "../components/ListTitle";
 import Loading from "../components/Loading";
 import RowItem from "../components/RowItem";
-import CarouselPrice from "../components/CarouselPrice";
 import UseAuth from '../hooks/UseAuth';
-import { toast } from "react-hot-toast";
+import NewsPaperCarousel from "../components/NewsPaperCarousel";
 export function Home() {
   const navigate = useNavigate();
   const api = http();
@@ -57,11 +56,11 @@ export function Home() {
 
 
 
+
   if (loading) {
 
     return (
       <Loading isLoading={loading}>
-
       </Loading>
     );
   }
@@ -90,21 +89,70 @@ export function Home() {
           </div>
           <div className="col-3 p-1">
             <RowItem
+              imgSrc={moshavereh}
+              imgalt="مشورتو"
+              title="مشورتو"
+              to={"https://mashverato.com"}
+            />
+          </div>
+          <div className="col-3 p-1 ">
+            <div className="row  align-items-center flex-column row-item">
+              <div className={`w-75  ${currentStoryId != null && currentStoryId < storyId.lastId && storyId.hasActive ? "profile-pic" : "profile-pic-noborder"}`} onClick={() => navigate("/story")}  >
+                <img src={require("../assets/images/Logo.png")} alt="" />
+              </div>
+              <h6 className="text-center mt-2 text-mobile p-0">استوری</h6>
+            </div>
+          </div>
+          <div className="col-3 p-1">
+            <RowItem
+              imgSrc={dideban}
+              imgalt="کریپتو و ارز دیجیتال"
+              title="قیمت لحظه ای"
+              to={"/دیده-بان"}
+            />
+          </div>
+          <div className="col-3 p-1">
+            <RowItem
+              imgSrc={game}
+              imgalt="سرگرمی"
+              title="سرگرمی"
+              to={"https://navar.live"}
+
+            />
+          </div>
+          <div className="col-3 p-1">
+            <RowItem
+              imgSrc={sarmaye}
+              imgalt="کلاب"
+              title="کلاب"
+              to={"https://club.caronlineofficial.com"}
+            />
+          </div>
+          <div className="col-3 p-1">
+            <RowItem
+              imgSrc={amoozesh}
+              imgalt="آکادمی"
+              title="آکادمی"
+              to={"https://academy.caronlineofficial.com"}
+            />
+          </div>
+          <div className="col-3 p-1">
+            <RowItem
               imgSrc={froshgah}
               imgalt="فروشگاه"
               title="فروشگاه"
               to={"/فروشگاه"}
             />
           </div>
-          <div className="col-3 p-1 ">
-            <div className="row  align-items-center flex-column row-item">
-              <div className={`w-75  ${currentStoryId != null && currentStoryId < storyId.lastId && currentStoryId.hasActive ? "profile-pic" : "profile-pic-noborder"}`} onClick={() => navigate("/story")}  >
-                <img src={require("../assets/images/Logo.png")} alt="" />
-              </div>
-              <h6 className="text-center mt-2 text-mobile p-0">استوری</h6>
-            </div>
+          <div className="col-3 p-1">
+            <RowItem
+              imgSrc={amoozesh}
+              imgalt="صنعت"
+              title="صنعت"
+              to={"/توسعه-کسب-و-کار"}
+              disabled
+            />
           </div>
-
           <div className="col-3 p-1">
             <RowItem
               imgSrc={bimeh}
@@ -114,61 +162,6 @@ export function Home() {
               disabled
             />
           </div>
-          <div className="col-3 p-1">
-            <RowItem
-              imgSrc={moshavereh}
-              imgalt="مشاوره"
-              title="مشاوره"
-              to={"https://mashverato.com"}
-            />
-          </div>
-          <div className="col-3 p-1">
-            <RowItem
-              imgSrc={game}
-              imgalt="سرگرمی"
-              title="سرگرمی"
-              to={"https://navar.live"}
-              disabled
-            />
-          </div>
-
-          <div className="col-3 p-1">
-            <RowItem
-              imgSrc={amoozesh}
-              imgalt="آموزش"
-              title="آموزش"
-              to={"https://academy.caronlineofficial.com"}
-            />
-          </div>
-
-          <div className="col-3 p-1">
-            <RowItem
-              imgSrc={sarmaye}
-              imgalt="سرمایه گذاری"
-              title="سرمایه گذاری"
-              to={"https://club.caronlineofficial.com"}
-            />
-          </div>
-
-          <div className="col-3 p-1">
-            <RowItem
-              imgSrc={clinick}
-              imgalt="توسعه کسب و کار"
-              title="توسعه کسب و کار"
-              to={"/توسعه-کسب-و-کار"}
-              disabled
-            />
-          </div>
-
-          <div className="col-3 p-1">
-            <RowItem
-              imgSrc={dideban}
-              imgalt="کریپتو و ارز دیجیتال"
-              title="دیده بان"
-              to={"/دیده-بان"}
-            />
-          </div>
-
           {/* <div className="col-3 p-1">
               <RowItem
                 imgSrc={game}
@@ -177,7 +170,6 @@ export function Home() {
                 to={"/اخبار"}
               />
             </div> */}
-
           <div className="col-3 p-1">
             <RowItem
               imgSrc={clinic}
@@ -190,8 +182,10 @@ export function Home() {
 
         </div>
       </section>
-
-      <section className="mt-3 w-100">
+      <section className="w-100 mt-4 mb-3">
+        <CarouselPrice />
+      </section>
+      <section className="mt-5 w-100">
         <ListTitle
           title="به خانواده بزرگ کارآنلاین بپیوندید"
           color="orange"
@@ -216,8 +210,6 @@ export function Home() {
               placeholderSrc={defaultTest}
               className="full-img"
             />
-
-
           </div>
         </div>
       </section>
@@ -243,10 +235,8 @@ export function Home() {
           "iconGray"
         )}
       </div> */}
-      <section className="w-100">
-        <CarouselPrice />
-      </section>
 
+      <NewsPaperCarousel />
 
       <section className="w-100">
         <Swiper

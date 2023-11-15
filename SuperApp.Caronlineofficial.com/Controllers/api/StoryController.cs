@@ -22,7 +22,7 @@ public class StoryController : Controller
         return Ok(new
         {
             lastId = _context.Stories.OrderBy(c => c.Id).Select(c => c.Id).Last(),
-            hasActive = _context.Stories.Any(c => c.CreatedTime > DateTime.Now)
+            hasActive = _context.Stories.Any(c => c.CreatedTime.AddHours(24) > DateTime.Now)
         });
     }
 
@@ -35,14 +35,15 @@ public class StoryController : Controller
             .Select(c => new StoryViewModel()
             {
                 Id = c.Id,
-                Url = $"{Request.Scheme}://{Request.Host}/Media/story/" + c.FileName,
+                // Url = $"{Request.Scheme}://{Request.Host}/Media/story/" + c.FileName,
+                Url = $"https://caronlineofficial.com/Media/story/" + c.FileName,
                 Type = c.StoryType,
                 Duration = 5000,
                 Header = new StoryHeaderViewModel()
                 {
                     Heading = c.Title,
                     Subheading = c.CreatedTime.ToShamsiWhitTime(),
-                    ProfileImage = "https://superapp.caronlineofficial.com/logoicon.png"
+                    ProfileImage = "https://caronlineofficial.com/logoicon.png"
                 }
             }).ToList();
         return Ok(stories);

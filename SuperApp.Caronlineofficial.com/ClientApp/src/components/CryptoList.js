@@ -16,10 +16,11 @@ function CryptoList() {
     const loadData = async () => {
       try {
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=7d"
+          "https://api.tgju.org/v1/market/dataservice/crypto-assets?category=&type=overview&draw=1&columns%5B0%5D%5Bdata%5D=title&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=true&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=symbol&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=p&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=p_irr&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=d&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=dp&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=cap&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=volume&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B8%5D%5Bdata%5D=datetime&columns%5B8%5D%5Bname%5D=&columns%5B8%5D%5Bsearchable%5D=true&columns%5B8%5D%5Borderable%5D=true&columns%5B8%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B8%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B9%5D%5Bdata%5D=9&columns%5B9%5D%5Bname%5D=&columns%5B9%5D%5Bsearchable%5D=true&columns%5B9%5D%5Borderable%5D=true&columns%5B9%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B9%5D%5Bsearch%5D%5Bregex%5D=false&start=0&length=100&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1699089719708"
         );
+
         const data = await res.json();
-        setCoins(data);
+        setCoins([...data.data]);
         setLoading(false);
       } catch (e) {
         setLoading(false);
@@ -56,8 +57,8 @@ function CryptoList() {
           {coins
             .filter(
               (coin) =>
-                coin.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
-                coin.symbol
+                coin.title.toLowerCase().includes(search.toLocaleLowerCase()) ||
+                coin.combine_symbol
                   .toLocaleLowerCase()
                   .includes(search.toLocaleLowerCase())
             )
@@ -66,17 +67,17 @@ function CryptoList() {
                 className="col-12 col-lg-6 mb-2 row justify-content-center"
                 key={index}
               >
-                <Link to={`/Crypto/${item.symbol}`} className="p-0">
+                <Link to={`/Crypto/${item?.symbol}`} className="p-0">
                   <CryptoItem
-                    imgSrc={item.image}
-                    name={item.name}
+                    imgSrc={"https://static.tgju.org/images/crypto/icons/" + item.combine_symbol+".png"}
+                    name={item.title}
                     topPrice={
-                      Number(item.price_change_percentage_24h).toFixed(2) + "%"
+                      item.dp 
                     }
-                    topPriceStyle={item.price_change_percentage_24h > 0}
-                    CurrentPriceStyle={item.price_change_percentage_24h > 0}
-                    CurrentPrice={"$" + priceNumber(item.current_price)}
-                    desc={item.symbol}
+                    topPriceStyle={item.dt == "high"}
+                    CurrentPriceStyle={item.dt == "high"}
+                    CurrentPrice={"$" + priceNumber(item.p)}
+                  // desc={item.symbol}
                   />
                 </Link>
               </div>

@@ -8,8 +8,8 @@ export default function http() {
     // baseURL: "http://192.168.0.233:5000/api/",
     baseURL:
       process.env.NODE_ENV == "development"
-        ? "https://localhost:7283/api/" :
-        "https://caronlineOfficial.com/api/",
+      ? "https://localhost:7283/api/" :
+      "https://caronlineOfficial.com/api/",
     // :""
     // "https://mashinto.com/api/",
     // "https://mashinto.com/api/",
@@ -351,7 +351,7 @@ export default function http() {
     // ***********
     CheckStory: (callback, data, errCallback) => {
       return instance
-        .get("story/CheckHasStory" , data)
+        .get("story/CheckHasStory", data)
         .then((data) => {
           callback(data);
           success_display(data.data);
