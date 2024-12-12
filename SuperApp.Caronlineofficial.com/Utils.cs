@@ -6,6 +6,7 @@ namespace SuperApp.Caronlineofficial.com;
 
 public static class Utils
 {
+    public static int SupportIndex = 0;
     public static string GetUserId(this ClaimsPrincipal data)
     {
         return data.FindFirst(ClaimTypes.PrimarySid)!.Value;
