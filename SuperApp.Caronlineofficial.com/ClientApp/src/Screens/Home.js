@@ -182,9 +182,9 @@ export function Home() {
 
         </div>
       </section>
-      <section className="w-100 mt-4 mb-3">
+      {/* <section className="w-100 mt-4 mb-3">
         <CarouselPrice />
-      </section>
+      </section> */}
       <section className="mt-5 w-100">
         <ListTitle
           title="به خانواده بزرگ کارآنلاین بپیوندید"

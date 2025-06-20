@@ -6,10 +6,11 @@ public class HomeController : Controller
 {
     private List<string> suppoerts = new List<string>()
     {
-        "https://wa.me/message/7FKJBCOPTGXLI1",
-        "https://wa.me/message/YBEST4MTPMGNB1",
+        "https://wa.me/message/IEMHPDZKBZ3XL1",
         "https://wa.me/message/RZA5ZPH4I3LRO1",
-        "https://wa.me/message/VME2CRECID5BH1"
+        "https://wa.me/message/VME2CRECID5BH1",
+        "https://wa.me/message/YBEST4MTPMGNB1",
+        "https://wa.me/message/7FKJBCOPTGXLI1",
     };
 
     // GET
